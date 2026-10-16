@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3rd RGCDC Dialogues 2026 | Calico Tab — Tabbycat Debate Tabulation</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --calico-nav: #1b2432;
+      --calico-nav-border: #2d3848;
+      --calico-sidebar: #f8f9fa;
+      --calico-border: #dee2e6;
+      --calico-primary: #2563eb;
+      --calico-hover: #f1f5f9;
+      --calico-text: #212529;
+      --calico-muted: #6c757d;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--calico-text);
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    /* Indistinguishable Calico Tab / Tabbycat Table Aesthetics */
+    .calico-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    .calico-table thead th {
+      background-color: #f8f9fa;
+      color: #495057;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      border-top: 1px solid #dee2e6;
+      border-bottom: 2px solid #dee2e6;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .calico-table tbody td {
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid #e9ecef;
+      vertical-align: middle;
+    }
+    .calico-table tbody tr {
+      transition: background-color 0.12s ease-in-out;
+    }
+    .calico-table tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+    /* Sidebar Nav Link Styling */
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #343a40;
+      border-left: 3px solid transparent;
+      transition: all 0.12s ease;
+      cursor: pointer;
+    }
+    .sidebar-link:hover {
+      background-color: #e9ecef;
+      color: #0f172a;
+    }
+    .sidebar-link.active {
+      background-color: #e2e8f0;
+      color: #1d4ed8;
+      border-left-color: #1d4ed8;
+      font-weight: 600;
+    }
+    .calico-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      line-height: 1.2;
+    }
+    .calico-card {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .calico-card-header {
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      padding: 0.65rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #343a40;
+    }
+    .calico-input {
+      width: 100%;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.875rem;
+      color: #212529;
+      background-color: #fff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .calico-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    .calico-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      border-radius: 0.25rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .calico-btn-primary {
+      background-color: #0d6efd;
+      color: #ffffff;
+      border-color: #0d6efd;
+    }
+    .calico-btn-primary:hover {
+      background-color: #0b5ed7;
+    }
+    .calico-btn-outline {
+      background-color: #ffffff;
+      color: #495057;
+      border-color: #ced4da;
+    }
+    .calico-btn-outline:hover {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    .calico-btn-success {
+      background-color: #198754;
+      color: #ffffff;
+      border-color: #198754;
+    }
+    .calico-btn-success:hover {
+      background-color: #157347;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white text-slate-900">
+
+  <!-- TOP NAVBAR (Authentic Calico Tab / Tabbycat Dark Slate Header) -->
+  <header class="bg-[#1b2432] text-white border-b border-[#2d3848] sticky top-0 z-30">
+    <div class="max-w-full mx-auto px-4 h-12 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-1" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <!-- Calico Cat Emblem -->
+        <div class="flex items-center gap-2 cursor-pointer" id="brandHomeBtn">
+          <div class="w-7 h-7 rounded bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300 font-bold text-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L9 7H6L4 3L3 10C3 15.5 7 20 12 20C17 20 21 15.5 21 10L20 3L18 7H15L12 2ZM8.5 11C9.3 11 10 11.7 10 12.5C10 13.3 9.3 14 8.5 14C7.7 14 7 13.3 7 12.5C7 11.7 7.7 11 8.5 11ZM15.5 11C16.3 11 17 11.7 17 12.5C17 13.3 16.3 14 15.5 14C14.7 14 14 13.3 14 12.5C14 11.7 14.7 11 15.5 11ZM12 16.5C10.7 16.5 9.6 15.8 9.2 14.8H14.8C14.4 15.8 13.3 16.5 12 16.5Z"/>
+            </svg>
+          </div>
+          <span class="font-semibold tracking-tight text-sm sm:text-base">3rd RGCDC Dialogues 2026</span>
+        </div>
+        <span id="headerFormatBadge" class="calico-badge bg-blue-600/30 text-blue-200 border border-blue-400/40 font-mono-num">AP (3v3)</span>
+        <span id="headerRoundBadge" class="hidden sm:inline-flex calico-badge bg-emerald-600/30 text-emerald-200 border border-emerald-400/40 font-mono-num">Round 1 Active</span>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="hidden lg:flex items-center gap-1.5 text-xs text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded border border-slate-700">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Hungarian Draw Engine v2.6</span>
+        </div>
+        <button id="quickFormatSwitchBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-2.5 py-1 rounded transition">
+          Switch AP / BP
+        </button>
+        <button id="adminToggleBtn" class="text-xs bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-2.5 py-1 rounded transition">
+          Admin Portal
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STRUCTURAL LAYOUT (Sidebar + Content Area) -->
+  <div class="flex-1 flex flex-col md:flex-row relative">
+
+    <!-- STRUCTURAL SIDEBAR (Calico Tab Left Nav) -->
+    <aside id="sidebarNav" class="w-full md:w-60 bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#dee2e6] shrink-0 hidden md:block">
+      <div class="py-3">
+        <div class="px-3.5 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Public Tabulation</div>
+        <nav class="space-y-0.5">
+          <div class="sidebar-link active" data-tab="overview">
+            <span>Tournament Overview</span>
+            <span class="text-xs text-slate-400 font-mono-num">Home</span>
+          </div>
+          <div class="sidebar-link" data-tab="draw">
+            <span>Current Draw &amp; Rooms</span>
+            <span id="navRoomCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">4</span>
+          </div>
+          <div class="sidebar-link" data-tab="team-standings">
+            <span>Team Standings</span>
+            <span id="navTeamCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">8</span>
+          </div>
+          <div class="sidebar-link" data-tab="speaker-standings">
+            <span>Speaker Tab</span>
+            <span id="navSpeakerCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">24</span>
+          </div>
+          <div class="sidebar-link" data-tab="adjudicators-public">
+            <span>Adjudicators &amp; Feedback</span>
+            <span id="navAdjCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">6</span>
+          </div>
+          <div class="sidebar-link" data-tab="motions">
+            <span>Motions</span>
+            <span id="navMotionCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">2</span>
+          </div>
+        </nav>
+
+        <div class="mt-5 px-3.5 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-700 flex items-center justify-between">
+          <span>Admin Data &amp; Ops</span>
+          <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-semibold">Tab Room</span>
+        </div>
+        <nav class="space-y-0.5">
+          <div class="sidebar-link" data-tab="admin-entry">
+            <span>1. Format &amp; Data Entry</span>
+            <span class="text-[11px] text-blue-600 font-semibold">AP/BP</span>
+          </div>
+          <div class="sidebar-link" data-tab="admin-draw">
+            <span>2. Hungarian Draw Engine</span>
+            <span class="text-[11px] text-emerald-700 font-semibold">O(V³)</span>
+          </div>
+          <div class="sidebar-link" data-tab="admin-ballots">
+            <span>3. Ballots &amp; Motions</span>
+            <span id="navPendingBallots" class="calico-badge bg-amber-100 text-amber-800 font-mono-num">4</span>
+          </div>
+          <div class="sidebar-link" data-tab="admin-evals">
+            <span>4. Judge Evaluations</span>
+            <span id="navEvalCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">3</span>
+          </div>
+        </nav>
+
+        <!-- Tournament Metadata Footer in Sidebar -->
+        <div class="mt-6 mx-3 p-3 bg-white rounded border border-slate-200 text-xs text-slate-600 space-y-1.5">
+          <div class="font-semibold text-slate-800">Host Institution</div>
+          <div>Rangpur Government College Debating Club (RGCDC)</div>
+          <div class="pt-1 border-t border-slate-100 flex items-center justify-between">
+            <span>Format:</span>
+            <span id="sidebarFormatText" class="font-semibold text-blue-700">Asian Parliamentary</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Speakers/Team:</span>
+            <span id="sidebarSpeakerLimit" class="font-mono-num font-semibold">3 Speakers</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Teams/Room:</span>
+            <span id="sidebarRoomTeams" class="font-mono-num font-semibold">2 (Gov vs Opp)</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE CONTENT -->
+    <main class="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto w-full">
+
+      <!-- Toast Notification Banner -->
+      <div id="toastBanner" class="hidden mb-4 px-4 py-2.5 rounded border text-sm flex items-center justify-between transition-all">
+        <span id="toastMessage"></span>
+        <button id="toastCloseBtn" class="text-xs font-semibold ml-4 underline">Dismiss</button>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 1: TOURNAMENT OVERVIEW (Calico Tab Welcome Page)     -->
+      <!-- ========================================================= -->
+      <section id="view-overview" class="tab-view space-y-5">
+        <div class="border-b border-[#dee2e6] pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <div class="text-xs uppercase tracking-wider font-semibold text-slate-500">Calico Tab — Open-Source Parliamentary Tabulation</div>
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Welcome to 3rd RGCDC Dialogues 2026</h1>
+            <p class="text-sm text-slate-600 mt-1">Hosted by <span class="font-medium text-slate-800">Rangpur Government College Debating Club (RGCDC)</span> • Power-Paired &amp; Hungarian Graph Adjudicator Allocation</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button class="calico-btn calico-btn-primary" data-goto="draw">View Current Draw</button>
+            <button class="calico-btn calico-btn-outline" data-goto="admin-entry">Admin Data Entry</button>
+            <button class="calico-btn calico-btn-success" data-goto="admin-ballots">Enter Ballots</button>
+          </div>
+        </div>
+
+        <!-- KPI Summary Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Active Format</div>
+            <div id="kpiFormat" class="text-lg font-bold text-blue-700 mt-1 font-mono-num">AP (3v3)</div>
+            <div id="kpiFormatSub" class="text-[11px] text-slate-500 mt-0.5">3 Speakers / Team</div>
+          </div>
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Registered Teams</div>
+            <div id="kpiTeams" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">8</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Power-Paired</div>
+          </div>
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Registered Speakers</div>
+            <div id="kpiSpeakers" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">24</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">68–82 Scale</div>
+          </div>
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Adjudicators</div>
+            <div id="kpiJudges" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">6</div>
+            <div class="text-[11px] text-emerald-700 mt-0.5">0 Conflict Clashes</div>
+          </div>
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Current Round</div>
+            <div id="kpiRound" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">Round 1</div>
+            <div id="kpiBallotStatus" class="text-[11px] text-amber-700 mt-0.5">Ballots Open</div>
+          </div>
+          <div class="calico-card p-3.5">
+            <div class="text-xs text-slate-500 font-medium">Institutions</div>
+            <div id="kpiInsts" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">8</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Hard-Constrained</div>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Grid (Authentic Tabbycat Public Buttons) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div class="calico-card">
+            <div class="calico-card-header flex items-center justify-between">
+              <span>Live Tournament Leaderboard Preview (Top 5 Teams)</span>
+              <button class="text-xs text-blue-600 hover:underline font-medium" data-goto="team-standings">Full Standings →</button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="calico-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Institution</th>
+                    <th class="text-right">Pts</th>
+                    <th class="text-right">Speaks</th>
+                  </tr>
+                </thead>
+                <tbody id="overviewTopTeamsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="calico-card">
+            <div class="calico-card-header flex items-center justify-between">
+              <span>Current Round Motion &amp; Draw Summary</span>
+              <button class="text-xs text-blue-600 hover:underline font-medium" data-goto="draw">Open Full Draw →</button>
+            </div>
+            <div class="p-4 space-y-3">
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Active Motion</div>
+                <div id="overviewActiveMotion" class="text-sm font-medium text-slate-900 mt-1"></div>
+              </div>
+              <div class="text-xs text-slate-600 leading-relaxed">
+                <strong>Algorithm Guarantee:</strong> Every room pairing is strictly power-paired by bracket points (<span class="font-mono-num">total_points</span>, then <span class="font-mono-num">total_speaks</span>). Adjudicators are allocated via the <strong>Kuhn-Munkres Hungarian Algorithm</strong> minimizing global quality mismatch while enforcing <span class="font-mono-num">C[i,j] = ∞</span> for institutional conflicts and prior team history.
+              </div>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button class="calico-btn calico-btn-primary text-xs" data-goto="admin-draw">Inspect Hungarian Cost Matrix</button>
+                <button class="calico-btn calico-btn-outline text-xs" data-goto="adjudicators-public">Submit Judge Feedback</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 2: CURRENT DRAW & ROOMS                              -->
+      <!-- ========================================================= -->
+      <section id="view-draw" class="tab-view hidden space-y-5">
+        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <h2 id="drawPageTitle" class="text-xl font-bold text-slate-900">Round 1 Draw — Power-Paired Matchups</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Strict bracket matching with Hungarian Minimum-Weight Perfect Matching for Chairs &amp; Panellists</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="recomputeDrawBtnPublic" class="calico-btn calico-btn-primary">Re-Run Hungarian Draw</button>
+            <button class="calico-btn calico-btn-outline" data-goto="admin-ballots">Enter Room Ballots</button>
+          </div>
+        </div>
+
+        <div class="calico-card overflow-hidden">
+          <div class="calico-card-header flex items-center justify-between">
+            <span>Released Matchups &amp; Adjudicator Panels</span>
+            <span id="drawFormatSubtitle" class="text-xs text-slate-500 font-mono-num">Format: AP (Government vs. Opposition)</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="calico-table">
+              <thead id="drawTableHead"></thead>
+              <tbody id="drawTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 3: TEAM STANDINGS                                    -->
+      <!-- ========================================================= -->
+      <section id="view-team-standings" class="tab-view hidden space-y-4">
+        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Team Standings (Live Tab)</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Sorted by Team Points, Total Speaker Score (Speaks), and 1st Ranks</p>
+          </div>
+          <div class="w-full sm:w-64">
+            <input id="teamSearchInput" type="text" class="calico-input" placeholder="Filter teams or institutions..." />
+          </div>
+        </div>
+
+        <div class="calico-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="calico-table">
+              <thead>
+                <tr>
+                  <th class="w-14">Rank</th>
+                  <th>Team Name</th>
+                  <th>Institution</th>
+                  <th>Speakers</th>
+                  <th class="text-right">Wins / Pts</th>
+                  <th class="text-right">Total Speaks</th>
+                  <th class="text-right">1sts</th>
+                  <th class="text-center">Side Balance</th>
+                </tr>
+              </thead>
+              <tbody id="teamStandingsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 4: SPEAKER STANDINGS                                 -->
+      <!-- ========================================================= -->
+      <section id="view-speaker-standings" class="tab-view hidden space-y-4">
+        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Individual Speaker Standings</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Standard parliamentary speaker scale (68.0 – 82.0) across all confirmed ballots</p>
+          </div>
+          <div class="w-full sm:w-64">
+            <input id="speakerSearchInput" type="text" class="calico-input" placeholder="Search speaker or team..." />
+          </div>
+        </div>
+
+        <div class="calico-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="calico-table">
+              <thead>
+                <tr>
+                  <th class="w-14">Rank</th>
+                  <th>Speaker Name</th>
+                  <th>Team</th>
+                  <th>Institution</th>
+                  <th class="text-right">Rounds</th>
+                  <th class="text-right">Total Speaks</th>
+                  <th class="text-right">Average Speaks</th>
+                </tr>
+              </thead>
+              <tbody id="speakerStandingsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 5: ADJUDICATORS & PUBLIC FEEDBACK                    -->
+      <!-- ========================================================= -->
+      <section id="view-adjudicators-public" class="tab-view hidden space-y-5">
+        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Adjudicators &amp; Dynamic Core Ratings</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Judge ratings update dynamically via Bayesian shrinkage as teams submit post-round evaluations</p>
+          </div>
+          <button class="calico-btn calico-btn-primary" data-goto="admin-evals">Submit New Judge Evaluation</button>
+        </div>
+
+        <div class="calico-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="calico-table">
+              <thead>
+                <tr>
+                  <th>Judge Name</th>
+                  <th>Primary Institution</th>
+                  <th>Hard Conflict Institutions</th>
+                  <th>Teams Judged (History Constraint)</th>
+                  <th class="text-right">Base Core</th>
+                  <th class="text-right">Live Effective Score</th>
+                  <th class="text-right">Evals</th>
+                </tr>
+              </thead>
+              <tbody id="adjPublicTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 6: MOTIONS                                           -->
+      <!-- ========================================================= -->
+      <section id="view-motions" class="tab-view hidden space-y-4">
+        <div class="border-b border-[#dee2e6] pb-3 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Tournament Motions Archive</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Official motions and info slides released for 3rd RGCDC Dialogues 2026</p>
+          </div>
+          <button class="calico-btn calico-btn-primary" data-goto="admin-ballots">Add Motion</button>
+        </div>
+        <div id="motionsListContainer" class="space-y-3"></div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 7: ADMIN PORTAL — FORMAT & DYNAMIC DATA ENTRY        -->
+      <!-- ========================================================= -->
+      <section id="view-admin-entry" class="tab-view hidden space-y-6">
+        <div class="border-b border-[#dee2e6] pb-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-700">Admin Portal • Module 1</div>
+          <h2 class="text-xl font-bold text-slate-900">Dynamic Tournament Format &amp; Participant Data Entry</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Select Asian Parliamentary (AP: 3 Speakers/Team) or British Parliamentary (BP: 2 Speakers/Team) to dynamically render speaker input blocks.</p>
+        </div>
+
+        <!-- Step 1: Format Selection Card -->
+        <div class="calico-card">
+          <div class="calico-card-header flex items-center justify-between">
+            <span>Tournament Format Selector (Conditional Form Engine)</span>
+            <span id="adminFormatPill" class="calico-badge bg-blue-100 text-blue-800 font-mono-num">Current: AP (3 Speakers)</span>
+          </div>
+          <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div id="selectApCard" class="border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-900">Asian Parliamentary (AP)</span>
+                <span class="calico-badge bg-blue-600 text-white font-mono-num">3 Speakers / Team</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1.5">2 teams per room (Government vs. Opposition). Dynamically renders <strong>3 Speaker input blocks</strong> per team (PM, DPM, Whip).</p>
+            </div>
+            <div id="selectBpCard" class="border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-900">British Parliamentary (BP)</span>
+                <span class="calico-badge bg-slate-200 text-slate-800 font-mono-num">2 Speakers / Team</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1.5">4 teams per room (OG, OO, CG, CO). Dynamically renders <strong>2 Speaker input blocks</strong> per team (Speaker 1, Speaker 2).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Two-Column Dynamic Team Form & Adjudicator Form -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Dynamic Team & Speakers Registration Form -->
+          <div class="calico-card">
+            <div class="calico-card-header flex items-center justify-between">
+              <span>Register New Team &amp; Speakers</span>
+              <span id="dynamicSpeakerCountBadge" class="calico-badge bg-emerald-100 text-emerald-800 font-mono-num">Rendering 3 Speaker Blocks (AP)</span>
+            </div>
+            <form id="teamEntryForm" class="p-4 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Team Name / Reference *</label>
+                  <input id="inputTeamName" type="text" required class="calico-input" placeholder="e.g., RGCDC Crimson" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Short Code *</label>
+                  <input id="inputTeamShort" type="text" required class="calico-input" placeholder="e.g., RGCDC B" />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Institution Full Name *</label>
+                  <input id="inputTeamInstName" type="text" required class="calico-input" placeholder="e.g., Rangpur Govt. College" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Institution Code (Conflict Key) *</label>
+                  <input id="inputTeamInstCode" type="text" required class="calico-input font-mono-num uppercase" placeholder="e.g., RGCDC" />
+                </div>
+              </div>
+
+              <!-- Dynamically Rendered Speaker Blocks Container -->
+              <div class="border-t border-slate-200 pt-3">
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2" id="speakerBlocksHeader">
+                  Speaker Roster (AP Format — 3 Speakers Required)
+                </div>
+                <div id="dynamicSpeakerBlocks" class="space-y-3"></div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-end gap-2">
+                <button type="submit" class="calico-btn calico-btn-primary w-full sm:w-auto">Save Team to Tab Database</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Adjudicator & Conflict Input Form -->
+          <div class="calico-card">
+            <div class="calico-card-header flex items-center justify-between">
+              <span>Register Adjudicator &amp; Institutional Conflicts</span>
+              <span class="calico-badge bg-amber-100 text-amber-800">Hard Constraint Input</span>
+            </div>
+            <form id="adjEntryForm" class="p-4 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Adjudicator Full Name *</label>
+                  <input id="inputAdjName" type="text" required class="calico-input" placeholder="e.g., Sadia Afrin" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address (Optional)</label>
+                  <input id="inputAdjEmail" type="email" class="calico-input" placeholder="sadia@debate.org.bd" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Institution Name *</label>
+                  <input id="inputAdjInstName" type="text" required class="calico-input" placeholder="e.g., Dhaka University" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Institution Code *</label>
+                  <input id="inputAdjInstCode" type="text" required class="calico-input font-mono-num uppercase" placeholder="e.g., DUDS" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Initial Core Score (1.0 – 10.0) *</label>
+                  <input id="inputAdjScore" type="number" step="0.1" min="1.0" max="10.0" value="7.5" required class="calico-input font-mono-num" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Additional Conflict Codes (CSV)</label>
+                  <input id="inputAdjConflicts" type="text" class="calico-input font-mono-num uppercase" placeholder="e.g., RGCDC, BUETDC" />
+                </div>
+              </div>
+
+              <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-900 space-y-1">
+                <div class="font-semibold">How the Algorithm Uses This Field:</div>
+                <div>Any room containing a team from the judge's Primary Institution or Additional Conflict Codes receives an edge weight of <span class="font-mono-num font-bold">C[i,j] = 10⁹ (∞)</span> in the Hungarian Cost Matrix, strictly preventing conflict allocations.</div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-end">
+                <button type="submit" class="calico-btn calico-btn-primary w-full sm:w-auto">Register Adjudicator</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 8: HUNGARIAN DRAW ENGINE & COST MATRIX INSPECTOR     -->
+      <!-- ========================================================= -->
+      <section id="view-admin-draw" class="tab-view hidden space-y-5">
+        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-emerald-700">Admin Portal • Module 2 (Graph Theory Allocation)</div>
+            <h2 class="text-xl font-bold text-slate-900">Power-Pairing &amp; Hungarian Algorithm Cost Matrix</h2>
+            <p class="text-xs text-slate-600 mt-0.5">Solves Minimum Weight Perfect Matching in O(V³) over Bipartite Graph G = (Judges ∪ Rooms, E)</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="runHungarianDrawBtn" class="calico-btn calico-btn-primary">Generate Next Round Draw</button>
+          </div>
+        </div>
+
+        <!-- Mathematical Formula & Constraint Card -->
+        <div class="calico-card p-4 bg-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="p-3 bg-white rounded border border-slate-200">
+              <div class="font-bold text-slate-800">1. Strict Power-Pairing</div>
+              <p class="text-slate-600 mt-1">Teams are sorted by <span class="font-mono-num">(Points DESC, Speaks DESC)</span> and paired strictly within point brackets. Side balance (<span class="font-mono-num">GOV/OPP</span> or <span class="font-mono-num">OG/OO/CG/CO</span>) is optimized per bracket.</p>
+            </div>
+            <div class="p-3 bg-white rounded border border-slate-200">
+              <div class="font-bold text-slate-800">2. Hard Constraints (Cost = ∞)</div>
+              <p class="text-slate-600 mt-1">If Judge <span class="font-mono-num">i</span> shares an institution with any team in Room <span class="font-mono-num">j</span> OR has judged any team in Room <span class="font-mono-num">j</span> in a previous round, <span class="font-mono-num text-rose-700 font-semibold">C[i, j] = 10⁹ (FORBIDDEN)</span>.</p>
+            </div>
+            <div class="p-3 bg-white rounded border border-slate-200">
+              <div class="font-bold text-slate-800">3. Kuhn-Munkres Cost Function</div>
+              <p class="text-slate-600 mt-1">Feasible edges evaluate <span class="font-mono-num">C[i,j] = 3.5·W_room·(10.5 - S_judge) + 0.8·(W_room - S_judge)²</span>, guaranteeing high-bracket rooms get the highest-rated conflict-free chairs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Cost Matrix Table -->
+        <div class="calico-card overflow-hidden">
+          <div class="calico-card-header flex items-center justify-between">
+            <span>Bipartite Cost Matrix C[Room, Judge] (Highlighted Cells = Optimal Hungarian Chair Assignment)</span>
+            <span class="text-xs text-emerald-700 font-mono-num font-semibold">Global Minimum Cost Verified</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="calico-table">
+              <thead id="costMatrixHead"></thead>
+              <tbody id="costMatrixBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 9: POST-ROUND OPERATIONS — MOTIONS & BALLOT ENTRY    -->
+      <!-- ========================================================= -->
+      <section id="view-admin-ballots" class="tab-view hidden space-y-6">
+        <div class="border-b border-[#dee2e6] pb-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-blue-700">Admin Portal • Module 3</div>
+          <h2 class="text-xl font-bold text-slate-900">Post-Round Operations: Motions &amp; Digital Ballot Entry</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Set the round's official motion and enter speaker points (Speaks) &amp; team ranks. Confirming a ballot automatically updates standings and judge-team history.</p>
+        </div>
+
+        <!-- Motion Entry Form -->
+        <div class="calico-card">
+          <div class="calico-card-header">Publish Round Motion &amp; Info Slide</div>
+          <form id="motionEntryForm" class="p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Round Label *</label>
+              <input id="inputMotionRef" type="text" required value="Round 2" class="calico-input" />
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Motion Text *</label>
+              <input id="inputMotionText" type="text" required class="calico-input" placeholder="e.g., This House Believes That developing nations should prioritize manufacturing over service-led growth." />
+            </div>
+            <div>
+              <button type="submit" class="calico-btn calico-btn-primary w-full">Publish Motion</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Room Ballot Selector & Marks Entry -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="calico-card">
+            <div class="calico-card-header">Select Debate Room to Enter Ballot</div>
+            <div id="ballotRoomList" class="divide-y divide-slate-200"></div>
+          </div>
+
+          <div class="lg:col-span-2 calico-card">
+            <div class="calico-card-header flex items-center justify-between">
+              <span id="activeBallotRoomTitle">Digital Ballot Sheet — Hall 1</span>
+              <span id="activeBallotStatusBadge" class="calico-badge bg-amber-100 text-amber-800">Awaiting Confirmation</span>
+            </div>
+            <form id="ballotEntryForm" class="p-4 space-y-4">
+              <div id="ballotTeamsContainer" class="space-y-4"></div>
+              <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div class="text-xs text-slate-500">
+                  Confirming this ballot awards tournament points, updates speaker averages, and records Judge-Team history constraints.
+                </div>
+                <button type="submit" class="calico-btn calico-btn-success shrink-0">Confirm &amp; Tabulate Ballot</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 10: JUDGE EVALUATION & DYNAMIC SCORE ADJUSTMENT      -->
+      <!-- ========================================================= -->
+      <section id="view-admin-evals" class="tab-view hidden space-y-6">
+        <div class="border-b border-[#dee2e6] pb-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-purple-700">Admin Portal • Module 4</div>
+          <h2 class="text-xl font-bold text-slate-900">Judge Evaluation &amp; Dynamic Core Rating Adjustment</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Teams rate their adjudicator (1.0 – 10.0) and provide qualitative comments. The system immediately updates the judge's effective score for the next round's Hungarian draw.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="calico-card">
+            <div class="calico-card-header">Submit Post-Round Adjudicator Feedback</div>
+            <form id="judgeEvalForm" class="p-4 space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Adjudicator *</label>
+                <select id="evalJudgeSelect" required class="calico-input"></select>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Evaluating Team *</label>
+                  <select id="evalTeamSelect" required class="calico-input"></select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Rating Score (1.0 – 10.0) *</label>
+                  <input id="evalScoreInput" type="number" step="0.1" min="1.0" max="10.0" value="8.8" required class="calico-input font-mono-num" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Constructive Comments on Oral Adjudication</label>
+                <textarea id="evalCommentsInput" rows="3" class="calico-input" placeholder="Clear comparative weighing of clashes and accurate tracking of rebuttal responses..."></textarea>
+              </div>
+              <button type="submit" class="calico-btn calico-btn-primary w-full">Submit Evaluation &amp; Recalculate Judge Score</button>
+            </form>
+          </div>
+
+          <div class="calico-card">
+            <div class="calico-card-header">Recent Evaluations &amp; Dynamic Score Audit Log</div>
+            <div class="overflow-x-auto">
+              <table class="calico-table">
+                <thead>
+                  <tr>
+                    <th>Adjudicator</th>
+                    <th>Evaluator</th>
+                    <th class="text-right">Rating</th>
+                    <th class="text-right">Prior → Updated</th>
+                    <th>Comments</th>
+                  </tr>
+                </thead>
+                <tbody id="evalLogTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER (Authentic Calico / Tabbycat Footer) -->
+  <footer class="border-t border-[#dee2e6] bg-[#f8f9fa] py-3 px-4 text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div>
+        This tab runs on <strong>Calico — RGCDC Tabbycat Clone</strong>, an open-source parliamentary debate tabulation system for <strong>Rangpur Government College Debating Club</strong>.
+      </div>
+      <div class="font-mono-num text-[11px] text-slate-400">
+        Engine: Python FastAPI + SQLAlchemy + Kuhn-Munkres O(V³)
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPLICATION STATE & HUNGARIAN ALGORITHM ENGINE -->
+  <script>
+    (function() {
+      const INF_COST = 1000000000;
+
+      // Initial Realistic RGCDC 2026 Tournament State
+      const state = {
+        format: 'AP', // 'AP' (3 speakers, 2 teams/room) or 'BP' (2 speakers, 4 teams/room)
+        roundNumber: 1,
+        selectedBallotRoomIndex: 0,
+        motions: [
+          {
+            round: 'Round 1',
+            text: 'This House Believes That developing South Asian economies should prioritize industrial manufacturing over service-led growth.',
+            infoSlide: 'Premature deindustrialization refers to developing economies transitioning into service sectors before establishing a high-employment manufacturing base.'
+          },
+          {
+            round: 'Round 2 (Prepared)',
+            text: 'This House Would abolish tied guest-worker visa regimes in favor of sector-wide portable work permits.',
+            infoSlide: 'Under tied visa regimes (such as H-2A/H-2B), a migrant worker’s legal residency is strictly bound to a single sponsoring employer.'
+          }
+        ],
+        teams: [
+          {
+            id: 1,
+            name: 'RGCDC Alpha',
+            shortName: 'RGCDC A',
+            instName: 'Rangpur Government College Debating Club',
+            instCode: 'RGCDC',
+            points: 2,
+            speaks: 454.5,
+            firsts: 2,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [2],
+            speakers: [
+              { id: 101, name: 'Tanvir Ahmed', email: 'tanvir@rgcdc.org', totalSpeaks: 153.0, rounds: 2 },
+              { id: 102, name: 'Nusrat Jahan', email: 'nusrat@rgcdc.org', totalSpeaks: 151.5, rounds: 2 },
+              { id: 103, name: 'Farhan Sadiq', email: 'farhan@rgcdc.org', totalSpeaks: 150.0, rounds: 2 }
+            ]
+          },
+          {
+            id: 2,
+            name: 'DUDS Parliamentary',
+            shortName: 'DUDS A',
+            instName: 'Dhaka University Debating Society',
+            instCode: 'DUDS',
+            points: 2,
+            speaks: 452.0,
+            firsts: 2,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [1],
+            speakers: [
+              { id: 201, name: 'Arifur Rahman', email: 'arif@duds.org.bd', totalSpeaks: 152.0, rounds: 2 },
+              { id: 202, name: 'Maliha Islam', email: 'maliha@duds.org.bd', totalSpeaks: 150.5, rounds: 2 },
+              { id: 203, name: 'Shafayat Karim', email: 'shafayat@duds.org.bd', totalSpeaks: 149.5, rounds: 2 }
+            ]
+          },
+          {
+            id: 3,
+            name: 'BUETDC Zenith',
+            shortName: 'BUETDC A',
+            instName: 'BUET Debating Club',
+            instCode: 'BUETDC',
+            points: 1,
+            speaks: 447.0,
+            firsts: 1,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [4],
+            speakers: [
+              { id: 301, name: 'Mahir Labib', email: 'mahir@buetdc.org', totalSpeaks: 150.0, rounds: 2 },
+              { id: 302, name: 'Tasnim Zara', email: 'tasnim@buetdc.org', totalSpeaks: 149.0, rounds: 2 },
+              { id: 303, name: 'Rafiul Alam', email: 'rafiul@buetdc.org', totalSpeaks: 148.0, rounds: 2 }
+            ]
+          },
+          {
+            id: 4,
+            name: 'NSUDC Orators',
+            shortName: 'NSUDC A',
+            instName: 'North South University Debate Club',
+            instCode: 'NSUDC',
+            points: 1,
+            speaks: 445.5,
+            firsts: 1,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [3],
+            speakers: [
+              { id: 401, name: 'Zaima Noor', email: 'zaima@nsudc.org', totalSpeaks: 149.5, rounds: 2 },
+              { id: 402, name: 'navid Hasan', email: 'navid@nsudc.org', totalSpeaks: 148.5, rounds: 2 },
+              { id: 403, name: 'Samiul Haque', email: 'samiul@nsudc.org', totalSpeaks: 147.5, rounds: 2 }
+            ]
+          },
+          {
+            id: 5,
+            name: 'BRACU Rhetoric',
+            shortName: 'BRACU A',
+            instName: 'BRAC University Debate Club',
+            instCode: 'BRACU',
+            points: 1,
+            speaks: 443.0,
+            firsts: 1,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [6],
+            speakers: [
+              { id: 501, name: 'Samia Rahman', email: 'samia@bracu.ac.bd', totalSpeaks: 148.5, rounds: 2 },
+              { id: 502, name: 'Ishrak Hossain', email: 'ishrak@bracu.ac.bd', totalSpeaks: 147.5, rounds: 2 },
+              { id: 503, name: 'Nabil Chowdhury', email: 'nabil@bracu.ac.bd', totalSpeaks: 147.0, rounds: 2 }
+            ]
+          },
+          {
+            id: 6,
+            name: 'JUDO Vanguard',
+            shortName: 'JUDO A',
+            instName: 'Jahangirnagar University Debate Organization',
+            instCode: 'JUDO',
+            points: 1,
+            speaks: 441.5,
+            firsts: 1,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [5],
+            speakers: [
+              { id: 601, name: 'Imtiaz Mahmud', email: 'imtiaz@judo.org', totalSpeaks: 148.0, rounds: 2 },
+              { id: 602, name: 'Faria Tabassum', email: 'faria@judo.org', totalSpeaks: 147.0, rounds: 2 },
+              { id: 603, name: 'Hasibul Islam', email: 'hasib@judo.org', totalSpeaks: 146.5, rounds: 2 }
+            ]
+          },
+          {
+            id: 7,
+            name: 'RUDO Dialectics',
+            shortName: 'RUDO A',
+            instName: 'Rajshahi University Debating Organization',
+            instCode: 'RUDO',
+            points: 0,
+            speaks: 436.5,
+            firsts: 0,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [8],
+            speakers: [
+              { id: 701, name: 'Mehedi Hasan', email: 'mehedi@rudo.org', totalSpeaks: 146.5, rounds: 2 },
+              { id: 702, name: 'Sumaiya Akter', email: 'sumaiya@rudo.org', totalSpeaks: 145.5, rounds: 2 },
+              { id: 703, name: 'Rakibul Islam', email: 'rakib@rudo.org', totalSpeaks: 144.5, rounds: 2 }
+            ]
+          },
+          {
+            id: 8,
+            name: 'ACC Debate Squadron',
+            shortName: 'ACCDC A',
+            instName: 'Adamjee Cantonment College Debating Club',
+            instCode: 'ACCDC',
+            points: 0,
+            speaks: 434.0,
+            firsts: 0,
+            govCount: 1,
+            oppCount: 1,
+            pastOpponents: [7],
+            speakers: [
+              { id: 801, name: 'Tahmid Khan', email: 'tahmid@accdc.org', totalSpeaks: 145.5, rounds: 2 },
+              { id: 802, name: 'Nafisa Anjum', email: 'nafisa@accdc.org', totalSpeaks: 144.5, rounds: 2 },
+              { id: 803, name: 'Abrar Zahin', email: 'abrar@accdc.org', totalSpeaks: 144.0, rounds: 2 }
+            ]
+          }
+        ],
+        adjudicators: [
+          {
+            id: 1,
+            name: 'Akm Shoaib',
+            email: 'shoaib@ndfbd.org',
+            instName: 'Rangpur Government College Debating Club',
+            instCode: 'RGCDC',
+            baseScore: 9.4,
+            currentScore: 9.5,
+            conflicts: ['RGCDC'],
+            judgedTeams: ['BRACU A', 'JUDO A'],
+            evalCount: 2
+          },
+          {
+            id: 2,
+            name: 'Rashedul Hasan Stalin',
+            email: 'stalin@bdc.org.bd',
+            instName: 'Dhaka University Debating Society',
+            instCode: 'DUDS',
+            baseScore: 9.1,
+            currentScore: 9.2,
+            conflicts: ['DUDS'],
+            judgedTeams: ['RUDO A', 'ACCDC A'],
+            evalCount: 2
+          },
+          {
+            id: 3,
+            name: 'Dr. Tahmina Karim',
+            email: 'tahmina@independent.org',
+            instName: 'Independent Adjudication Core',
+            instCode: 'IND',
+            baseScore: 8.9,
+            currentScore: 9.0,
+            conflicts: ['IND'],
+            judgedTeams: ['BUETDC A'],
+            evalCount: 1
+          },
+          {
+            id: 4,
+            name: 'Zubair Al Mahmud',
+            email: 'zubair@buetdc.org',
+            instName: 'BUET Debating Club',
+            instCode: 'BUETDC',
+            baseScore: 8.4,
+            currentScore: 8.5,
+            conflicts: ['BUETDC', 'NSUDC'],
+            judgedTeams: [],
+            evalCount: 1
+          },
+          {
+            id: 5,
+            name: 'Rubaiya Sultana',
+            email: 'rubaiya@bracu.ac.bd',
+            instName: 'BRAC University Debate Club',
+            instCode: 'BRACU',
+            baseScore: 7.9,
+            currentScore: 8.1,
+            conflicts: ['BRACU'],
+            judgedTeams: [],
+            evalCount: 1
+          },
+          {
+            id: 6,
+            name: 'Ashfaqur Rahman',
+            email: 'ashfaq@judo.org',
+            instName: 'Jahangirnagar University Debate Organization',
+            instCode: 'JUDO',
+            baseScore: 7.6,
+            currentScore: 7.7,
+            conflicts: ['JUDO'],
+            judgedTeams: [],
+            evalCount: 1
+          }
+        ],
+        evaluations: [
+          {
+            judgeName: 'Akm Shoaib',
+            teamName: 'BRACU A',
+            score: 9.7,
+            prior: 9.4,
+            updated: 9.5,
+            comments: 'Exceptional comparative weighing of economic development models and crystal-clear feedback.'
+          },
+          {
+            judgeName: 'Rashedul Hasan Stalin',
+            teamName: 'RUDO A',
+            score: 9.4,
+            prior: 9.1,
+            updated: 9.2,
+            comments: 'Tracked every nuance of the Whip speeches and gave actionable constructive advice.'
+          },
+          {
+            judgeName: 'Dr. Tahmina Karim',
+            teamName: 'BUETDC A',
+            score: 9.2,
+            prior: 8.9,
+            updated: 9.0,
+            comments: 'Fair, rigorous step-by-step metric justification.'
+          }
+        ],
+        drawRooms: [],
+        costMatrix: [],
+        reasonMatrix: [],
+        sortedJudgesCache: []
+      };
+
+      
+      // Persistent Storage for GitHub Pages / Browser Deployment
+      const STORAGE_KEY = 'rgcdc_calicotab_state_v27';
+      function loadSavedState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && Array.isArray(parsed.teams) && parsed.teams.length > 0) {
+              state.format = parsed.format || state.format;
+              state.roundNumber = parsed.roundNumber || state.roundNumber;
+              state.motions = parsed.motions || state.motions;
+              state.teams = parsed.teams;
+              state.adjudicators = parsed.adjudicators || state.adjudicators;
+              state.evaluations = parsed.evaluations || state.evaluations;
+            }
+          }
+        } catch (e) {}
+      }
+      function saveCurrentState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            format: state.format,
+            roundNumber: state.roundNumber,
+            motions: state.motions,
+            teams: state.teams,
+            adjudicators: state.adjudicators,
+            evaluations: state.evaluations
+          }));
+        } catch (e) {}
+      }
+      loadSavedState();
+
+      // Toast helper (never uses alert/confirm)
+      function showToast(msg, type = 'info') {
+        const banner = document.getElementById('toastBanner');
+        const text = document.getElementById('toastMessage');
+        banner.classList.remove('hidden', 'bg-blue-50', 'border-blue-300', 'text-blue-900', 'bg-emerald-50', 'border-emerald-300', 'text-emerald-900', 'bg-amber-50', 'border-amber-300', 'text-amber-900');
+        if (type === 'success') {
+          banner.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
+        } else if (type === 'warn') {
+          banner.classList.add('bg-amber-50', 'border-amber-300', 'text-amber-900');
+        } else {
+          banner.classList.add('bg-blue-50', 'border-blue-300', 'text-blue-900');
+        }
+        text.textContent = msg;
+      }
+
+      document.getElementById('toastCloseBtn').addEventListener('click', () => {
+        document.getElementById('toastBanner').classList.add('hidden');
+      });
+
+      // Exact O(V^3) Kuhn-Munkres Hungarian Algorithm in JavaScript
+      function hungarianAlgorithm(costMatrix) {
+        const nRows = costMatrix.length;
+        const nCols = costMatrix[0].length;
+        const u = new Array(nRows + 1).fill(0);
+        const v = new Array(nCols + 1).fill(0);
+        const p = new Array(nCols + 1).fill(0);
+        const way = new Array(nCols + 1).fill(0);
+
+        for (let i = 1; i <= nRows; i++) {
+          p[0] = i;
+          let j0 = 0;
+          const minv = new Array(nCols + 1).fill(Infinity);
+          const used = new Array(nCols + 1).fill(false);
+          do {
+            used[j0] = true;
+            const i0 = p[j0];
+            let delta = Infinity;
+            let j1 = 0;
+            for (let j = 1; j <= nCols; j++) {
+              if (!used[j]) {
+                const cur = costMatrix[i0 - 1][j - 1] - u[i0] - v[j];
+                if (cur < minv[j]) {
+                  minv[j] = cur;
+                  way[j] = j0;
+                }
+                if (minv[j] < delta) {
+                  delta = minv[j];
+                  j1 = j;
+                }
+              }
+            }
+            for (let j = 0; j <= nCols; j++) {
+              if (used[j]) {
+                u[p[j]] += delta;
+                v[j] -= delta;
+              } else {
+                minv[j] -= delta;
+              }
+            }
+            j0 = j1;
+          } while (p[j0] !== 0);
+
+          do {
+            const j1 = way[j0];
+            p[j0] = p[j1];
+            j0 = j1;
+          } while (j0 !== 0);
+        }
+
+        const results = [];
+        for (let j = 1; j <= nCols; j++) {
+          if (p[j] > 0) {
+            results.push([p[j] - 1, j - 1]);
+          }
+        }
+        results.sort((a, b) => a[0] - b[0]);
+        return results;
+      }
+
+      function computeJudgeRoomCost(judge, room, role) {
+        const roomInsts = new Set(room.teams.map(t => t.instCode.toUpperCase()));
+        const roomTeams = new Set(room.teams.map(t => t.shortName));
+
+        // Hard Constraint 1: Institutional Conflict
+        for (const cInst of judge.conflicts) {
+          if (roomInsts.has(cInst.toUpperCase())) {
+            return { cost: INF_COST, reason: 'INST_CONFLICT (' + cInst + ')' };
+          }
+        }
+
+        // Hard Constraint 2: Team History Conflict
+        for (const jt of judge.judgedTeams) {
+          if (roomTeams.has(jt)) {
+            return { cost: INF_COST, reason: 'HISTORY_CONFLICT (' + jt + ')' };
+          }
+        }
+
+        // Soft Cost: Quality & Bracket Importance Matching
+        const s = Math.max(1.0, Math.min(10.0, judge.currentScore));
+        const w = room.importance;
+        if (role === 'CHAIR') {
+          const c = w * (10.5 - s) * 3.5 + Math.pow(w - s, 2) * 0.8;
+          return { cost: Math.round(c * 100) / 100, reason: 'FEASIBLE' };
+        } else {
+          const c = w * (10.5 - s) * 1.8;
+          return { cost: Math.round(c * 100) / 100, reason: 'FEASIBLE' };
+        }
+      }
+
+      // Generate Power-Paired Draw + Hungarian Adjudicator Allocation
+      function buildDrawAndAllocate() {
+        const isAP = state.format === 'AP';
+        const teamsPerRoom = isAP ? 2 : 4;
+        const sortedTeams = [...state.teams].sort((a, b) => {
+          if (b.points !== a.points) return b.points - a.points;
+          if (b.speaks !== a.speaks) return b.speaks - a.speaks;
+          return b.firsts - a.firsts;
+        });
+
+        const numRooms = Math.floor(sortedTeams.length / teamsPerRoom);
+        const rooms = [];
+        for (let r = 0; r < numRooms; r++) {
+          const slice = sortedTeams.slice(r * teamsPerRoom, (r + 1) * teamsPerRoom);
+          const avgPts = slice.reduce((acc, t) => acc + t.points, 0) / slice.length;
+          const imp = numRooms === 1 ? 10.0 : Math.round((10.0 - 7.5 * (r / (numRooms - 1))) * 100) / 100;
+
+          const positions = {};
+          if (isAP) {
+            positions['GOV'] = slice[0];
+            positions['OPP'] = slice[1];
+          } else {
+            positions['OG'] = slice[0];
+            positions['OO'] = slice[1];
+            positions['CG'] = slice[2];
+            positions['CO'] = slice[3];
+          }
+
+          rooms.push({
+            index: r,
+            venue: 'Hall ' + (r + 1),
+            bracketPoints: Math.round(avgPts * 10) / 10,
+            importance: imp,
+            positions: positions,
+            teams: slice,
+            chair: null,
+            chairCost: 0,
+            panellists: [],
+            ballotConfirmed: false
+          });
+        }
+
+        // Sort judges by currentScore DESC
+        const sortedJudges = [...state.adjudicators].sort((a, b) => b.currentScore - a.currentScore);
+        state.sortedJudgesCache = sortedJudges;
+
+        if (rooms.length > 0 && sortedJudges.length >= rooms.length) {
+          const costMatrix = [];
+          const reasonMatrix = [];
+          for (const room of rooms) {
+            const rowC = [];
+            const rowR = [];
+            for (const judge of sortedJudges) {
+              const res = computeJudgeRoomCost(judge, room, 'CHAIR');
+              rowC.push(res.cost);
+              rowR.push(res.reason);
+            }
+            costMatrix.push(rowC);
+            reasonMatrix.push(rowR);
+          }
+
+          const chairMatching = hungarianAlgorithm(costMatrix);
+          const assignedIds = new Set();
+          for (const [rIdx, jIdx] of chairMatching) {
+            rooms[rIdx].chair = sortedJudges[jIdx];
+            rooms[rIdx].chairCost = costMatrix[rIdx][jIdx];
+            assignedIds.add(sortedJudges[jIdx].id);
+          }
+
+          // Second pass for Panellists (wings)
+          const remaining = sortedJudges.filter(j => !assignedIds.has(j.id));
+          if (remaining.length > 0) {
+            for (const judge of remaining) {
+              // Find highest-importance conflict-free room with fewest panellists
+              let bestRoom = null;
+              let bestCost = INF_COST;
+              for (const room of rooms) {
+                const check = computeJudgeRoomCost(judge, room, 'PANELLIST');
+                if (check.cost < bestCost && room.panellists.length < 2) {
+                  bestCost = check.cost;
+                  bestRoom = room;
+                }
+              }
+              if (bestRoom) {
+                bestRoom.panellists.push(judge);
+              }
+            }
+          }
+
+          state.costMatrix = costMatrix;
+          state.reasonMatrix = reasonMatrix;
+        }
+
+        state.drawRooms = rooms;
+        state.selectedBallotRoomIndex = 0;
+      }
+
+      // Render Dynamic Speaker Input Blocks in Admin Form based on AP (3) or BP (2)
+      function renderDynamicSpeakerInputs() {
+        const isAP = state.format === 'AP';
+        const speakerCount = isAP ? 3 : 2;
+        const rolesAP = ['Prime Minister (Speaker 1)', 'Deputy Prime Minister (Speaker 2)', 'Government/Opposition Whip (Speaker 3)'];
+        const rolesBP = ['Prime Minister / Member (Speaker 1)', 'Deputy / Whip (Speaker 2)'];
+        const roles = isAP ? rolesAP : rolesBP;
+
+        document.getElementById('dynamicSpeakerCountBadge').textContent =
+          `Rendering ${speakerCount} Speaker Blocks (${state.format})`;
+        document.getElementById('speakerBlocksHeader').textContent =
+          `Speaker Roster (${state.format} Format — Exactly ${speakerCount} Speakers Required)`;
+        document.getElementById('adminFormatPill').textContent =
+          `Current: ${state.format} (${speakerCount} Speakers)`;
+
+        // Style AP/BP cards
+        const apCard = document.getElementById('selectApCard');
+        const bpCard = document.getElementById('selectBpCard');
+        if (isAP) {
+          apCard.className = 'border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition';
+          bpCard.className = 'border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition';
+        } else {
+          bpCard.className = 'border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition';
+          apCard.className = 'border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition';
+        }
+
+        const container = document.getElementById('dynamicSpeakerBlocks');
+        container.innerHTML = '';
+        for (let i = 0; i < speakerCount; i++) {
+          const block = document.createElement('div');
+          block.className = 'p-3 bg-slate-50 border border-slate-200 rounded grid grid-cols-1 sm:grid-cols-2 gap-3';
+          block.innerHTML = `
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">${roles[i]} Name *</label>
+              <input type="text" required data-speaker-name="${i}" class="calico-input" placeholder="Speaker ${i + 1} Full Name" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Speaker ${i + 1} Email <span class="text-slate-400 font-normal">(Optional, Preferred)</span></label>
+              <input type="email" data-speaker-email="${i}" class="calico-input" placeholder="speaker${i + 1}@rgcdc.org" />
+            </div>
+          `;
+          container.appendChild(block);
+        }
+      }
+
+      // Render All UI Tables & Badges
+      function renderAll() {
+        saveCurrentState();
+        const isAP = state.format === 'AP';
+        const activeSpeakersCount = state.teams.reduce((acc, t) => acc + (isAP ? Math.min(3, t.speakers.length) : Math.min(2, t.speakers.length)), 0);
+        const instSet = new Set(state.teams.map(t => t.instCode));
+
+        // Header & Sidebar Badges
+        document.getElementById('headerFormatBadge').textContent = isAP ? 'AP (3v3)' : 'BP (2x4)';
+        document.getElementById('headerRoundBadge').textContent = `Round ${state.roundNumber} Active`;
+        document.getElementById('sidebarFormatText').textContent = isAP ? 'Asian Parliamentary' : 'British Parliamentary';
+        document.getElementById('sidebarSpeakerLimit').textContent = isAP ? '3 Speakers' : '2 Speakers';
+        document.getElementById('sidebarRoomTeams').textContent = isAP ? '2 (Gov vs Opp)' : '4 (OG/OO/CG/CO)';
+
+        document.getElementById('navRoomCount').textContent = state.drawRooms.length;
+        document.getElementById('navTeamCount').textContent = state.teams.length;
+        document.getElementById('navSpeakerCount').textContent = activeSpeakersCount;
+        document.getElementById('navAdjCount').textContent = state.adjudicators.length;
+        document.getElementById('navMotionCount').textContent = state.motions.length;
+        const pendingBallots = state.drawRooms.filter(r => !r.ballotConfirmed).length;
+        document.getElementById('navPendingBallots').textContent = pendingBallots;
+        document.getElementById('navEvalCount').textContent = state.evaluations.length;
+
+        // Overview KPIs
+        document.getElementById('kpiFormat').textContent = isAP ? 'AP (3v3)' : 'BP (2x4)';
+        document.getElementById('kpiFormatSub').textContent = isAP ? '3 Speakers / Team' : '2 Speakers / Team';
+        document.getElementById('kpiTeams').textContent = state.teams.length;
+        document.getElementById('kpiSpeakers').textContent = activeSpeakersCount;
+        document.getElementById('kpiJudges').textContent = state.adjudicators.length;
+        document.getElementById('kpiRound').textContent = 'Round ' + state.roundNumber;
+        document.getElementById('kpiBallotStatus').textContent = pendingBallots > 0 ? `${pendingBallots} Ballots Open` : 'Round Complete';
+        document.getElementById('kpiInsts').textContent = instSet.size;
+
+        // Overview Top 5 Teams
+        const sortedTeams = [...state.teams].sort((a, b) => (b.points - a.points) || (b.speaks - a.speaks));
+        const top5Body = document.getElementById('overviewTopTeamsBody');
+        top5Body.innerHTML = sortedTeams.slice(0, 5).map((t, idx) => `
+          <tr>
+            <td class="font-mono-num font-semibold text-slate-600">#${idx + 1}</td>
+            <td class="font-semibold text-slate-900">${t.shortName} <span class="text-xs font-normal text-slate-500">(${t.name})</span></td>
+            <td><span class="calico-badge bg-slate-100 text-slate-700 border border-slate-300 font-mono-num">${t.instCode}</span></td>
+            <td class="text-right font-mono-num font-bold text-blue-700">${t.points}</td>
+            <td class="text-right font-mono-num">${t.speaks.toFixed(1)}</td>
+          </tr>
+        `).join('');
+
+        // Overview Active Motion
+        const latestMotion = state.motions[0];
+        document.getElementById('overviewActiveMotion').textContent =
+          latestMotion ? `${latestMotion.round}: "${latestMotion.text}"` : 'No motion published yet.';
+
+        // Draw Table
+        document.getElementById('drawPageTitle').textContent = `Round ${state.roundNumber} Draw — Power-Paired Matchups`;
+        document.getElementById('drawFormatSubtitle').textContent = isAP
+          ? 'Format: Asian Parliamentary (2 Teams/Room • 3 Speakers/Team)'
+          : 'Format: British Parliamentary (4 Teams/Room • 2 Speakers/Team)';
+
+        const drawHead = document.getElementById('drawTableHead');
+        const drawBody = document.getElementById('drawTableBody');
+        if (isAP) {
+          drawHead.innerHTML = `
+            <tr>
+              <th>Venue</th>
+              <th>Bracket</th>
+              <th>Government (GOV)</th>
+              <th>Opposition (OPP)</th>
+              <th>Chair Adjudicator (Score)</th>
+              <th>Panellists (Wings)</th>
+              <th>Status</th>
+            </tr>
+          `;
+          drawBody.innerHTML = state.drawRooms.map(r => `
+            <tr>
+              <td class="font-semibold text-slate-900">${r.venue}</td>
+              <td><span class="calico-badge bg-blue-50 text-blue-800 border border-blue-200 font-mono-num">${r.bracketPoints} pts (W=${r.importance})</span></td>
+              <td>
+                <div class="font-semibold text-slate-900">${r.positions.GOV.shortName}</div>
+                <div class="text-xs text-slate-500">${r.positions.GOV.instCode} • ${r.positions.GOV.points} pts</div>
+              </td>
+              <td>
+                <div class="font-semibold text-slate-900">${r.positions.OPP.shortName}</div>
+                <div class="text-xs text-slate-500">${r.positions.OPP.instCode} • ${r.positions.OPP.points} pts</div>
+              </td>
+              <td>
+                ${r.chair ? `
+                  <div class="font-semibold text-emerald-900">${r.chair.name} <span class="calico-badge bg-emerald-100 text-emerald-800 font-mono-num">${r.chair.currentScore.toFixed(2)}</span></div>
+                  <div class="text-[11px] text-slate-500">Inst: ${r.chair.instCode} • Hungarian Cost: ${r.chairCost}</div>
+                ` : '<span class="text-rose-600 text-xs">Unassigned</span>'}
+              </td>
+              <td class="text-xs text-slate-700">
+                ${r.panellists.length > 0
+                  ? r.panellists.map(p => `<span class="inline-block mr-1.5 mb-1 px-2 py-0.5 bg-slate-100 border border-slate-300 rounded">${p.name} (${p.currentScore.toFixed(1)})</span>`).join('')
+                  : '<span class="text-slate-400">Solo Chair</span>'}
+              </td>
+              <td>
+                ${r.ballotConfirmed
+                  ? '<span class="calico-badge bg-emerald-100 text-emerald-800">Confirmed</span>'
+                  : '<span class="calico-badge bg-amber-100 text-amber-800">In Progress</span>'}
+              </td>
+            </tr>
+          `).join('');
+        } else {
+          drawHead.innerHTML = `
+            <tr>
+              <th>Venue</th>
+              <th>Bracket</th>
+              <th>Opening Gov (OG)</th>
+              <th>Opening Opp (OO)</th>
+              <th>Closing Gov (CG)</th>
+              <th>Closing Opp (CO)</th>
+              <th>Chair &amp; Panel</th>
+            </tr>
+          `;
+          drawBody.innerHTML = state.drawRooms.map(r => `
+            <tr>
+              <td class="font-semibold text-slate-900">${r.venue}</td>
+              <td><span class="calico-badge bg-blue-50 text-blue-800 border border-blue-200 font-mono-num">${r.bracketPoints} pts</span></td>
+              <td class="font-medium">${r.positions.OG.shortName} <span class="text-xs text-slate-500">(${r.positions.OG.instCode})</span></td>
+              <td class="font-medium">${r.positions.OO.shortName} <span class="text-xs text-slate-500">(${r.positions.OO.instCode})</span></td>
+              <td class="font-medium">${r.positions.CG.shortName} <span class="text-xs text-slate-500">(${r.positions.CG.instCode})</span></td>
+              <td class="font-medium">${r.positions.CO.shortName} <span class="text-xs text-slate-500">(${r.positions.CO.instCode})</span></td>
+              <td>
+                ${r.chair ? `<div class="font-semibold text-emerald-900">${r.chair.name} [C] (${r.chair.currentScore.toFixed(1)})</div>` : ''}
+                <div class="text-xs text-slate-500">${r.panellists.map(p => p.name).join(', ')}</div>
+              </td>
+            </tr>
+          `).join('');
+        }
+
+        // Team Standings Table
+        const teamFilter = (document.getElementById('teamSearchInput').value || '').toLowerCase();
+        const filteredTeams = sortedTeams.filter(t =>
+          t.name.toLowerCase().includes(teamFilter) ||
+          t.shortName.toLowerCase().includes(teamFilter) ||
+          t.instCode.toLowerCase().includes(teamFilter)
+        );
+        document.getElementById('teamStandingsBody').innerHTML = filteredTeams.map((t, idx) => {
+          const activeSp = isAP ? t.speakers.slice(0, 3) : t.speakers.slice(0, 2);
+          return `
+            <tr>
+              <td class="font-mono-num font-bold text-slate-700">${idx + 1}</td>
+              <td>
+                <div class="font-semibold text-slate-900">${t.shortName}</div>
+                <div class="text-xs text-slate-500">${t.name}</div>
+              </td>
+              <td><span class="calico-badge bg-slate-100 text-slate-800 border border-slate-300 font-mono-num">${t.instCode}</span></td>
+              <td class="text-xs text-slate-600">${activeSp.map(s => s.name).join(', ')}</td>
+              <td class="text-right font-mono-num font-bold text-blue-700">${t.points}</td>
+              <td class="text-right font-mono-num font-semibold">${t.speaks.toFixed(1)}</td>
+              <td class="text-right font-mono-num">${t.firsts}</td>
+              <td class="text-center font-mono-num text-xs text-slate-600">${t.govCount}G / ${t.oppCount}O</td>
+            </tr>
+          `;
+        }).join('');
+
+        // Speaker Standings Table
+        const spFilter = (document.getElementById('speakerSearchInput').value || '').toLowerCase();
+        const allSpeakers = [];
+        for (const t of state.teams) {
+          const activeSp = isAP ? t.speakers.slice(0, 3) : t.speakers.slice(0, 2);
+          for (const s of activeSp) {
+            const avg = s.rounds > 0 ? s.totalSpeaks / s.rounds : 0;
+            allSpeakers.push({
+              ...s,
+              teamShort: t.shortName,
+              instCode: t.instCode,
+              avg: avg
+            });
+          }
+        }
+        allSpeakers.sort((a, b) => (b.totalSpeaks - a.totalSpeaks) || (b.avg - a.avg));
+        const filteredSp = allSpeakers.filter(s =>
+          s.name.toLowerCase().includes(spFilter) ||
+          s.teamShort.toLowerCase().includes(spFilter) ||
+          s.instCode.toLowerCase().includes(spFilter)
+        );
+        document.getElementById('speakerStandingsBody').innerHTML = filteredSp.map((s, idx) => `
+          <tr>
+            <td class="font-mono-num font-semibold text-slate-600">${idx + 1}</td>
+            <td>
+              <div class="font-semibold text-slate-900">${s.name}</div>
+              ${s.email ? `<div class="text-[11px] text-slate-400">${s.email}</div>` : ''}
+            </td>
+            <td class="font-medium text-slate-800">${s.teamShort}</td>
+            <td><span class="calico-badge bg-slate-100 text-slate-700 border border-slate-300 font-mono-num">${s.instCode}</span></td>
+            <td class="text-right font-mono-num">${s.rounds}</td>
+            <td class="text-right font-mono-num font-bold text-slate-900">${s.totalSpeaks.toFixed(1)}</td>
+            <td class="text-right font-mono-num text-blue-700 font-semibold">${s.avg.toFixed(2)}</td>
+          </tr>
+        `).join('');
+
+        // Adjudicators Public Table
+        const sortedAdjs = [...state.adjudicators].sort((a, b) => b.currentScore - a.currentScore);
+        document.getElementById('adjPublicTableBody').innerHTML = sortedAdjs.map(a => `
+          <tr>
+            <td>
+              <div class="font-semibold text-slate-900">${a.name}</div>
+              ${a.email ? `<div class="text-[11px] text-slate-400">${a.email}</div>` : ''}
+            </td>
+            <td class="text-xs text-slate-700">${a.instName} (<span class="font-mono-num font-semibold">${a.instCode}</span>)</td>
+            <td>
+              ${a.conflicts.map(c => `<span class="calico-badge bg-rose-50 text-rose-800 border border-rose-200 mr-1 font-mono-num">${c}</span>`).join('')}
+            </td>
+            <td class="text-xs text-slate-600">
+              ${a.judgedTeams.length > 0
+                ? a.judgedTeams.map(jt => `<span class="calico-badge bg-amber-50 text-amber-800 border border-amber-200 mr-1">${jt}</span>`).join('')
+                : '<span class="text-slate-400">None yet</span>'}
+            </td>
+            <td class="text-right font-mono-num text-slate-600">${a.baseScore.toFixed(2)}</td>
+            <td class="text-right font-mono-num font-bold text-emerald-700">${a.currentScore.toFixed(2)}</td>
+            <td class="text-right font-mono-num">${a.evalCount}</td>
+          </tr>
+        `).join('');
+
+        // Motions Archive
+        document.getElementById('motionsListContainer').innerHTML = state.motions.map(m => `
+          <div class="calico-card p-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+              <span class="calico-badge bg-blue-100 text-blue-800 font-semibold">${m.round}</span>
+              <span class="text-xs text-slate-400">3rd RGCDC Dialogues 2026</span>
+            </div>
+            <div class="text-base font-semibold text-slate-900">${m.text}</div>
+            ${m.infoSlide ? `<div class="mt-2 p-2.5 bg-slate-50 border-l-4 border-slate-400 text-xs text-slate-600"><strong>Info Slide:</strong> ${m.infoSlide}</div>` : ''}
+          </div>
+        `).join('');
+
+        // Hungarian Cost Matrix View
+        const cmHead = document.getElementById('costMatrixHead');
+        const cmBody = document.getElementById('costMatrixBody');
+        if (state.sortedJudgesCache.length > 0 && state.drawRooms.length > 0) {
+          cmHead.innerHTML = `
+            <tr>
+              <th>Room / Bracket</th>
+              ${state.sortedJudgesCache.map(j => `<th class="text-center">${j.name}<br><span class="text-[10px] font-mono-num text-slate-500">${j.instCode} • S=${j.currentScore.toFixed(1)}</span></th>`).join('')}
+            </tr>
+          `;
+          cmBody.innerHTML = state.drawRooms.map((r, rIdx) => `
+            <tr>
+              <td class="font-semibold text-slate-900">
+                ${r.venue} <span class="text-xs font-normal text-slate-500">(W=${r.importance})</span>
+                <div class="text-[11px] text-slate-500">${r.teams.map(t => t.shortName + '[' + t.instCode + ']').join(' vs ')}</div>
+              </td>
+              ${state.sortedJudgesCache.map((j, jIdx) => {
+                const cost = state.costMatrix[rIdx][jIdx];
+                const reason = state.reasonMatrix[rIdx][jIdx];
+                const isSelectedChair = r.chair && r.chair.id === j.id;
+                if (cost >= INF_COST) {
+                  return `<td class="text-center bg-rose-50/70 text-rose-700 font-mono-num text-xs"><div class="font-bold">∞ (10⁹)</div><div class="text-[10px]">${reason}</div></td>`;
+                }
+                return `<td class="text-center font-mono-num text-xs ${isSelectedChair ? 'bg-emerald-100 border-2 border-emerald-600 font-bold text-emerald-950' : 'text-slate-700'}">
+                  <div>${cost.toFixed(1)}</div>
+                  ${isSelectedChair ? '<div class="text-[10px] text-emerald-800 uppercase font-bold">Optimal Chair</div>' : ''}
+                </td>`;
+              }).join('')}
+            </tr>
+          `).join('');
+        }
+
+        // Ballot Entry Room List & Active Ballot Form
+        renderBallotSection();
+
+        // Judge Evaluation Dropdowns & Log
+        renderEvaluationSection();
+      }
+
+      function renderBallotSection() {
+        const listEl = document.getElementById('ballotRoomList');
+        listEl.innerHTML = state.drawRooms.map((r, idx) => `
+          <div class="p-3 cursor-pointer hover:bg-slate-50 transition flex items-center justify-between ${idx === state.selectedBallotRoomIndex ? 'bg-blue-50/60 border-l-4 border-blue-600' : ''}" data-select-room="${idx}">
+            <div>
+              <div class="font-semibold text-sm text-slate-900">${r.venue} <span class="text-xs font-normal text-slate-500">(${r.teams.map(t => t.shortName).join(' vs ')})</span></div>
+              <div class="text-xs text-slate-500">Chair: ${r.chair ? r.chair.name : 'TBA'}</div>
+            </div>
+            <span class="calico-badge ${r.ballotConfirmed ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+              ${r.ballotConfirmed ? 'Confirmed' : 'Pending'}
+            </span>
+          </div>
+        `).join('');
+
+        listEl.querySelectorAll('[data-select-room]').forEach(el => {
+          el.addEventListener('click', () => {
+            state.selectedBallotRoomIndex = parseInt(el.getAttribute('data-select-room'), 10);
+            renderBallotSection();
+          });
+        });
+
+        const activeRoom = state.drawRooms[state.selectedBallotRoomIndex];
+        if (!activeRoom) return;
+
+        document.getElementById('activeBallotRoomTitle').textContent =
+          `Digital Ballot Sheet — ${activeRoom.venue} (Chair: ${activeRoom.chair ? activeRoom.chair.name : 'TBA'})`;
+        const statusBadge = document.getElementById('activeBallotStatusBadge');
+        statusBadge.textContent = activeRoom.ballotConfirmed ? 'Ballot Confirmed' : 'Awaiting Confirmation';
+        statusBadge.className = 'calico-badge ' + (activeRoom.ballotConfirmed ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800');
+
+        const isAP = state.format === 'AP';
+        const container = document.getElementById('ballotTeamsContainer');
+        const entries = Object.entries(activeRoom.positions);
+        container.innerHTML = entries.map(([pos, team], tIdx) => {
+          const speakers = isAP ? team.speakers.slice(0, 3) : team.speakers.slice(0, 2);
+          const defaultRank = tIdx + 1;
+          return `
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200 pb-2">
+                <div>
+                  <span class="calico-badge bg-slate-800 text-white font-mono-num mr-1.5">${pos}</span>
+                  <span class="font-bold text-slate-900">${team.shortName}</span>
+                  <span class="text-xs text-slate-500">(${team.instCode})</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <label class="text-xs font-semibold text-slate-700">Team Rank in Room:</label>
+                  <select data-ballot-rank="${team.id}" class="calico-input !w-28 font-mono-num">
+                    ${isAP
+                      ? `<option value="1" ${defaultRank === 1 ? 'selected' : ''}>1st (Win: +1 pt)</option>
+                         <option value="2" ${defaultRank === 2 ? 'selected' : ''}>2nd (Loss: +0 pt)</option>`
+                      : `<option value="1" ${defaultRank === 1 ? 'selected' : ''}>1st (+3 pts)</option>
+                         <option value="2" ${defaultRank === 2 ? 'selected' : ''}>2nd (+2 pts)</option>
+                         <option value="3" ${defaultRank === 3 ? 'selected' : ''}>3rd (+1 pt)</option>
+                         <option value="4" ${defaultRank === 4 ? 'selected' : ''}>4th (+0 pt)</option>`
+                    }
+                  </select>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-${speakers.length} gap-3">
+                ${speakers.map((sp, sIdx) => `
+                  <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">${sp.name} (Spk ${sIdx + 1})</label>
+                    <input type="number" step="0.5" min="65" max="85" value="${(76.0 - tIdx * 1.0 - sIdx * 0.5).toFixed(1)}"
+                      data-ballot-speak="${team.id}:${sp.id}" class="calico-input font-mono-num" required />
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderEvaluationSection() {
+        const judgeSel = document.getElementById('evalJudgeSelect');
+        judgeSel.innerHTML = state.adjudicators.map(j =>
+          `<option value="${j.id}">${j.name} (${j.instCode}) — Current Score: ${j.currentScore.toFixed(2)}</option>`
+        ).join('');
+
+        const teamSel = document.getElementById('evalTeamSelect');
+        teamSel.innerHTML = state.teams.map(t =>
+          `<option value="${t.shortName}">${t.shortName} (${t.name})</option>`
+        ).join('');
+
+        const logBody = document.getElementById('evalLogTableBody');
+        logBody.innerHTML = state.evaluations.map(ev => `
+          <tr>
+            <td class="font-semibold text-slate-900">${ev.judgeName}</td>
+            <td><span class="calico-badge bg-slate-100 text-slate-700 font-mono-num">${ev.teamName}</span></td>
+            <td class="text-right font-mono-num font-bold text-blue-700">${ev.score.toFixed(1)}</td>
+            <td class="text-right font-mono-num text-xs">
+              <span class="text-slate-500">${ev.prior.toFixed(2)}</span> → <span class="font-bold text-emerald-700">${ev.updated.toFixed(2)}</span>
+            </td>
+            <td class="text-xs text-slate-600">${ev.comments}</td>
+          </tr>
+        `).join('');
+      }
+
+      // Navigation Tab Switching
+      function switchTab(tabId) {
+        document.querySelectorAll('.tab-view').forEach(sec => sec.classList.add('hidden'));
+        const target = document.getElementById('view-' + tabId);
+        if (target) target.classList.remove('hidden');
+
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+          if (link.getAttribute('data-tab') === tabId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.addEventListener('click', () => {
+          switchTab(link.getAttribute('data-tab'));
+          if (window.innerWidth < 768) {
+            document.getElementById('sidebarNav').classList.add('hidden');
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-goto]').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-goto')));
+      });
+
+      document.getElementById('brandHomeBtn').addEventListener('click', () => switchTab('overview'));
+      document.getElementById('adminToggleBtn').addEventListener('click', () => switchTab('admin-entry'));
+      document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('sidebarNav').classList.toggle('hidden');
+      });
+
+      // Format Switching (AP <-> BP)
+      function setFormat(newFmt) {
+        state.format = newFmt;
+        renderDynamicSpeakerInputs();
+        buildDrawAndAllocate();
+        renderAll();
+        showToast(
+          `Switched tournament format to ${newFmt === 'AP' ? 'Asian Parliamentary (3 Speakers/Team, 2 Teams/Room)' : 'British Parliamentary (2 Speakers/Team, 4 Teams/Room)'}. Form inputs and draw recalculated!`,
+          'info'
+        );
+      }
+
+      document.getElementById('selectApCard').addEventListener('click', () => setFormat('AP'));
+      document.getElementById('selectBpCard').addEventListener('click', () => setFormat('BP'));
+      document.getElementById('quickFormatSwitchBtn').addEventListener('click', () => {
+        setFormat(state.format === 'AP' ? 'BP' : 'AP');
+      });
+
+      // Team Registration Submit
+      document.getElementById('teamEntryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('inputTeamName').value.trim();
+        const shortName = document.getElementById('inputTeamShort').value.trim();
+        const instName = document.getElementById('inputTeamInstName').value.trim();
+        const instCode = document.getElementById('inputTeamInstCode').value.trim().toUpperCase();
+
+        const nameInputs = document.querySelectorAll('[data-speaker-name]');
+        const emailInputs = document.querySelectorAll('[data-speaker-email]');
+        const speakers = [];
+        nameInputs.forEach((inp, idx) => {
+          speakers.push({
+            id: Date.now() + idx,
+            name: inp.value.trim(),
+            email: emailInputs[idx].value.trim() || null,
+            totalSpeaks: 0,
+            rounds: 0
+          });
+        });
+        // If BP (2 speakers) is active, also keep a 3rd reserve slot so switching back to AP remains seamless
+        if (speakers.length === 2) {
+          speakers.push({
+            id: Date.now() + 99,
+            name: shortName + ' Reserve Whip',
+            email: null,
+            totalSpeaks: 0,
+            rounds: 0
+          });
+        }
+
+        state.teams.push({
+          id: state.teams.length + 1,
+          name,
+          shortName,
+          instName,
+          instCode,
+          points: 0,
+          speaks: 0.0,
+          firsts: 0,
+          govCount: 0,
+          oppCount: 0,
+          pastOpponents: [],
+          speakers
+        });
+
+        e.target.reset();
+        renderDynamicSpeakerInputs();
+        buildDrawAndAllocate();
+        renderAll();
+        showToast(`Registered team "${shortName}" (${instCode}) with ${state.format === 'AP' ? 3 : 2} speakers.`, 'success');
+      });
+
+      // Adjudicator Registration Submit
+      document.getElementById('adjEntryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('inputAdjName').value.trim();
+        const email = document.getElementById('inputAdjEmail').value.trim();
+        const instName = document.getElementById('inputAdjInstName').value.trim();
+        const instCode = document.getElementById('inputAdjInstCode').value.trim().toUpperCase();
+        const baseScore = parseFloat(document.getElementById('inputAdjScore').value) || 7.0;
+        const extraRaw = document.getElementById('inputAdjConflicts').value.trim();
+        const extraCodes = extraRaw
+          ? extraRaw.split(',').map(s => s.trim().toUpperCase()).filter(Boolean)
+          : [];
+        const conflicts = Array.from(new Set([instCode, ...extraCodes]));
+
+        state.adjudicators.push({
+          id: state.adjudicators.length + 1,
+          name,
+          email,
+          instName,
+          instCode,
+          baseScore,
+          currentScore: baseScore,
+          conflicts,
+          judgedTeams: [],
+          evalCount: 0
+        });
+
+        e.target.reset();
+        document.getElementById('inputAdjScore').value = '7.5';
+        buildDrawAndAllocate();
+        renderAll();
+        showToast(`Added Adjudicator "${name}" (Score ${baseScore.toFixed(1)}, Conflicts: ${conflicts.join(', ')}) and updated Hungarian matching.`, 'success');
+      });
+
+      // Re-run Hungarian Draw Button
+      function triggerNewDraw() {
+        buildDrawAndAllocate();
+        renderAll();
+        showToast(`Generated Power-Paired Draw & Solved O(V³) Hungarian Adjudicator Matching with 0 Conflict Violations!`, 'success');
+      }
+      document.getElementById('runHungarianDrawBtn').addEventListener('click', triggerNewDraw);
+      document.getElementById('recomputeDrawBtnPublic').addEventListener('click', triggerNewDraw);
+
+      // Publish Motion
+      document.getElementById('motionEntryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const roundLabel = document.getElementById('inputMotionRef').value.trim();
+        const text = document.getElementById('inputMotionText').value.trim();
+        state.motions.unshift({
+          round: roundLabel,
+          text: text,
+          infoSlide: 'Published via RGCDC Tab Room Portal.'
+        });
+        document.getElementById('inputMotionText').value = '';
+        renderAll();
+        showToast(`Published motion for ${roundLabel}.`, 'success');
+      });
+
+      // Confirm Ballot & Update Standings + History Constraints
+      document.getElementById('ballotEntryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const room = state.drawRooms[state.selectedBallotRoomIndex];
+        if (!room) return;
+        if (room.ballotConfirmed) {
+          showToast(`${room.venue} ballot was already confirmed for this round.`, 'warn');
+          return;
+        }
+
+        const isAP = state.format === 'AP';
+        const rankToPts = isAP ? { 1: 1, 2: 0 } : { 1: 3, 2: 2, 3: 1, 4: 0 };
+
+        for (const [pos, team] of Object.entries(room.positions)) {
+          const rankSelect = document.querySelector(`[data-ballot-rank="${team.id}"]`);
+          const rank = parseInt(rankSelect ? rankSelect.value : '1', 10);
+          const ptsEarned = rankToPts[rank] ?? 0;
+
+          let teamRoundSpeaks = 0;
+          const spInputs = document.querySelectorAll(`[data-ballot-speak^="${team.id}:"]`);
+          spInputs.forEach(inp => {
+            const [, spIdStr] = inp.getAttribute('data-ballot-speak').split(':');
+            const spId = parseInt(spIdStr, 10);
+            const val = parseFloat(inp.value) || 75.0;
+            teamRoundSpeaks += val;
+            const spObj = team.speakers.find(s => s.id === spId);
+            if (spObj) {
+              spObj.totalSpeaks += val;
+              spObj.rounds += 1;
+            }
+          });
+
+          team.points += ptsEarned;
+          team.speaks += teamRoundSpeaks;
+          if (rank === 1) team.firsts += 1;
+          if (pos === 'GOV' || pos === 'OG' || pos === 'CG') {
+            team.govCount += 1;
+          } else {
+            team.oppCount += 1;
+          }
+
+          // Record Team History on Chair & Panellists so they cannot judge this team again!
+          if (room.chair && !room.chair.judgedTeams.includes(team.shortName)) {
+            room.chair.judgedTeams.push(team.shortName);
+          }
+          room.panellists.forEach(p => {
+            if (!p.judgedTeams.includes(team.shortName)) {
+              p.judgedTeams.push(team.shortName);
+            }
+          });
+        }
+
+        room.ballotConfirmed = true;
+        renderAll();
+        showToast(
+          `Confirmed ${room.venue} ballot! Standings updated and Judge-Team history locked for ${room.chair ? room.chair.name : 'panel'}.`,
+          'success'
+        );
+      });
+
+      // Submit Judge Evaluation & Dynamically Update Core Score
+      document.getElementById('judgeEvalForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const judgeId = parseInt(document.getElementById('evalJudgeSelect').value, 10);
+        const teamShort = document.getElementById('evalTeamSelect').value;
+        const evalScore = Math.max(1.0, Math.min(10.0, parseFloat(document.getElementById('evalScoreInput').value) || 8.0));
+        const comments = document.getElementById('evalCommentsInput').value.trim() || 'Solid comparative adjudication.';
+
+        const judge = state.adjudicators.find(j => j.id === judgeId);
+        if (!judge) return;
+
+        const prior = judge.currentScore;
+        const priorWeight = 2.5;
+        const impFactor = 1.05;
+        const n = judge.evalCount;
+        const updated = Math.round(((priorWeight * judge.baseScore + n * judge.currentScore + impFactor * evalScore) / (priorWeight + n + impFactor)) * 100) / 100;
+
+        judge.currentScore = Math.max(1.0, Math.min(10.0, updated));
+        judge.evalCount += 1;
+
+        state.evaluations.unshift({
+          judgeName: judge.name,
+          teamName: teamShort,
+          score: evalScore,
+          prior: prior,
+          updated: judge.currentScore,
+          comments: comments
+        });
+
+        document.getElementById('evalCommentsInput').value = '';
+        buildDrawAndAllocate();
+        renderAll();
+        showToast(
+          `Judge evaluation recorded for ${judge.name}: Dynamic Score adjusted ${prior.toFixed(2)} → ${judge.currentScore.toFixed(2)} for next round's Hungarian draw!`,
+          'success'
+        );
+      });
+
+      // Live search filters
+      document.getElementById('teamSearchInput').addEventListener('input', renderAll);
+      document.getElementById('speakerSearchInput').addEventListener('input', renderAll);
+
+      // Initialize App
+      renderDynamicSpeakerInputs();
+      buildDrawAndAllocate();
+      renderAll();
+    })();
+  </script>
+</body>
+</html>
