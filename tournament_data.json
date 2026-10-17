@@ -1,0 +1,396 @@
+{
+  "tournamentName": "3rd RGCDC Dialogues 2026",
+  "hostClub": "Rangpur Government College Debating Club (RGCDC)",
+  "format": "AP",
+  "currentRound": 1,
+  "motions": [
+    {
+      "round": 1,
+      "roundName": "Round 1",
+      "text": "This House Believes That developing South Asian economies should prioritize industrial manufacturing over service-led growth.",
+      "infoSlide": "Premature deindustrialization refers to developing economies transitioning into service sectors before establishing a high-employment manufacturing base."
+    },
+    {
+      "round": 2,
+      "roundName": "Round 2",
+      "text": "This House Would abolish tied guest-worker visa regimes in favor of sector-wide portable work permits.",
+      "infoSlide": "Under tied visa regimes (such as H-2A/H-2B), a migrant worker's legal residency is strictly bound to a single sponsoring employer."
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "RGCDC Alpha",
+      "institution": "Rangpur Government College",
+      "points": 2,
+      "speaks": 454.5,
+      "ReplySpeaks": 76.0,
+      "firsts": 2,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-rgcdc-101",
+      "speakers": [
+        {
+          "id": 101,
+          "name": "Tanvir Ahmed",
+          "email": "tanvir@rgcdc.org",
+          "totalSpeaks": 153.0,
+          "rounds": 2
+        },
+        {
+          "id": 102,
+          "name": "Nusrat Jahan",
+          "email": "nusrat@rgcdc.org",
+          "totalSpeaks": 151.5,
+          "rounds": 2
+        },
+        {
+          "id": 103,
+          "name": "Farhan Sadiq",
+          "email": "farhan@rgcdc.org",
+          "totalSpeaks": 150.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DUDS Parliamentary",
+      "institution": "Dhaka University",
+      "points": 2,
+      "speaks": 452.0,
+      "ReplySpeaks": 75.5,
+      "firsts": 2,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-duds-202",
+      "speakers": [
+        {
+          "id": 201,
+          "name": "Arifur Rahman",
+          "email": "arif@duds.org",
+          "totalSpeaks": 152.0,
+          "rounds": 2
+        },
+        {
+          "id": 202,
+          "name": "Maliha Islam",
+          "email": "maliha@duds.org",
+          "totalSpeaks": 150.5,
+          "rounds": 2
+        },
+        {
+          "id": 203,
+          "name": "Shafayat Karim",
+          "email": "shafayat@duds.org",
+          "totalSpeaks": 149.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "BUETDC Zenith",
+      "institution": "BUET",
+      "points": 1,
+      "speaks": 447.0,
+      "ReplySpeaks": 74.5,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-buet-303",
+      "speakers": [
+        {
+          "id": 301,
+          "name": "Mahir Labib",
+          "email": "mahir@buetdc.org",
+          "totalSpeaks": 150.0,
+          "rounds": 2
+        },
+        {
+          "id": 302,
+          "name": "Tasnim Zara",
+          "email": "tasnim@buetdc.org",
+          "totalSpeaks": 149.0,
+          "rounds": 2
+        },
+        {
+          "id": 303,
+          "name": "Rafiul Alam",
+          "email": "rafiul@buetdc.org",
+          "totalSpeaks": 148.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "NSUDC Orators",
+      "institution": "North South University",
+      "points": 1,
+      "speaks": 445.5,
+      "ReplySpeaks": 74.0,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-nsu-404",
+      "speakers": [
+        {
+          "id": 401,
+          "name": "Zaima Noor",
+          "email": "zaima@nsudc.org",
+          "totalSpeaks": 149.5,
+          "rounds": 2
+        },
+        {
+          "id": 402,
+          "name": "Navid Hasan",
+          "email": "navid@nsudc.org",
+          "totalSpeaks": 148.5,
+          "rounds": 2
+        },
+        {
+          "id": 403,
+          "name": "Samiul Haque",
+          "email": "samiul@nsudc.org",
+          "totalSpeaks": 147.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "BRACU Rhetoric",
+      "institution": "BRAC University",
+      "points": 1,
+      "speaks": 443.0,
+      "ReplySpeaks": 74.0,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-brac-505",
+      "speakers": [
+        {
+          "id": 501,
+          "name": "Samia Rahman",
+          "email": "samia@bracu.ac.bd",
+          "totalSpeaks": 148.5,
+          "rounds": 2
+        },
+        {
+          "id": 502,
+          "name": "Ishrak Hossain",
+          "email": "ishrak@bracu.ac.bd",
+          "totalSpeaks": 147.5,
+          "rounds": 2
+        },
+        {
+          "id": 503,
+          "name": "Nabil Chowdhury",
+          "email": "nabil@bracu.ac.bd",
+          "totalSpeaks": 147.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "JUDO Vanguard",
+      "institution": "Jahangirnagar University",
+      "points": 1,
+      "speaks": 441.5,
+      "ReplySpeaks": 73.5,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-judo-606",
+      "speakers": [
+        {
+          "id": 601,
+          "name": "Imtiaz Mahmud",
+          "email": "imtiaz@judo.org",
+          "totalSpeaks": 148.0,
+          "rounds": 2
+        },
+        {
+          "id": 602,
+          "name": "Faria Tabassum",
+          "email": "faria@judo.org",
+          "totalSpeaks": 147.0,
+          "rounds": 2
+        },
+        {
+          "id": 603,
+          "name": "Hasibul Islam",
+          "email": "hasib@judo.org",
+          "totalSpeaks": 146.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "RUDO Dialectics",
+      "institution": "Rajshahi University",
+      "points": 0,
+      "speaks": 436.5,
+      "ReplySpeaks": 73.0,
+      "firsts": 0,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-rudo-707",
+      "speakers": [
+        {
+          "id": 701,
+          "name": "Mehedi Hasan",
+          "email": "mehedi@rudo.org",
+          "totalSpeaks": 146.5,
+          "rounds": 2
+        },
+        {
+          "id": 702,
+          "name": "Sumaiya Akter",
+          "email": "sumaiya@rudo.org",
+          "totalSpeaks": 145.5,
+          "rounds": 2
+        },
+        {
+          "id": 703,
+          "name": "Rakibul Islam",
+          "email": "rakib@rudo.org",
+          "totalSpeaks": 144.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "ACCDC Squadron",
+      "institution": "Adamjee Cantonment College",
+      "points": 0,
+      "speaks": 434.0,
+      "ReplySpeaks": 72.5,
+      "firsts": 0,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-acc-808",
+      "speakers": [
+        {
+          "id": 801,
+          "name": "Tahmid Khan",
+          "email": "tahmid@accdc.org",
+          "totalSpeaks": 145.5,
+          "rounds": 2
+        },
+        {
+          "id": 802,
+          "name": "Nafisa Anjum",
+          "email": "nafisa@accdc.org",
+          "totalSpeaks": 144.5,
+          "rounds": 2
+        },
+        {
+          "id": 803,
+          "name": "Abrar Zahin",
+          "email": "abrar@accdc.org",
+          "totalSpeaks": 144.0,
+          "rounds": 2
+        }
+      ]
+    }
+  ],
+  "adjudicators": [
+    {
+      "id": 1,
+      "name": "Akm Shoaib",
+      "institution": "Rangpur Government College",
+      "conflicts": "Rangpur Government College",
+      "baseScore": 9.4,
+      "currentScore": 9.5,
+      "judgedTeams": [
+        "BRACU Rhetoric",
+        "JUDO Vanguard"
+      ],
+      "evalCount": 2,
+      "accessKey": "adj-shoaib-901"
+    },
+    {
+      "id": 2,
+      "name": "Rashedul Hasan Stalin",
+      "institution": "Dhaka University",
+      "conflicts": "Dhaka University",
+      "baseScore": 9.1,
+      "currentScore": 9.2,
+      "judgedTeams": [
+        "RUDO Dialectics",
+        "ACCDC Squadron"
+      ],
+      "evalCount": 2,
+      "accessKey": "adj-stalin-902"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Tahmina Karim",
+      "institution": "Independent",
+      "conflicts": "",
+      "baseScore": 8.9,
+      "currentScore": 9.0,
+      "judgedTeams": [
+        "BUETDC Zenith"
+      ],
+      "evalCount": 1,
+      "accessKey": "adj-tahmina-903"
+    },
+    {
+      "id": 4,
+      "name": "Zubair Al Mahmud",
+      "institution": "BUET",
+      "conflicts": "BUET, North South University",
+      "baseScore": 8.4,
+      "currentScore": 8.5,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-zubair-904"
+    },
+    {
+      "id": 5,
+      "name": "Rubaiya Sultana",
+      "institution": "BRAC University",
+      "conflicts": "BRAC University",
+      "baseScore": 7.9,
+      "currentScore": 8.1,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-rubaiya-905"
+    },
+    {
+      "id": 6,
+      "name": "Ashfaqur Rahman",
+      "institution": "Jahangirnagar University",
+      "conflicts": "Jahangirnagar University",
+      "baseScore": 7.6,
+      "currentScore": 7.7,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-ashfaq-906"
+    }
+  ],
+  "evaluations": [
+    {
+      "judgeName": "Akm Shoaib",
+      "teamName": "BRACU Rhetoric",
+      "score": 9.7,
+      "prior": 9.4,
+      "updated": 9.5,
+      "comments": "Clear comparative weighing of clashes and accurate tracking of rebuttal responses."
+    },
+    {
+      "judgeName": "Rashedul Hasan Stalin",
+      "teamName": "RUDO Dialectics",
+      "score": 9.4,
+      "prior": 9.1,
+      "updated": 9.2,
+      "comments": "Structured oral adjudication with constructive whip feedback."
+    }
+  ]
+}

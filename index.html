@@ -3,1156 +3,1472 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3rd RGCDC Dialogues 2026 | Calico Tab — Tabbycat Debate Tabulation</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>RGCDC Tab | 3rd RGCDC Dialogues 2026 — Calico Tabbycat</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      --calico-nav: #1b2432;
-      --calico-nav-border: #2d3848;
-      --calico-sidebar: #f8f9fa;
-      --calico-border: #dee2e6;
-      --calico-primary: #2563eb;
-      --calico-hover: #f1f5f9;
-      --calico-text: #212529;
-      --calico-muted: #6c757d;
-    }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--calico-text);
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
-    .font-mono-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-variant-numeric: tabular-nums;
-    }
-    /* Indistinguishable Calico Tab / Tabbycat Table Aesthetics */
-    .calico-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.875rem;
-    }
-    .calico-table thead th {
-      background-color: #f8f9fa;
-      color: #495057;
-      font-weight: 600;
-      text-align: left;
-      padding: 0.65rem 0.85rem;
-      border-top: 1px solid #dee2e6;
-      border-bottom: 2px solid #dee2e6;
-      white-space: nowrap;
-      user-select: none;
-    }
-    .calico-table tbody td {
-      padding: 0.6rem 0.85rem;
-      border-bottom: 1px solid #e9ecef;
-      vertical-align: middle;
-    }
-    .calico-table tbody tr {
-      transition: background-color 0.12s ease-in-out;
-    }
-    .calico-table tbody tr:hover {
-      background-color: #f1f5f9;
-    }
-    /* Sidebar Nav Link Styling */
-    .sidebar-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 0.85rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #343a40;
-      border-left: 3px solid transparent;
-      transition: all 0.12s ease;
-      cursor: pointer;
-    }
-    .sidebar-link:hover {
-      background-color: #e9ecef;
-      color: #0f172a;
-    }
-    .sidebar-link.active {
-      background-color: #e2e8f0;
-      color: #1d4ed8;
-      border-left-color: #1d4ed8;
-      font-weight: 600;
-    }
-    .calico-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.15rem 0.5rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      border-radius: 0.25rem;
-      line-height: 1.2;
-    }
-    .calico-card {
-      background: #ffffff;
-      border: 1px solid #dee2e6;
-      border-radius: 0.25rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-    }
-    .calico-card-header {
-      background-color: #f8f9fa;
-      border-bottom: 1px solid #dee2e6;
-      padding: 0.65rem 1rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #343a40;
-    }
-    .calico-input {
-      width: 100%;
-      border: 1px solid #ced4da;
-      border-radius: 0.25rem;
-      padding: 0.45rem 0.65rem;
-      font-size: 0.875rem;
-      color: #212529;
-      background-color: #fff;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-    .calico-input:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-    }
-    .calico-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.45rem 0.85rem;
-      font-size: 0.84rem;
-      font-weight: 500;
-      border-radius: 0.25rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .calico-btn-primary {
-      background-color: #0d6efd;
-      color: #ffffff;
-      border-color: #0d6efd;
-    }
-    .calico-btn-primary:hover {
-      background-color: #0b5ed7;
-    }
-    .calico-btn-outline {
-      background-color: #ffffff;
-      color: #495057;
-      border-color: #ced4da;
-    }
-    .calico-btn-outline:hover {
-      background-color: #f8f9fa;
-      color: #212529;
-    }
-    .calico-btn-success {
-      background-color: #198754;
-      color: #ffffff;
-      border-color: #198754;
-    }
-    .calico-btn-success:hover {
-      background-color: #157347;
-    }
+/*
+ * RGCDC Tab — Classic Calico Tab / Tabbycat Stylesheet
+ * Strict Rules:
+ * - Zero box-shadow
+ * - Zero linear-gradient
+ * - Border-radius: 2px max (sharp rectangular classic controls)
+ * - Pure white (#FFFFFF) background, Deep Blue (#1A365D) navbar, Dark Gray (#333333) text
+ * - High-density 1px solid #dee2e6 data tables (Excel / Tabbycat style)
+ */
+
+* {
+  box-sizing: border-box;
+  box-shadow: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  color: #333333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Top Navbar */
+.top-navbar {
+  background-color: #1A365D;
+  color: #FFFFFF;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid #102A43;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.brand-logo {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #9FB3C8;
+  background-color: #FFFFFF;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: #BCCCDC;
+  margin-left: 6px;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Main Structural Layout: Fixed Left Sidebar + Wide White Content Area */
+.layout-wrapper {
+  display: flex;
+  min-height: calc(100vh - 42px);
+  background-color: #FFFFFF;
+}
+
+.left-sidebar {
+  width: 215px;
+  background-color: #F8F9FA;
+  border-right: 1px solid #DEE2E6;
+  flex-shrink: 0;
+  padding: 8px 0;
+  user-select: none;
+}
+
+.sidebar-heading {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6C757D;
+  padding: 6px 12px 3px 12px;
+  letter-spacing: 0.4px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 12px;
+  color: #333333;
+  font-size: 13px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+}
+
+.sidebar-item:hover {
+  background-color: #E9ECEF;
+}
+
+.sidebar-item.active {
+  background-color: #E2E8F0;
+  color: #1A365D;
+  font-weight: 700;
+  border-left-color: #1A365D;
+}
+
+.content-area {
+  flex: 1;
+  background-color: #FFFFFF;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+/* Typography & Section Headers */
+h1, h2, h3, h4 {
+  margin: 0 0 6px 0;
+  color: #333333;
+  font-weight: 600;
+}
+
+.page-header {
+  border-bottom: 1px solid #DEE2E6;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.page-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A365D;
+}
+
+.page-subtitle {
+  font-size: 12px;
+  color: #555555;
+}
+
+/* Classic Data Tables (Excel / Google Sheets / Tabbycat Grid) */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 13px;
+  background-color: #FFFFFF;
+}
+
+table.data-table th,
+table.data-table td {
+  border: 1px solid #DEE2E6;
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+table.data-table thead th {
+  background-color: #F1F3F5;
+  color: #333333;
+  font-weight: 700;
+  border-bottom: 2px solid #CED4DA;
+  white-space: nowrap;
+}
+
+table.data-table tbody tr:hover {
+  background-color: #F8F9FA;
+}
+
+.num-col {
+  text-align: right !important;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
+
+.center-col {
+  text-align: center !important;
+}
+
+/* Rectangular Classic Buttons & Inputs (border-radius: 2px, no shadow) */
+button, .btn {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ADB5BD;
+  border-radius: 2px;
+  background-color: #F8F9FA;
+  color: #333333;
+  text-decoration: none;
+}
+
+button:hover, .btn:hover {
+  background-color: #E2E6EA;
+}
+
+.btn-primary {
+  background-color: #1A365D;
+  color: #FFFFFF;
+  border-color: #1A365D;
+}
+
+.btn-primary:hover {
+  background-color: #102A43;
+}
+
+.btn-success {
+  background-color: #198754;
+  color: #FFFFFF;
+  border-color: #146C43;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+}
+
+.btn-danger {
+  background-color: #DC3545;
+  color: #FFFFFF;
+  border-color: #B02A37;
+}
+
+.btn-warning {
+  background-color: #FFC107;
+  color: #212529;
+  border-color: #D39E00;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 13px;
+  color: #333333;
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  border-radius: 2px;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #1A365D;
+}
+
+/* Flat Tags / Status Labels */
+.tag {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #CED4DA;
+  border-radius: 2px;
+  background-color: #F8F9FA;
+  color: #333333;
+}
+
+.tag-gov { background-color: #E7F5FF; border-color: #A5D8FF; color: #1864AB; }
+.tag-opp { background-color: #FFF4E6; border-color: #FFD8A8; color: #D9480F; }
+.tag-ok { background-color: #D3F9D8; border-color: #8CE99A; color: #2B8A3E; }
+.tag-warn { background-color: #FFF3BF; border-color: #FFE066; color: #E67700; }
+.tag-err { background-color: #FFE3E3; border-color: #FFA8A8; color: #C92A2A; }
+
+/* Notice Bar */
+.notice-bar {
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #B8DAFF;
+  background-color: #CCE5FF;
+  color: #004085;
+  border-radius: 2px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .layout-wrapper {
+    flex-direction: column;
+  }
+  .left-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #DEE2E6;
+  }
+}
+
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-white text-slate-900">
+<body>
 
-  <!-- TOP NAVBAR (Authentic Calico Tab / Tabbycat Dark Slate Header) -->
-  <header class="bg-[#1b2432] text-white border-b border-[#2d3848] sticky top-0 z-30">
-    <div class="max-w-full mx-auto px-4 h-12 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-1" aria-label="Toggle Menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-        <!-- Calico Cat Emblem -->
-        <div class="flex items-center gap-2 cursor-pointer" id="brandHomeBtn">
-          <div class="w-7 h-7 rounded bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300 font-bold text-sm">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L9 7H6L4 3L3 10C3 15.5 7 20 12 20C17 20 21 15.5 21 10L20 3L18 7H15L12 2ZM8.5 11C9.3 11 10 11.7 10 12.5C10 13.3 9.3 14 8.5 14C7.7 14 7 13.3 7 12.5C7 11.7 7.7 11 8.5 11ZM15.5 11C16.3 11 17 11.7 17 12.5C17 13.3 16.3 14 15.5 14C14.7 14 14 13.3 14 12.5C14 11.7 14.7 11 15.5 11ZM12 16.5C10.7 16.5 9.6 15.8 9.2 14.8H14.8C14.4 15.8 13.3 16.5 12 16.5Z"/>
-            </svg>
-          </div>
-          <span class="font-semibold tracking-tight text-sm sm:text-base">3rd RGCDC Dialogues 2026</span>
-        </div>
-        <span id="headerFormatBadge" class="calico-badge bg-blue-600/30 text-blue-200 border border-blue-400/40 font-mono-num">AP (3v3)</span>
-        <span id="headerRoundBadge" class="hidden sm:inline-flex calico-badge bg-emerald-600/30 text-emerald-200 border border-emerald-400/40 font-mono-num">Round 1 Active</span>
-      </div>
+  <!-- CLASSIC CALICO TAB / TABBYCAT TOP NAVBAR (#1A365D) -->
+  <header class="top-navbar">
+    <div class="brand-wrap" id="brandHomeBtn">
+      <img
+        class="brand-logo"
+        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231A365D'/><path d='M7 24L10 9L14 14H18L22 9L25 24H7Z' fill='%23FFFFFF'/><circle cx='13' cy='18' r='1.5' fill='%231A365D'/><circle cx='19' cy='18' r='1.5' fill='%231A365D'/></svg>"
+        alt="RGCDC Logo"
+      />
+      <span class="brand-title">RGCDC Tab</span>
+      <span class="brand-sub" id="navTournamentSub">3rd RGCDC Dialogues 2026</span>
+      <span class="tag" id="navFormatTag" style="margin-left:6px;background:#102A43;color:#FFFFFF;border-color:#486581;">AP (3v3)</span>
+      <span class="tag" id="navRoundTag" style="background:#198754;color:#FFFFFF;border-color:#146C43;">Round 1</span>
+    </div>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <div class="hidden lg:flex items-center gap-1.5 text-xs text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded border border-slate-700">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span>Hungarian Draw Engine v2.6</span>
-        </div>
-        <button id="quickFormatSwitchBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 px-2.5 py-1 rounded transition">
-          Switch AP / BP
-        </button>
-        <button id="adminToggleBtn" class="text-xs bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-2.5 py-1 rounded transition">
-          Admin Portal
-        </button>
-      </div>
+    <div class="top-nav-right">
+      <button id="exportJsonBtn" title="Download tournament_data.json to upload to GitHub">Export Data (.json)</button>
+      <button id="importJsonBtn" title="Load a saved tournament_data.json file">Import (.json)</button>
+      <input type="file" id="importJsonFileInput" accept=".json" class="hidden" />
+      <button id="quickSwitchFormatBtn">Switch AP / BP</button>
+      <button id="goToPortalBtn" class="btn-warning">Judge / Debater Access</button>
+      <button id="goToAdminBtn" class="btn-primary" style="border-color:#9FB3C8;">Admin Area</button>
     </div>
   </header>
 
-  <!-- MAIN STRUCTURAL LAYOUT (Sidebar + Content Area) -->
-  <div class="flex-1 flex flex-col md:flex-row relative">
+  <!-- STRUCTURAL LAYOUT: FIXED LEFT SIDEBAR + WIDE WHITE CONTENT AREA -->
+  <div class="layout-wrapper">
 
-    <!-- STRUCTURAL SIDEBAR (Calico Tab Left Nav) -->
-    <aside id="sidebarNav" class="w-full md:w-60 bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#dee2e6] shrink-0 hidden md:block">
-      <div class="py-3">
-        <div class="px-3.5 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">Public Tabulation</div>
-        <nav class="space-y-0.5">
-          <div class="sidebar-link active" data-tab="overview">
-            <span>Tournament Overview</span>
-            <span class="text-xs text-slate-400 font-mono-num">Home</span>
-          </div>
-          <div class="sidebar-link" data-tab="draw">
-            <span>Current Draw &amp; Rooms</span>
-            <span id="navRoomCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">4</span>
-          </div>
-          <div class="sidebar-link" data-tab="team-standings">
-            <span>Team Standings</span>
-            <span id="navTeamCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">8</span>
-          </div>
-          <div class="sidebar-link" data-tab="speaker-standings">
-            <span>Speaker Tab</span>
-            <span id="navSpeakerCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">24</span>
-          </div>
-          <div class="sidebar-link" data-tab="adjudicators-public">
-            <span>Adjudicators &amp; Feedback</span>
-            <span id="navAdjCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">6</span>
-          </div>
-          <div class="sidebar-link" data-tab="motions">
-            <span>Motions</span>
-            <span id="navMotionCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">2</span>
-          </div>
-        </nav>
+    <!-- LEFT SIDEBAR -->
+    <aside class="left-sidebar">
+      <div class="sidebar-heading">Public Tab</div>
+      <div class="sidebar-item active" data-tab="overview">
+        <span>Site Home (Overview)</span>
+      </div>
+      <div class="sidebar-item" data-tab="draw">
+        <span>Current Draw</span>
+        <span class="tag" id="sideRoomCount">4</span>
+      </div>
+      <div class="sidebar-item" data-tab="team-standings">
+        <span>Team Standings</span>
+        <span class="tag" id="sideTeamCount">8</span>
+      </div>
+      <div class="sidebar-item" data-tab="speaker-standings">
+        <span>Speaker Tab</span>
+        <span class="tag" id="sideSpeakerCount">24</span>
+      </div>
+      <div class="sidebar-item" data-tab="adjudicators-public">
+        <span>Adjudicators List</span>
+        <span class="tag" id="sideAdjCount">6</span>
+      </div>
+      <div class="sidebar-item" data-tab="motions">
+        <span>Motions</span>
+        <span class="tag" id="sideMotionCount">2</span>
+      </div>
 
-        <div class="mt-5 px-3.5 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-700 flex items-center justify-between">
-          <span>Admin Data &amp; Ops</span>
-          <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-semibold">Tab Room</span>
-        </div>
-        <nav class="space-y-0.5">
-          <div class="sidebar-link" data-tab="admin-entry">
-            <span>1. Format &amp; Data Entry</span>
-            <span class="text-[11px] text-blue-600 font-semibold">AP/BP</span>
-          </div>
-          <div class="sidebar-link" data-tab="admin-draw">
-            <span>2. Hungarian Draw Engine</span>
-            <span class="text-[11px] text-emerald-700 font-semibold">O(V³)</span>
-          </div>
-          <div class="sidebar-link" data-tab="admin-ballots">
-            <span>3. Ballots &amp; Motions</span>
-            <span id="navPendingBallots" class="calico-badge bg-amber-100 text-amber-800 font-mono-num">4</span>
-          </div>
-          <div class="sidebar-link" data-tab="admin-evals">
-            <span>4. Judge Evaluations</span>
-            <span id="navEvalCount" class="calico-badge bg-slate-200 text-slate-700 font-mono-num">3</span>
-          </div>
-        </nav>
+      <div class="sidebar-heading" style="margin-top:10px;color:#0B5ED7;">Participant Access</div>
+      <div class="sidebar-item" data-tab="participant-portal">
+        <span>Private URLs / Submit</span>
+        <span class="tag tag-gov">Live</span>
+      </div>
 
-        <!-- Tournament Metadata Footer in Sidebar -->
-        <div class="mt-6 mx-3 p-3 bg-white rounded border border-slate-200 text-xs text-slate-600 space-y-1.5">
-          <div class="font-semibold text-slate-800">Host Institution</div>
-          <div>Rangpur Government College Debating Club (RGCDC)</div>
-          <div class="pt-1 border-t border-slate-100 flex items-center justify-between">
-            <span>Format:</span>
-            <span id="sidebarFormatText" class="font-semibold text-blue-700">Asian Parliamentary</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>Speakers/Team:</span>
-            <span id="sidebarSpeakerLimit" class="font-mono-num font-semibold">3 Speakers</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>Teams/Room:</span>
-            <span id="sidebarRoomTeams" class="font-mono-num font-semibold">2 (Gov vs Opp)</span>
-          </div>
-        </div>
+      <div class="sidebar-heading" style="margin-top:10px;color:#B02A37;">Admin Area (Tab Room)</div>
+      <div class="sidebar-item" data-tab="admin-entry">
+        <span>1. Data Entry (Teams/Judges)</span>
+      </div>
+      <div class="sidebar-item" data-tab="admin-draw">
+        <span>2. Draw &amp; Allocate Judges</span>
+      </div>
+      <div class="sidebar-item" data-tab="admin-ballots">
+        <span>3. Enter Ballots &amp; Motions</span>
+        <span class="tag tag-warn" id="sidePendingBallots">4</span>
+      </div>
+      <div class="sidebar-item" data-tab="admin-evals">
+        <span>4. Feedback &amp; Ratings</span>
+        <span class="tag" id="sideEvalCount">2</span>
+      </div>
+      <div class="sidebar-item" data-tab="admin-sync">
+        <span>5. Database &amp; GitHub Sync</span>
       </div>
     </aside>
 
-    <!-- MAIN WORKSPACE CONTENT -->
-    <main class="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto w-full">
+    <!-- RIGHT WIDE WHITE CONTENT AREA -->
+    <main class="content-area">
 
-      <!-- Toast Notification Banner -->
-      <div id="toastBanner" class="hidden mb-4 px-4 py-2.5 rounded border text-sm flex items-center justify-between transition-all">
-        <span id="toastMessage"></span>
-        <button id="toastCloseBtn" class="text-xs font-semibold ml-4 underline">Dismiss</button>
+      <!-- STATUS / NOTIFICATION BAR -->
+      <div id="noticeBar" class="notice-bar hidden">
+        <span id="noticeText"></span>
+        <button id="noticeCloseBtn" style="padding:1px 6px;">Close</button>
       </div>
 
       <!-- ========================================================= -->
-      <!-- VIEW 1: TOURNAMENT OVERVIEW (Calico Tab Welcome Page)     -->
+      <!-- 1. SITE HOME / OVERVIEW (PURE DATA TABLES, NO CARDS)      -->
       <!-- ========================================================= -->
-      <section id="view-overview" class="tab-view space-y-5">
-        <div class="border-b border-[#dee2e6] pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <section id="view-overview" class="tab-view">
+        <div class="page-header">
           <div>
-            <div class="text-xs uppercase tracking-wider font-semibold text-slate-500">Calico Tab — Open-Source Parliamentary Tabulation</div>
-            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Welcome to 3rd RGCDC Dialogues 2026</h1>
-            <p class="text-sm text-slate-600 mt-1">Hosted by <span class="font-medium text-slate-800">Rangpur Government College Debating Club (RGCDC)</span> • Power-Paired &amp; Hungarian Graph Adjudicator Allocation</p>
+            <div class="page-title">Welcome to 3rd RGCDC Dialogues 2026</div>
+            <div class="page-subtitle">Host: Rangpur Government College Debating Club (RGCDC) • Tabbycat 2.11.0-c (Calico)</div>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <button class="calico-btn calico-btn-primary" data-goto="draw">View Current Draw</button>
-            <button class="calico-btn calico-btn-outline" data-goto="admin-entry">Admin Data Entry</button>
-            <button class="calico-btn calico-btn-success" data-goto="admin-ballots">Enter Ballots</button>
-          </div>
-        </div>
-
-        <!-- KPI Summary Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Active Format</div>
-            <div id="kpiFormat" class="text-lg font-bold text-blue-700 mt-1 font-mono-num">AP (3v3)</div>
-            <div id="kpiFormatSub" class="text-[11px] text-slate-500 mt-0.5">3 Speakers / Team</div>
-          </div>
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Registered Teams</div>
-            <div id="kpiTeams" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">8</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">Power-Paired</div>
-          </div>
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Registered Speakers</div>
-            <div id="kpiSpeakers" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">24</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">68–82 Scale</div>
-          </div>
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Adjudicators</div>
-            <div id="kpiJudges" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">6</div>
-            <div class="text-[11px] text-emerald-700 mt-0.5">0 Conflict Clashes</div>
-          </div>
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Current Round</div>
-            <div id="kpiRound" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">Round 1</div>
-            <div id="kpiBallotStatus" class="text-[11px] text-amber-700 mt-0.5">Ballots Open</div>
-          </div>
-          <div class="calico-card p-3.5">
-            <div class="text-xs text-slate-500 font-medium">Institutions</div>
-            <div id="kpiInsts" class="text-lg font-bold text-slate-900 mt-1 font-mono-num">8</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">Hard-Constrained</div>
+          <div>
+            <button class="btn-primary" data-goto="draw">View Current Draw</button>
+            <button data-goto="participant-portal">Submit Ballot / Feedback</button>
+            <button data-goto="admin-entry">Admin Data Entry</button>
           </div>
         </div>
 
-        <!-- Quick Navigation Grid (Authentic Tabbycat Public Buttons) -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <div class="calico-card">
-            <div class="calico-card-header flex items-center justify-between">
-              <span>Live Tournament Leaderboard Preview (Top 5 Teams)</span>
-              <button class="text-xs text-blue-600 hover:underline font-medium" data-goto="team-standings">Full Standings →</button>
-            </div>
-            <div class="overflow-x-auto">
-              <table class="calico-table">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>Institution</th>
-                    <th class="text-right">Pts</th>
-                    <th class="text-right">Speaks</th>
-                  </tr>
-                </thead>
-                <tbody id="overviewTopTeamsBody"></tbody>
-              </table>
-            </div>
-          </div>
+        <h3>Tournament Status &amp; Configuration Summary</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Tournament Name</th>
+              <th>Active Format</th>
+              <th class="num-col">Teams</th>
+              <th class="num-col">Speakers</th>
+              <th class="num-col">Adjudicators</th>
+              <th>Current Round</th>
+              <th>Ballot Status</th>
+              <th>Data Storage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>3rd RGCDC Dialogues 2026</strong></td>
+              <td id="ovFormatCell">Asian Parliamentary (3 Speakers/Team, 2 Teams/Room)</td>
+              <td class="num-col" id="ovTeamsCell">8</td>
+              <td class="num-col" id="ovSpeakersCell">24</td>
+              <td class="num-col" id="ovJudgesCell">6</td>
+              <td id="ovRoundCell">Round 1</td>
+              <td id="ovBallotCell"><span class="tag tag-warn">4 Pending</span></td>
+              <td><span class="tag tag-ok">Auto-Saved (Browser + JSON)</span></td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div class="calico-card">
-            <div class="calico-card-header flex items-center justify-between">
-              <span>Current Round Motion &amp; Draw Summary</span>
-              <button class="text-xs text-blue-600 hover:underline font-medium" data-goto="draw">Open Full Draw →</button>
-            </div>
-            <div class="p-4 space-y-3">
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Active Motion</div>
-                <div id="overviewActiveMotion" class="text-sm font-medium text-slate-900 mt-1"></div>
-              </div>
-              <div class="text-xs text-slate-600 leading-relaxed">
-                <strong>Algorithm Guarantee:</strong> Every room pairing is strictly power-paired by bracket points (<span class="font-mono-num">total_points</span>, then <span class="font-mono-num">total_speaks</span>). Adjudicators are allocated via the <strong>Kuhn-Munkres Hungarian Algorithm</strong> minimizing global quality mismatch while enforcing <span class="font-mono-num">C[i,j] = ∞</span> for institutional conflicts and prior team history.
-              </div>
-              <div class="flex flex-wrap gap-2 pt-1">
-                <button class="calico-btn calico-btn-primary text-xs" data-goto="admin-draw">Inspect Hungarian Cost Matrix</button>
-                <button class="calico-btn calico-btn-outline text-xs" data-goto="adjudicators-public">Submit Judge Feedback</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h3>Current Round Active Motion</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:110px;">Round</th>
+              <th>Motion Text</th>
+              <th>Info Slide</th>
+            </tr>
+          </thead>
+          <tbody id="ovMotionBody"></tbody>
+        </table>
+
+        <h3>Current Top 5 Teams Standings Preview</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:50px;">Rank</th>
+              <th>Team Name</th>
+              <th>Institution</th>
+              <th>Speakers</th>
+              <th class="num-col">Team Pts</th>
+              <th class="num-col">Total Speaks</th>
+            </tr>
+          </thead>
+          <tbody id="ovTopTeamsBody"></tbody>
+        </table>
       </section>
 
       <!-- ========================================================= -->
-      <!-- VIEW 2: CURRENT DRAW & ROOMS                              -->
+      <!-- 2. CURRENT DRAW & ROOMS                                   -->
       <!-- ========================================================= -->
-      <section id="view-draw" class="tab-view hidden space-y-5">
-        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <section id="view-draw" class="tab-view hidden">
+        <div class="page-header">
           <div>
-            <h2 id="drawPageTitle" class="text-xl font-bold text-slate-900">Round 1 Draw — Power-Paired Matchups</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Strict bracket matching with Hungarian Minimum-Weight Perfect Matching for Chairs &amp; Panellists</p>
+            <div class="page-title" id="drawTitle">Round 1 Draw (Released)</div>
+            <div class="page-subtitle" id="drawSubtitle">Power-Paired Matchups &amp; Hungarian Adjudicator Allocation</div>
           </div>
-          <div class="flex items-center gap-2">
-            <button id="recomputeDrawBtnPublic" class="calico-btn calico-btn-primary">Re-Run Hungarian Draw</button>
-            <button class="calico-btn calico-btn-outline" data-goto="admin-ballots">Enter Room Ballots</button>
+          <div>
+            <button class="btn-primary" data-goto="admin-draw">Edit / Re-Allocate Judges in Admin</button>
+            <button class="btn-success" data-goto="admin-ballots">Enter Ballots</button>
           </div>
         </div>
 
-        <div class="calico-card overflow-hidden">
-          <div class="calico-card-header flex items-center justify-between">
-            <span>Released Matchups &amp; Adjudicator Panels</span>
-            <span id="drawFormatSubtitle" class="text-xs text-slate-500 font-mono-num">Format: AP (Government vs. Opposition)</span>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="calico-table">
-              <thead id="drawTableHead"></thead>
-              <tbody id="drawTableBody"></tbody>
-            </table>
-          </div>
-        </div>
+        <table class="data-table">
+          <thead id="publicDrawHead"></thead>
+          <tbody id="publicDrawBody"></tbody>
+        </table>
       </section>
 
       <!-- ========================================================= -->
-      <!-- VIEW 3: TEAM STANDINGS                                    -->
+      <!-- 3. TEAM STANDINGS                                         -->
       <!-- ========================================================= -->
-      <section id="view-team-standings" class="tab-view hidden space-y-4">
-        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <section id="view-team-standings" class="tab-view hidden">
+        <div class="page-header">
           <div>
-            <h2 class="text-xl font-bold text-slate-900">Team Standings (Live Tab)</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Sorted by Team Points, Total Speaker Score (Speaks), and 1st Ranks</p>
+            <div class="page-title">Team Standings (Live Tab)</div>
+            <div class="page-subtitle">Ordered by Team Points, Total Substantive Speaker Points, and First Places</div>
           </div>
-          <div class="w-full sm:w-64">
-            <input id="teamSearchInput" type="text" class="calico-input" placeholder="Filter teams or institutions..." />
+          <div style="width:220px;">
+            <input type="text" id="teamFilterInput" placeholder="Filter team or institution..." />
           </div>
         </div>
 
-        <div class="calico-card overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="calico-table">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:45px;">Rank</th>
+              <th>Team Name</th>
+              <th>Institution</th>
+              <th>Speakers</th>
+              <th class="num-col">Wins / Pts</th>
+              <th class="num-col">Total Speaks</th>
+              <th class="num-col">1sts</th>
+              <th class="center-col">Sides (Gov/Opp)</th>
+            </tr>
+          </thead>
+          <tbody id="teamStandingsBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 4. SPEAKER STANDINGS                                      -->
+      <!-- ========================================================= -->
+      <section id="view-speaker-standings" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Individual Speaker Tab</div>
+            <div class="page-subtitle">Substantive speech scores (68.0 – 82.0 scale)</div>
+          </div>
+          <div style="width:220px;">
+            <input type="text" id="speakerFilterInput" placeholder="Filter speaker or team..." />
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:45px;">Rank</th>
+              <th>Speaker Name</th>
+              <th>Team Name</th>
+              <th>Institution</th>
+              <th class="num-col">Rounds Spoken</th>
+              <th class="num-col">Total Speaks</th>
+              <th class="num-col">Average Speaks</th>
+            </tr>
+          </thead>
+          <tbody id="speakerStandingsBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 5. ADJUDICATORS LIST                                      -->
+      <!-- ========================================================= -->
+      <section id="view-adjudicators-public" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Registered Adjudicators &amp; Core Ratings</div>
+            <div class="page-subtitle">Live effective scores dynamically adjusted from team feedback evaluations</div>
+          </div>
+          <button class="btn-primary" data-goto="admin-evals">Submit Judge Feedback</button>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:45px;">#</th>
+              <th>Adjudicator Name</th>
+              <th>Institution / Declared Conflicts</th>
+              <th>Teams Judged (History Constraint)</th>
+              <th class="num-col">Base Score</th>
+              <th class="num-col">Effective Score</th>
+              <th class="num-col">Feedbacks</th>
+            </tr>
+          </thead>
+          <tbody id="adjPublicBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 6. MOTIONS ARCHIVE                                        -->
+      <!-- ========================================================= -->
+      <section id="view-motions" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Tournament Motions</div>
+            <div class="page-subtitle">Motions and Info Slides by Round</div>
+          </div>
+          <button class="btn-primary" data-goto="admin-ballots">Add / Edit Motion</button>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:110px;">Round</th>
+              <th>Motion</th>
+              <th>Info Slide</th>
+            </tr>
+          </thead>
+          <tbody id="motionsArchiveBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 7. PARTICIPANT PRIVATE URLS & SELF-SUBMISSION PORTAL      -->
+      <!-- ========================================================= -->
+      <section id="view-participant-portal" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Participant Private URLs &amp; Online Ballot / Feedback Portal</div>
+            <div class="page-subtitle">In Calico Tab / Tabbycat, each Adjudicator submits their room's ballot and each Team submits Judge Feedback via their Private Access Key.</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:50%;">Adjudicator Private Ballot Access (Select Judge to Open Their Room Ballot)</th>
+              <th style="width:50%;">Debater / Team Private Feedback Access (Select Team to Rate Judge)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;gap:6px;align-items:center;">
+                  <select id="portalJudgeSelect"></select>
+                  <button id="openJudgeBallotPortalBtn" class="btn-primary" style="white-space:nowrap;">Open My Room Ballot</button>
+                </div>
+              </td>
+              <td>
+                <div style="display:flex;gap:6px;align-items:center;">
+                  <select id="portalTeamSelect"></select>
+                  <button id="openTeamFeedbackPortalBtn" class="btn-success" style="white-space:nowrap;">Open Feedback Form</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Generated Private URLs / Access Keys Directory (Admin Reference)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Participant / Team Name</th>
+              <th>Institution</th>
+              <th>Assigned Room (Current Round)</th>
+              <th>Private Access Key / URL</th>
+              <th>Quick Action</th>
+            </tr>
+          </thead>
+          <tbody id="privateUrlsTableBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 8. ADMIN MODULE 1: SIMPLIFIED DATA ENTRY (TEAMS & JUDGES) -->
+      <!-- ========================================================= -->
+      <section id="view-admin-entry" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Admin Data Entry — Format, Teams &amp; Adjudicators</div>
+            <div class="page-subtitle">Simplified entry: Only Team Name, Institution Name, and Speakers (3 for AP, 2 for BP). No redundant short-code fields.</div>
+          </div>
+          <div>
+            <button id="setFormatApBtn" class="btn-primary">Asian Parliamentary (AP - 3 Speakers)</button>
+            <button id="setFormatBpBtn">British Parliamentary (BP - 2 Speakers)</button>
+          </div>
+        </div>
+
+        <!-- SIMPLIFIED TEAM ENTRY TABLE FORM -->
+        <h3>Add New Team (<span id="formFormatLabel">Asian Parliamentary — 3 Speakers per Team</span>)</h3>
+        <form id="simpleTeamForm">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:22%;">Team Name *</th>
+                <th style="width:22%;">Institution Name *</th>
+                <th id="speakerColHeader">Team Members / Speakers (Name &amp; Optional Email) *</th>
+                <th style="width:110px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align:top;">
+                  <input type="text" id="tNameInput" required placeholder="e.g. RGCDC Beta" />
+                </td>
+                <td style="vertical-align:top;">
+                  <input type="text" id="tInstInput" required placeholder="e.g. Rangpur Government College" />
+                </td>
+                <td id="dynamicSpeakerInputsCell"></td>
+                <td style="vertical-align:top;">
+                  <button type="submit" class="btn-primary" style="width:100%;padding:8px 6px;">+ Add Team</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+        <!-- SIMPLIFIED ADJUDICATOR ENTRY TABLE FORM -->
+        <h3>Add New Adjudicator (Judge)</h3>
+        <form id="simpleAdjForm">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:25%;">Adjudicator Name *</th>
+                <th style="width:30%;">Institution / Conflicts (Comma-separated) *</th>
+                <th style="width:20%;">Email (Optional)</th>
+                <th style="width:13%;">Base Score (1–10) *</th>
+                <th style="width:110px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" id="aNameInput" required placeholder="e.g. Sadia Afrin" /></td>
+                <td><input type="text" id="aConflictInput" required placeholder="e.g. Dhaka University, RGCDC" /></td>
+                <td><input type="email" id="aEmailInput" placeholder="judge@email.com" /></td>
+                <td><input type="number" id="aScoreInput" step="0.1" min="1" max="10" value="8.0" required /></td>
+                <td><button type="submit" class="btn-primary" style="width:100%;">+ Add Judge</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+        <!-- EXISTING TEAMS & JUDGES MANAGEMENT TABLES -->
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;">
+          <div>
+            <h3>Registered Teams Roster (<span id="rosterTeamCount">8</span>)</h3>
+            <table class="data-table">
               <thead>
                 <tr>
-                  <th class="w-14">Rank</th>
+                  <th style="width:40px;">ID</th>
                   <th>Team Name</th>
                   <th>Institution</th>
                   <th>Speakers</th>
-                  <th class="text-right">Wins / Pts</th>
-                  <th class="text-right">Total Speaks</th>
-                  <th class="text-right">1sts</th>
-                  <th class="text-center">Side Balance</th>
+                  <th class="num-col">Pts</th>
+                  <th class="num-col">Speaks</th>
+                  <th style="width:70px;">Remove</th>
                 </tr>
               </thead>
-              <tbody id="teamStandingsBody"></tbody>
+              <tbody id="adminTeamsRosterBody"></tbody>
             </table>
           </div>
-        </div>
-      </section>
 
-      <!-- ========================================================= -->
-      <!-- VIEW 4: SPEAKER STANDINGS                                 -->
-      <!-- ========================================================= -->
-      <section id="view-speaker-standings" class="tab-view hidden space-y-4">
-        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h2 class="text-xl font-bold text-slate-900">Individual Speaker Standings</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Standard parliamentary speaker scale (68.0 – 82.0) across all confirmed ballots</p>
-          </div>
-          <div class="w-full sm:w-64">
-            <input id="speakerSearchInput" type="text" class="calico-input" placeholder="Search speaker or team..." />
-          </div>
-        </div>
-
-        <div class="calico-card overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="calico-table">
+            <h3>Registered Adjudicators Roster (<span id="rosterAdjCount">6</span>)</h3>
+            <table class="data-table">
               <thead>
                 <tr>
-                  <th class="w-14">Rank</th>
-                  <th>Speaker Name</th>
-                  <th>Team</th>
-                  <th>Institution</th>
-                  <th class="text-right">Rounds</th>
-                  <th class="text-right">Total Speaks</th>
-                  <th class="text-right">Average Speaks</th>
-                </tr>
-              </thead>
-              <tbody id="speakerStandingsBody"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================================= -->
-      <!-- VIEW 5: ADJUDICATORS & PUBLIC FEEDBACK                    -->
-      <!-- ========================================================= -->
-      <section id="view-adjudicators-public" class="tab-view hidden space-y-5">
-        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div>
-            <h2 class="text-xl font-bold text-slate-900">Adjudicators &amp; Dynamic Core Ratings</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Judge ratings update dynamically via Bayesian shrinkage as teams submit post-round evaluations</p>
-          </div>
-          <button class="calico-btn calico-btn-primary" data-goto="admin-evals">Submit New Judge Evaluation</button>
-        </div>
-
-        <div class="calico-card overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="calico-table">
-              <thead>
-                <tr>
+                  <th style="width:40px;">ID</th>
                   <th>Judge Name</th>
-                  <th>Primary Institution</th>
-                  <th>Hard Conflict Institutions</th>
-                  <th>Teams Judged (History Constraint)</th>
-                  <th class="text-right">Base Core</th>
-                  <th class="text-right">Live Effective Score</th>
-                  <th class="text-right">Evals</th>
+                  <th>Institution / Conflicts</th>
+                  <th class="num-col">Base Score</th>
+                  <th class="num-col">Live Score</th>
+                  <th style="width:70px;">Remove</th>
                 </tr>
               </thead>
-              <tbody id="adjPublicTableBody"></tbody>
+              <tbody id="adminAdjRosterBody"></tbody>
             </table>
           </div>
         </div>
       </section>
 
       <!-- ========================================================= -->
-      <!-- VIEW 6: MOTIONS                                           -->
+      <!-- 9. ADMIN MODULE 2: DRAW & MANUAL/AUTO JUDGE ALLOCATION    -->
       <!-- ========================================================= -->
-      <section id="view-motions" class="tab-view hidden space-y-4">
-        <div class="border-b border-[#dee2e6] pb-3 flex items-center justify-between">
+      <section id="view-admin-draw" class="tab-view hidden">
+        <div class="page-header">
           <div>
-            <h2 class="text-xl font-bold text-slate-900">Tournament Motions Archive</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Official motions and info slides released for 3rd RGCDC Dialogues 2026</p>
+            <div class="page-title">Admin Draw Generation &amp; Adjudicator Allocation Board</div>
+            <div class="page-subtitle">Run O(V³) Hungarian Auto-Allocation OR manually assign/swap Chairs and Panellists for each room just like Tabbycat.</div>
           </div>
-          <button class="calico-btn calico-btn-primary" data-goto="admin-ballots">Add Motion</button>
+          <div>
+            <button id="runAutoHungarianBtn" class="btn-primary">1. Auto-Generate Draw &amp; Hungarian Judge Allocation</button>
+            <button class="btn-success" data-goto="admin-ballots">2. Proceed to Ballots</button>
+          </div>
         </div>
-        <div id="motionsListContainer" class="space-y-3"></div>
+
+        <h3>Interactive Room &amp; Adjudicator Allocation Table (Admin Can Manually Override Any Chair / Panel)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:85px;">Venue</th>
+              <th style="width:85px;">Bracket</th>
+              <th>Matchup (Teams &amp; Institutions)</th>
+              <th style="width:230px;">Assigned Chair [C] (Dropdown Override)</th>
+              <th style="width:250px;">Assigned Panellists [P] (Click to Add/Remove)</th>
+              <th style="width:120px;">Conflict Check</th>
+            </tr>
+          </thead>
+          <tbody id="adminManualAllocBody"></tbody>
+        </table>
+
+        <h3>Hungarian Algorithm Cost Matrix C[Room, Judge] (10⁹ = Hard Conflict Forbidden)</h3>
+        <table class="data-table">
+          <thead id="costMatrixHead"></thead>
+          <tbody id="costMatrixBody"></tbody>
+        </table>
       </section>
 
       <!-- ========================================================= -->
-      <!-- VIEW 7: ADMIN PORTAL — FORMAT & DYNAMIC DATA ENTRY        -->
+      <!-- 10. ADMIN MODULE 3: OFFICIAL TABBYCAT BALLOT & MOTIONS    -->
       <!-- ========================================================= -->
-      <section id="view-admin-entry" class="tab-view hidden space-y-6">
-        <div class="border-b border-[#dee2e6] pb-3">
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-700">Admin Portal • Module 1</div>
-          <h2 class="text-xl font-bold text-slate-900">Dynamic Tournament Format &amp; Participant Data Entry</h2>
-          <p class="text-xs text-slate-600 mt-0.5">Select Asian Parliamentary (AP: 3 Speakers/Team) or British Parliamentary (BP: 2 Speakers/Team) to dynamically render speaker input blocks.</p>
-        </div>
-
-        <!-- Step 1: Format Selection Card -->
-        <div class="calico-card">
-          <div class="calico-card-header flex items-center justify-between">
-            <span>Tournament Format Selector (Conditional Form Engine)</span>
-            <span id="adminFormatPill" class="calico-badge bg-blue-100 text-blue-800 font-mono-num">Current: AP (3 Speakers)</span>
-          </div>
-          <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div id="selectApCard" class="border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-slate-900">Asian Parliamentary (AP)</span>
-                <span class="calico-badge bg-blue-600 text-white font-mono-num">3 Speakers / Team</span>
-              </div>
-              <p class="text-xs text-slate-600 mt-1.5">2 teams per room (Government vs. Opposition). Dynamically renders <strong>3 Speaker input blocks</strong> per team (PM, DPM, Whip).</p>
-            </div>
-            <div id="selectBpCard" class="border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-slate-900">British Parliamentary (BP)</span>
-                <span class="calico-badge bg-slate-200 text-slate-800 font-mono-num">2 Speakers / Team</span>
-              </div>
-              <p class="text-xs text-slate-600 mt-1.5">4 teams per room (OG, OO, CG, CO). Dynamically renders <strong>2 Speaker input blocks</strong> per team (Speaker 1, Speaker 2).</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2: Two-Column Dynamic Team Form & Adjudicator Form -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-          <!-- Dynamic Team & Speakers Registration Form -->
-          <div class="calico-card">
-            <div class="calico-card-header flex items-center justify-between">
-              <span>Register New Team &amp; Speakers</span>
-              <span id="dynamicSpeakerCountBadge" class="calico-badge bg-emerald-100 text-emerald-800 font-mono-num">Rendering 3 Speaker Blocks (AP)</span>
-            </div>
-            <form id="teamEntryForm" class="p-4 space-y-4">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Team Name / Reference *</label>
-                  <input id="inputTeamName" type="text" required class="calico-input" placeholder="e.g., RGCDC Crimson" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Short Code *</label>
-                  <input id="inputTeamShort" type="text" required class="calico-input" placeholder="e.g., RGCDC B" />
-                </div>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Institution Full Name *</label>
-                  <input id="inputTeamInstName" type="text" required class="calico-input" placeholder="e.g., Rangpur Govt. College" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Institution Code (Conflict Key) *</label>
-                  <input id="inputTeamInstCode" type="text" required class="calico-input font-mono-num uppercase" placeholder="e.g., RGCDC" />
-                </div>
-              </div>
-
-              <!-- Dynamically Rendered Speaker Blocks Container -->
-              <div class="border-t border-slate-200 pt-3">
-                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2" id="speakerBlocksHeader">
-                  Speaker Roster (AP Format — 3 Speakers Required)
-                </div>
-                <div id="dynamicSpeakerBlocks" class="space-y-3"></div>
-              </div>
-
-              <div class="pt-2 flex items-center justify-end gap-2">
-                <button type="submit" class="calico-btn calico-btn-primary w-full sm:w-auto">Save Team to Tab Database</button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Adjudicator & Conflict Input Form -->
-          <div class="calico-card">
-            <div class="calico-card-header flex items-center justify-between">
-              <span>Register Adjudicator &amp; Institutional Conflicts</span>
-              <span class="calico-badge bg-amber-100 text-amber-800">Hard Constraint Input</span>
-            </div>
-            <form id="adjEntryForm" class="p-4 space-y-4">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Adjudicator Full Name *</label>
-                  <input id="inputAdjName" type="text" required class="calico-input" placeholder="e.g., Sadia Afrin" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address (Optional)</label>
-                  <input id="inputAdjEmail" type="email" class="calico-input" placeholder="sadia@debate.org.bd" />
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Institution Name *</label>
-                  <input id="inputAdjInstName" type="text" required class="calico-input" placeholder="e.g., Dhaka University" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Institution Code *</label>
-                  <input id="inputAdjInstCode" type="text" required class="calico-input font-mono-num uppercase" placeholder="e.g., DUDS" />
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Initial Core Score (1.0 – 10.0) *</label>
-                  <input id="inputAdjScore" type="number" step="0.1" min="1.0" max="10.0" value="7.5" required class="calico-input font-mono-num" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Additional Conflict Codes (CSV)</label>
-                  <input id="inputAdjConflicts" type="text" class="calico-input font-mono-num uppercase" placeholder="e.g., RGCDC, BUETDC" />
-                </div>
-              </div>
-
-              <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-900 space-y-1">
-                <div class="font-semibold">How the Algorithm Uses This Field:</div>
-                <div>Any room containing a team from the judge's Primary Institution or Additional Conflict Codes receives an edge weight of <span class="font-mono-num font-bold">C[i,j] = 10⁹ (∞)</span> in the Hungarian Cost Matrix, strictly preventing conflict allocations.</div>
-              </div>
-
-              <div class="pt-2 flex items-center justify-end">
-                <button type="submit" class="calico-btn calico-btn-primary w-full sm:w-auto">Register Adjudicator</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================================= -->
-      <!-- VIEW 8: HUNGARIAN DRAW ENGINE & COST MATRIX INSPECTOR     -->
-      <!-- ========================================================= -->
-      <section id="view-admin-draw" class="tab-view hidden space-y-5">
-        <div class="border-b border-[#dee2e6] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <section id="view-admin-ballots" class="tab-view hidden">
+        <div class="page-header">
           <div>
-            <div class="text-xs font-bold uppercase tracking-wider text-emerald-700">Admin Portal • Module 2 (Graph Theory Allocation)</div>
-            <h2 class="text-xl font-bold text-slate-900">Power-Pairing &amp; Hungarian Algorithm Cost Matrix</h2>
-            <p class="text-xs text-slate-600 mt-0.5">Solves Minimum Weight Perfect Matching in O(V³) over Bipartite Graph G = (Judges ∪ Rooms, E)</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <button id="runHungarianDrawBtn" class="calico-btn calico-btn-primary">Generate Next Round Draw</button>
+            <div class="page-title">Official Tabbycat Paperless Ballot Entry &amp; Motions</div>
+            <div class="page-subtitle">Select any room below to enter substantive speech marks (68–82) &amp; reply marks (34–40). Totals &amp; winners calculate automatically.</div>
           </div>
         </div>
 
-        <!-- Mathematical Formula & Constraint Card -->
-        <div class="calico-card p-4 bg-slate-50">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-            <div class="p-3 bg-white rounded border border-slate-200">
-              <div class="font-bold text-slate-800">1. Strict Power-Pairing</div>
-              <p class="text-slate-600 mt-1">Teams are sorted by <span class="font-mono-num">(Points DESC, Speaks DESC)</span> and paired strictly within point brackets. Side balance (<span class="font-mono-num">GOV/OPP</span> or <span class="font-mono-num">OG/OO/CG/CO</span>) is optimized per bracket.</p>
-            </div>
-            <div class="p-3 bg-white rounded border border-slate-200">
-              <div class="font-bold text-slate-800">2. Hard Constraints (Cost = ∞)</div>
-              <p class="text-slate-600 mt-1">If Judge <span class="font-mono-num">i</span> shares an institution with any team in Room <span class="font-mono-num">j</span> OR has judged any team in Room <span class="font-mono-num">j</span> in a previous round, <span class="font-mono-num text-rose-700 font-semibold">C[i, j] = 10⁹ (FORBIDDEN)</span>.</p>
-            </div>
-            <div class="p-3 bg-white rounded border border-slate-200">
-              <div class="font-bold text-slate-800">3. Kuhn-Munkres Cost Function</div>
-              <p class="text-slate-600 mt-1">Feasible edges evaluate <span class="font-mono-num">C[i,j] = 3.5·W_room·(10.5 - S_judge) + 0.8·(W_room - S_judge)²</span>, guaranteeing high-bracket rooms get the highest-rated conflict-free chairs.</p>
-            </div>
-          </div>
-        </div>
+        <!-- MOTION PUBLISH TABLE -->
+        <h3>Set / Publish Round Motion</h3>
+        <form id="publishMotionForm">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:120px;">Round Name *</th>
+                <th>Motion Text *</th>
+                <th>Info Slide (Optional)</th>
+                <th style="width:120px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" id="mRoundInput" value="Round 1" required /></td>
+                <td><input type="text" id="mTextInput" required placeholder="This House Believes That..." /></td>
+                <td><input type="text" id="mInfoInput" placeholder="Context / definitions..." /></td>
+                <td><button type="submit" class="btn-primary" style="width:100%;">Publish Motion</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
 
-        <!-- Live Cost Matrix Table -->
-        <div class="calico-card overflow-hidden">
-          <div class="calico-card-header flex items-center justify-between">
-            <span>Bipartite Cost Matrix C[Room, Judge] (Highlighted Cells = Optimal Hungarian Chair Assignment)</span>
-            <span class="text-xs text-emerald-700 font-mono-num font-semibold">Global Minimum Cost Verified</span>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="calico-table">
-              <thead id="costMatrixHead"></thead>
-              <tbody id="costMatrixBody"></tbody>
+        <!-- ROOM SELECTOR BAR -->
+        <h3>Select Debate Room to Enter / Edit Ballot</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Venue</th>
+              <th>Teams in Room</th>
+              <th>Chair Adjudicator</th>
+              <th>Ballot Status</th>
+              <th>Select Room</th>
+            </tr>
+          </thead>
+          <tbody id="ballotRoomSelectorBody"></tbody>
+        </table>
+
+        <!-- OFFICIAL TABBYCAT BALLOT SHEET -->
+        <div id="officialBallotSheetWrap">
+          <h3 id="ballotSheetHeaderTitle">Official Ballot Sheet — Hall 1</h3>
+          <form id="officialBallotForm">
+            <div id="officialBallotTablesContainer"></div>
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td id="ballotLiveSummaryCell" style="font-weight:700;color:#1A365D;">Ready for marks entry.</td>
+                  <td style="width:240px;text-align:right;">
+                    <button type="submit" class="btn-success" style="width:100%;padding:6px 12px;">Confirm &amp; Save Official Ballot</button>
+                  </td>
+                </tr>
+              </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================================= -->
-      <!-- VIEW 9: POST-ROUND OPERATIONS — MOTIONS & BALLOT ENTRY    -->
-      <!-- ========================================================= -->
-      <section id="view-admin-ballots" class="tab-view hidden space-y-6">
-        <div class="border-b border-[#dee2e6] pb-3">
-          <div class="text-xs font-bold uppercase tracking-wider text-blue-700">Admin Portal • Module 3</div>
-          <h2 class="text-xl font-bold text-slate-900">Post-Round Operations: Motions &amp; Digital Ballot Entry</h2>
-          <p class="text-xs text-slate-600 mt-0.5">Set the round's official motion and enter speaker points (Speaks) &amp; team ranks. Confirming a ballot automatically updates standings and judge-team history.</p>
-        </div>
-
-        <!-- Motion Entry Form -->
-        <div class="calico-card">
-          <div class="calico-card-header">Publish Round Motion &amp; Info Slide</div>
-          <form id="motionEntryForm" class="p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Round Label *</label>
-              <input id="inputMotionRef" type="text" required value="Round 2" class="calico-input" />
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Motion Text *</label>
-              <input id="inputMotionText" type="text" required class="calico-input" placeholder="e.g., This House Believes That developing nations should prioritize manufacturing over service-led growth." />
-            </div>
-            <div>
-              <button type="submit" class="calico-btn calico-btn-primary w-full">Publish Motion</button>
-            </div>
           </form>
         </div>
-
-        <!-- Room Ballot Selector & Marks Entry -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="calico-card">
-            <div class="calico-card-header">Select Debate Room to Enter Ballot</div>
-            <div id="ballotRoomList" class="divide-y divide-slate-200"></div>
-          </div>
-
-          <div class="lg:col-span-2 calico-card">
-            <div class="calico-card-header flex items-center justify-between">
-              <span id="activeBallotRoomTitle">Digital Ballot Sheet — Hall 1</span>
-              <span id="activeBallotStatusBadge" class="calico-badge bg-amber-100 text-amber-800">Awaiting Confirmation</span>
-            </div>
-            <form id="ballotEntryForm" class="p-4 space-y-4">
-              <div id="ballotTeamsContainer" class="space-y-4"></div>
-              <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <div class="text-xs text-slate-500">
-                  Confirming this ballot awards tournament points, updates speaker averages, and records Judge-Team history constraints.
-                </div>
-                <button type="submit" class="calico-btn calico-btn-success shrink-0">Confirm &amp; Tabulate Ballot</button>
-              </div>
-            </form>
-          </div>
-        </div>
       </section>
 
       <!-- ========================================================= -->
-      <!-- VIEW 10: JUDGE EVALUATION & DYNAMIC SCORE ADJUSTMENT      -->
+      <!-- 11. ADMIN MODULE 4: JUDGE EVALUATIONS & FEEDBACK          -->
       <!-- ========================================================= -->
-      <section id="view-admin-evals" class="tab-view hidden space-y-6">
-        <div class="border-b border-[#dee2e6] pb-3">
-          <div class="text-xs font-bold uppercase tracking-wider text-purple-700">Admin Portal • Module 4</div>
-          <h2 class="text-xl font-bold text-slate-900">Judge Evaluation &amp; Dynamic Core Rating Adjustment</h2>
-          <p class="text-xs text-slate-600 mt-0.5">Teams rate their adjudicator (1.0 – 10.0) and provide qualitative comments. The system immediately updates the judge's effective score for the next round's Hungarian draw.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="calico-card">
-            <div class="calico-card-header">Submit Post-Round Adjudicator Feedback</div>
-            <form id="judgeEvalForm" class="p-4 space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Adjudicator *</label>
-                <select id="evalJudgeSelect" required class="calico-input"></select>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Evaluating Team *</label>
-                  <select id="evalTeamSelect" required class="calico-input"></select>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Rating Score (1.0 – 10.0) *</label>
-                  <input id="evalScoreInput" type="number" step="0.1" min="1.0" max="10.0" value="8.8" required class="calico-input font-mono-num" />
-                </div>
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Constructive Comments on Oral Adjudication</label>
-                <textarea id="evalCommentsInput" rows="3" class="calico-input" placeholder="Clear comparative weighing of clashes and accurate tracking of rebuttal responses..."></textarea>
-              </div>
-              <button type="submit" class="calico-btn calico-btn-primary w-full">Submit Evaluation &amp; Recalculate Judge Score</button>
-            </form>
-          </div>
-
-          <div class="calico-card">
-            <div class="calico-card-header">Recent Evaluations &amp; Dynamic Score Audit Log</div>
-            <div class="overflow-x-auto">
-              <table class="calico-table">
-                <thead>
-                  <tr>
-                    <th>Adjudicator</th>
-                    <th>Evaluator</th>
-                    <th class="text-right">Rating</th>
-                    <th class="text-right">Prior → Updated</th>
-                    <th>Comments</th>
-                  </tr>
-                </thead>
-                <tbody id="evalLogTableBody"></tbody>
-              </table>
-            </div>
+      <section id="view-admin-evals" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Adjudicator Feedback &amp; Dynamic Core Score Adjustment</div>
+            <div class="page-subtitle">Teams rate adjudicators (1.0 – 10.0). Submitting feedback immediately updates the judge's rating for the next round's draw.</div>
           </div>
         </div>
+
+        <form id="evalSubmitForm">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:25%;">Target Adjudicator *</th>
+                <th style="width:25%;">Submitted By (Team) *</th>
+                <th style="width:12%;">Score (1–10) *</th>
+                <th>Comments on Adjudication</th>
+                <th style="width:130px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><select id="fbJudgeSelect" required></select></td>
+                <td><select id="fbTeamSelect" required></select></td>
+                <td><input type="number" id="fbScoreInput" step="0.1" min="1" max="10" value="8.8" required /></td>
+                <td><input type="text" id="fbCommentInput" placeholder="Comparative weighing and constructive feedback..." /></td>
+                <td><button type="submit" class="btn-primary" style="width:100%;">Submit Feedback</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+        <h3>Confirmed Feedback Log &amp; Bayesian Score Updates</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Adjudicator</th>
+              <th>Submitted By</th>
+              <th class="num-col">Rating</th>
+              <th class="num-col">Prior Score → Updated Score</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody id="fbLogBody"></tbody>
+        </table>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- 12. ADMIN MODULE 5: DATABASE & GITHUB PAGES SYNC GUIDE    -->
+      <!-- ========================================================= -->
+      <section id="view-admin-sync" class="tab-view hidden">
+        <div class="page-header">
+          <div>
+            <div class="page-title">How Data Saving Works on GitHub Pages vs. Python Backend</div>
+            <div class="page-subtitle">Manage browser storage, export tournament_data.json for GitHub Pages, or reset demo data</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:220px;">Storage / Sync Mode</th>
+              <th>How It Works</th>
+              <th style="width:220px;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Browser Auto-Save (localStorage)</strong></td>
+              <td>Every team, judge, draw, and ballot you enter is automatically saved inside your browser's local storage immediately. Refreshing the page will never lose your data on your device.</td>
+              <td><span class="tag tag-ok">Active Automatically</span></td>
+            </tr>
+            <tr>
+              <td><strong>2. GitHub Pages Public Sync (tournament_data.json)</strong></td>
+              <td>Since GitHub Pages is a static host (HTML/CSS/JS only), to let all debaters and judges on other phones see your latest draw &amp; results on <code>ahsan-habib-01.github.io/rgcdc/</code>, click <strong>Download tournament_data.json</strong> and upload/commit that file to your GitHub repo root.</td>
+              <td><button id="syncDownloadJsonBtn" class="btn-primary" style="width:100%;">Download tournament_data.json</button></td>
+            </tr>
+            <tr>
+              <td><strong>3. Reset to Default RGCDC Demo Data</strong></td>
+              <td>Clears local edits and restores the initial 8 teams, 6 adjudicators, and 2 motions for 3rd RGCDC Dialogues 2026.</td>
+              <td><button id="resetDemoDataBtn" class="btn-danger" style="width:100%;">Reset to Default Data</button></td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
     </main>
   </div>
 
-  <!-- FOOTER (Authentic Calico / Tabbycat Footer) -->
-  <footer class="border-t border-[#dee2e6] bg-[#f8f9fa] py-3 px-4 text-xs text-slate-500 mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div>
-        This tab runs on <strong>Calico — RGCDC Tabbycat Clone</strong>, an open-source parliamentary debate tabulation system for <strong>Rangpur Government College Debating Club</strong>.
-      </div>
-      <div class="font-mono-num text-[11px] text-slate-400">
-        Engine: Python FastAPI + SQLAlchemy + Kuhn-Munkres O(V³)
-      </div>
-    </div>
-  </footer>
-
-  <!-- APPLICATION STATE & HUNGARIAN ALGORITHM ENGINE -->
+  <!-- APPLICATION LOGIC & HUNGARIAN ALGORITHM ENGINE -->
   <script>
     (function() {
       const INF_COST = 1000000000;
+      const STORAGE_KEY = 'rgcdc_classic_calicotab_v3';
 
-      // Initial Realistic RGCDC 2026 Tournament State
-      const state = {
-        format: 'AP', // 'AP' (3 speakers, 2 teams/room) or 'BP' (2 speakers, 4 teams/room)
-        roundNumber: 1,
-        selectedBallotRoomIndex: 0,
-        motions: [
-          {
-            round: 'Round 1',
-            text: 'This House Believes That developing South Asian economies should prioritize industrial manufacturing over service-led growth.',
-            infoSlide: 'Premature deindustrialization refers to developing economies transitioning into service sectors before establishing a high-employment manufacturing base.'
-          },
-          {
-            round: 'Round 2 (Prepared)',
-            text: 'This House Would abolish tied guest-worker visa regimes in favor of sector-wide portable work permits.',
-            infoSlide: 'Under tied visa regimes (such as H-2A/H-2B), a migrant worker’s legal residency is strictly bound to a single sponsoring employer.'
-          }
-        ],
-        teams: [
-          {
-            id: 1,
-            name: 'RGCDC Alpha',
-            shortName: 'RGCDC A',
-            instName: 'Rangpur Government College Debating Club',
-            instCode: 'RGCDC',
-            points: 2,
-            speaks: 454.5,
-            firsts: 2,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [2],
-            speakers: [
-              { id: 101, name: 'Tanvir Ahmed', email: 'tanvir@rgcdc.org', totalSpeaks: 153.0, rounds: 2 },
-              { id: 102, name: 'Nusrat Jahan', email: 'nusrat@rgcdc.org', totalSpeaks: 151.5, rounds: 2 },
-              { id: 103, name: 'Farhan Sadiq', email: 'farhan@rgcdc.org', totalSpeaks: 150.0, rounds: 2 }
-            ]
-          },
-          {
-            id: 2,
-            name: 'DUDS Parliamentary',
-            shortName: 'DUDS A',
-            instName: 'Dhaka University Debating Society',
-            instCode: 'DUDS',
-            points: 2,
-            speaks: 452.0,
-            firsts: 2,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [1],
-            speakers: [
-              { id: 201, name: 'Arifur Rahman', email: 'arif@duds.org.bd', totalSpeaks: 152.0, rounds: 2 },
-              { id: 202, name: 'Maliha Islam', email: 'maliha@duds.org.bd', totalSpeaks: 150.5, rounds: 2 },
-              { id: 203, name: 'Shafayat Karim', email: 'shafayat@duds.org.bd', totalSpeaks: 149.5, rounds: 2 }
-            ]
-          },
-          {
-            id: 3,
-            name: 'BUETDC Zenith',
-            shortName: 'BUETDC A',
-            instName: 'BUET Debating Club',
-            instCode: 'BUETDC',
-            points: 1,
-            speaks: 447.0,
-            firsts: 1,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [4],
-            speakers: [
-              { id: 301, name: 'Mahir Labib', email: 'mahir@buetdc.org', totalSpeaks: 150.0, rounds: 2 },
-              { id: 302, name: 'Tasnim Zara', email: 'tasnim@buetdc.org', totalSpeaks: 149.0, rounds: 2 },
-              { id: 303, name: 'Rafiul Alam', email: 'rafiul@buetdc.org', totalSpeaks: 148.0, rounds: 2 }
-            ]
-          },
-          {
-            id: 4,
-            name: 'NSUDC Orators',
-            shortName: 'NSUDC A',
-            instName: 'North South University Debate Club',
-            instCode: 'NSUDC',
-            points: 1,
-            speaks: 445.5,
-            firsts: 1,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [3],
-            speakers: [
-              { id: 401, name: 'Zaima Noor', email: 'zaima@nsudc.org', totalSpeaks: 149.5, rounds: 2 },
-              { id: 402, name: 'navid Hasan', email: 'navid@nsudc.org', totalSpeaks: 148.5, rounds: 2 },
-              { id: 403, name: 'Samiul Haque', email: 'samiul@nsudc.org', totalSpeaks: 147.5, rounds: 2 }
-            ]
-          },
-          {
-            id: 5,
-            name: 'BRACU Rhetoric',
-            shortName: 'BRACU A',
-            instName: 'BRAC University Debate Club',
-            instCode: 'BRACU',
-            points: 1,
-            speaks: 443.0,
-            firsts: 1,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [6],
-            speakers: [
-              { id: 501, name: 'Samia Rahman', email: 'samia@bracu.ac.bd', totalSpeaks: 148.5, rounds: 2 },
-              { id: 502, name: 'Ishrak Hossain', email: 'ishrak@bracu.ac.bd', totalSpeaks: 147.5, rounds: 2 },
-              { id: 503, name: 'Nabil Chowdhury', email: 'nabil@bracu.ac.bd', totalSpeaks: 147.0, rounds: 2 }
-            ]
-          },
-          {
-            id: 6,
-            name: 'JUDO Vanguard',
-            shortName: 'JUDO A',
-            instName: 'Jahangirnagar University Debate Organization',
-            instCode: 'JUDO',
-            points: 1,
-            speaks: 441.5,
-            firsts: 1,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [5],
-            speakers: [
-              { id: 601, name: 'Imtiaz Mahmud', email: 'imtiaz@judo.org', totalSpeaks: 148.0, rounds: 2 },
-              { id: 602, name: 'Faria Tabassum', email: 'faria@judo.org', totalSpeaks: 147.0, rounds: 2 },
-              { id: 603, name: 'Hasibul Islam', email: 'hasib@judo.org', totalSpeaks: 146.5, rounds: 2 }
-            ]
-          },
-          {
-            id: 7,
-            name: 'RUDO Dialectics',
-            shortName: 'RUDO A',
-            instName: 'Rajshahi University Debating Organization',
-            instCode: 'RUDO',
-            points: 0,
-            speaks: 436.5,
-            firsts: 0,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [8],
-            speakers: [
-              { id: 701, name: 'Mehedi Hasan', email: 'mehedi@rudo.org', totalSpeaks: 146.5, rounds: 2 },
-              { id: 702, name: 'Sumaiya Akter', email: 'sumaiya@rudo.org', totalSpeaks: 145.5, rounds: 2 },
-              { id: 703, name: 'Rakibul Islam', email: 'rakib@rudo.org', totalSpeaks: 144.5, rounds: 2 }
-            ]
-          },
-          {
-            id: 8,
-            name: 'ACC Debate Squadron',
-            shortName: 'ACCDC A',
-            instName: 'Adamjee Cantonment College Debating Club',
-            instCode: 'ACCDC',
-            points: 0,
-            speaks: 434.0,
-            firsts: 0,
-            govCount: 1,
-            oppCount: 1,
-            pastOpponents: [7],
-            speakers: [
-              { id: 801, name: 'Tahmid Khan', email: 'tahmid@accdc.org', totalSpeaks: 145.5, rounds: 2 },
-              { id: 802, name: 'Nafisa Anjum', email: 'nafisa@accdc.org', totalSpeaks: 144.5, rounds: 2 },
-              { id: 803, name: 'Abrar Zahin', email: 'abrar@accdc.org', totalSpeaks: 144.0, rounds: 2 }
-            ]
-          }
-        ],
-        adjudicators: [
-          {
-            id: 1,
-            name: 'Akm Shoaib',
-            email: 'shoaib@ndfbd.org',
-            instName: 'Rangpur Government College Debating Club',
-            instCode: 'RGCDC',
-            baseScore: 9.4,
-            currentScore: 9.5,
-            conflicts: ['RGCDC'],
-            judgedTeams: ['BRACU A', 'JUDO A'],
-            evalCount: 2
-          },
-          {
-            id: 2,
-            name: 'Rashedul Hasan Stalin',
-            email: 'stalin@bdc.org.bd',
-            instName: 'Dhaka University Debating Society',
-            instCode: 'DUDS',
-            baseScore: 9.1,
-            currentScore: 9.2,
-            conflicts: ['DUDS'],
-            judgedTeams: ['RUDO A', 'ACCDC A'],
-            evalCount: 2
-          },
-          {
-            id: 3,
-            name: 'Dr. Tahmina Karim',
-            email: 'tahmina@independent.org',
-            instName: 'Independent Adjudication Core',
-            instCode: 'IND',
-            baseScore: 8.9,
-            currentScore: 9.0,
-            conflicts: ['IND'],
-            judgedTeams: ['BUETDC A'],
-            evalCount: 1
-          },
-          {
-            id: 4,
-            name: 'Zubair Al Mahmud',
-            email: 'zubair@buetdc.org',
-            instName: 'BUET Debating Club',
-            instCode: 'BUETDC',
-            baseScore: 8.4,
-            currentScore: 8.5,
-            conflicts: ['BUETDC', 'NSUDC'],
-            judgedTeams: [],
-            evalCount: 1
-          },
-          {
-            id: 5,
-            name: 'Rubaiya Sultana',
-            email: 'rubaiya@bracu.ac.bd',
-            instName: 'BRAC University Debate Club',
-            instCode: 'BRACU',
-            baseScore: 7.9,
-            currentScore: 8.1,
-            conflicts: ['BRACU'],
-            judgedTeams: [],
-            evalCount: 1
-          },
-          {
-            id: 6,
-            name: 'Ashfaqur Rahman',
-            email: 'ashfaq@judo.org',
-            instName: 'Jahangirnagar University Debate Organization',
-            instCode: 'JUDO',
-            baseScore: 7.6,
-            currentScore: 7.7,
-            conflicts: ['JUDO'],
-            judgedTeams: [],
-            evalCount: 1
-          }
-        ],
-        evaluations: [
-          {
-            judgeName: 'Akm Shoaib',
-            teamName: 'BRACU A',
-            score: 9.7,
-            prior: 9.4,
-            updated: 9.5,
-            comments: 'Exceptional comparative weighing of economic development models and crystal-clear feedback.'
-          },
-          {
-            judgeName: 'Rashedul Hasan Stalin',
-            teamName: 'RUDO A',
-            score: 9.4,
-            prior: 9.1,
-            updated: 9.2,
-            comments: 'Tracked every nuance of the Whip speeches and gave actionable constructive advice.'
-          },
-          {
-            judgeName: 'Dr. Tahmina Karim',
-            teamName: 'BUETDC A',
-            score: 9.2,
-            prior: 8.9,
-            updated: 9.0,
-            comments: 'Fair, rigorous step-by-step metric justification.'
-          }
-        ],
-        drawRooms: [],
-        costMatrix: [],
-        reasonMatrix: [],
-        sortedJudgesCache: []
-      };
+      const defaultState = {
+  "tournamentName": "3rd RGCDC Dialogues 2026",
+  "hostClub": "Rangpur Government College Debating Club (RGCDC)",
+  "format": "AP",
+  "currentRound": 1,
+  "motions": [
+    {
+      "round": 1,
+      "roundName": "Round 1",
+      "text": "This House Believes That developing South Asian economies should prioritize industrial manufacturing over service-led growth.",
+      "infoSlide": "Premature deindustrialization refers to developing economies transitioning into service sectors before establishing a high-employment manufacturing base."
+    },
+    {
+      "round": 2,
+      "roundName": "Round 2",
+      "text": "This House Would abolish tied guest-worker visa regimes in favor of sector-wide portable work permits.",
+      "infoSlide": "Under tied visa regimes (such as H-2A/H-2B), a migrant worker's legal residency is strictly bound to a single sponsoring employer."
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "RGCDC Alpha",
+      "institution": "Rangpur Government College",
+      "points": 2,
+      "speaks": 454.5,
+      "ReplySpeaks": 76.0,
+      "firsts": 2,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-rgcdc-101",
+      "speakers": [
+        {
+          "id": 101,
+          "name": "Tanvir Ahmed",
+          "email": "tanvir@rgcdc.org",
+          "totalSpeaks": 153.0,
+          "rounds": 2
+        },
+        {
+          "id": 102,
+          "name": "Nusrat Jahan",
+          "email": "nusrat@rgcdc.org",
+          "totalSpeaks": 151.5,
+          "rounds": 2
+        },
+        {
+          "id": 103,
+          "name": "Farhan Sadiq",
+          "email": "farhan@rgcdc.org",
+          "totalSpeaks": 150.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DUDS Parliamentary",
+      "institution": "Dhaka University",
+      "points": 2,
+      "speaks": 452.0,
+      "ReplySpeaks": 75.5,
+      "firsts": 2,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-duds-202",
+      "speakers": [
+        {
+          "id": 201,
+          "name": "Arifur Rahman",
+          "email": "arif@duds.org",
+          "totalSpeaks": 152.0,
+          "rounds": 2
+        },
+        {
+          "id": 202,
+          "name": "Maliha Islam",
+          "email": "maliha@duds.org",
+          "totalSpeaks": 150.5,
+          "rounds": 2
+        },
+        {
+          "id": 203,
+          "name": "Shafayat Karim",
+          "email": "shafayat@duds.org",
+          "totalSpeaks": 149.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "BUETDC Zenith",
+      "institution": "BUET",
+      "points": 1,
+      "speaks": 447.0,
+      "ReplySpeaks": 74.5,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-buet-303",
+      "speakers": [
+        {
+          "id": 301,
+          "name": "Mahir Labib",
+          "email": "mahir@buetdc.org",
+          "totalSpeaks": 150.0,
+          "rounds": 2
+        },
+        {
+          "id": 302,
+          "name": "Tasnim Zara",
+          "email": "tasnim@buetdc.org",
+          "totalSpeaks": 149.0,
+          "rounds": 2
+        },
+        {
+          "id": 303,
+          "name": "Rafiul Alam",
+          "email": "rafiul@buetdc.org",
+          "totalSpeaks": 148.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "NSUDC Orators",
+      "institution": "North South University",
+      "points": 1,
+      "speaks": 445.5,
+      "ReplySpeaks": 74.0,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-nsu-404",
+      "speakers": [
+        {
+          "id": 401,
+          "name": "Zaima Noor",
+          "email": "zaima@nsudc.org",
+          "totalSpeaks": 149.5,
+          "rounds": 2
+        },
+        {
+          "id": 402,
+          "name": "Navid Hasan",
+          "email": "navid@nsudc.org",
+          "totalSpeaks": 148.5,
+          "rounds": 2
+        },
+        {
+          "id": 403,
+          "name": "Samiul Haque",
+          "email": "samiul@nsudc.org",
+          "totalSpeaks": 147.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "BRACU Rhetoric",
+      "institution": "BRAC University",
+      "points": 1,
+      "speaks": 443.0,
+      "ReplySpeaks": 74.0,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-brac-505",
+      "speakers": [
+        {
+          "id": 501,
+          "name": "Samia Rahman",
+          "email": "samia@bracu.ac.bd",
+          "totalSpeaks": 148.5,
+          "rounds": 2
+        },
+        {
+          "id": 502,
+          "name": "Ishrak Hossain",
+          "email": "ishrak@bracu.ac.bd",
+          "totalSpeaks": 147.5,
+          "rounds": 2
+        },
+        {
+          "id": 503,
+          "name": "Nabil Chowdhury",
+          "email": "nabil@bracu.ac.bd",
+          "totalSpeaks": 147.0,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "JUDO Vanguard",
+      "institution": "Jahangirnagar University",
+      "points": 1,
+      "speaks": 441.5,
+      "ReplySpeaks": 73.5,
+      "firsts": 1,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-judo-606",
+      "speakers": [
+        {
+          "id": 601,
+          "name": "Imtiaz Mahmud",
+          "email": "imtiaz@judo.org",
+          "totalSpeaks": 148.0,
+          "rounds": 2
+        },
+        {
+          "id": 602,
+          "name": "Faria Tabassum",
+          "email": "faria@judo.org",
+          "totalSpeaks": 147.0,
+          "rounds": 2
+        },
+        {
+          "id": 603,
+          "name": "Hasibul Islam",
+          "email": "hasib@judo.org",
+          "totalSpeaks": 146.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "RUDO Dialectics",
+      "institution": "Rajshahi University",
+      "points": 0,
+      "speaks": 436.5,
+      "ReplySpeaks": 73.0,
+      "firsts": 0,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-rudo-707",
+      "speakers": [
+        {
+          "id": 701,
+          "name": "Mehedi Hasan",
+          "email": "mehedi@rudo.org",
+          "totalSpeaks": 146.5,
+          "rounds": 2
+        },
+        {
+          "id": 702,
+          "name": "Sumaiya Akter",
+          "email": "sumaiya@rudo.org",
+          "totalSpeaks": 145.5,
+          "rounds": 2
+        },
+        {
+          "id": 703,
+          "name": "Rakibul Islam",
+          "email": "rakib@rudo.org",
+          "totalSpeaks": 144.5,
+          "rounds": 2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "ACCDC Squadron",
+      "institution": "Adamjee Cantonment College",
+      "points": 0,
+      "speaks": 434.0,
+      "ReplySpeaks": 72.5,
+      "firsts": 0,
+      "govCount": 1,
+      "oppCount": 1,
+      "accessKey": "team-acc-808",
+      "speakers": [
+        {
+          "id": 801,
+          "name": "Tahmid Khan",
+          "email": "tahmid@accdc.org",
+          "totalSpeaks": 145.5,
+          "rounds": 2
+        },
+        {
+          "id": 802,
+          "name": "Nafisa Anjum",
+          "email": "nafisa@accdc.org",
+          "totalSpeaks": 144.5,
+          "rounds": 2
+        },
+        {
+          "id": 803,
+          "name": "Abrar Zahin",
+          "email": "abrar@accdc.org",
+          "totalSpeaks": 144.0,
+          "rounds": 2
+        }
+      ]
+    }
+  ],
+  "adjudicators": [
+    {
+      "id": 1,
+      "name": "Akm Shoaib",
+      "institution": "Rangpur Government College",
+      "conflicts": "Rangpur Government College",
+      "baseScore": 9.4,
+      "currentScore": 9.5,
+      "judgedTeams": [
+        "BRACU Rhetoric",
+        "JUDO Vanguard"
+      ],
+      "evalCount": 2,
+      "accessKey": "adj-shoaib-901"
+    },
+    {
+      "id": 2,
+      "name": "Rashedul Hasan Stalin",
+      "institution": "Dhaka University",
+      "conflicts": "Dhaka University",
+      "baseScore": 9.1,
+      "currentScore": 9.2,
+      "judgedTeams": [
+        "RUDO Dialectics",
+        "ACCDC Squadron"
+      ],
+      "evalCount": 2,
+      "accessKey": "adj-stalin-902"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Tahmina Karim",
+      "institution": "Independent",
+      "conflicts": "",
+      "baseScore": 8.9,
+      "currentScore": 9.0,
+      "judgedTeams": [
+        "BUETDC Zenith"
+      ],
+      "evalCount": 1,
+      "accessKey": "adj-tahmina-903"
+    },
+    {
+      "id": 4,
+      "name": "Zubair Al Mahmud",
+      "institution": "BUET",
+      "conflicts": "BUET, North South University",
+      "baseScore": 8.4,
+      "currentScore": 8.5,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-zubair-904"
+    },
+    {
+      "id": 5,
+      "name": "Rubaiya Sultana",
+      "institution": "BRAC University",
+      "conflicts": "BRAC University",
+      "baseScore": 7.9,
+      "currentScore": 8.1,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-rubaiya-905"
+    },
+    {
+      "id": 6,
+      "name": "Ashfaqur Rahman",
+      "institution": "Jahangirnagar University",
+      "conflicts": "Jahangirnagar University",
+      "baseScore": 7.6,
+      "currentScore": 7.7,
+      "judgedTeams": [],
+      "evalCount": 1,
+      "accessKey": "adj-ashfaq-906"
+    }
+  ],
+  "evaluations": [
+    {
+      "judgeName": "Akm Shoaib",
+      "teamName": "BRACU Rhetoric",
+      "score": 9.7,
+      "prior": 9.4,
+      "updated": 9.5,
+      "comments": "Clear comparative weighing of clashes and accurate tracking of rebuttal responses."
+    },
+    {
+      "judgeName": "Rashedul Hasan Stalin",
+      "teamName": "RUDO Dialectics",
+      "score": 9.4,
+      "prior": 9.1,
+      "updated": 9.2,
+      "comments": "Structured oral adjudication with constructive whip feedback."
+    }
+  ]
+};
 
-      
-      // Persistent Storage for GitHub Pages / Browser Deployment
-      const STORAGE_KEY = 'rgcdc_calicotab_state_v27';
-      function loadSavedState() {
+      let state = JSON.parse(JSON.stringify(defaultState));
+      state.drawRooms = [];
+      state.costMatrix = [];
+      state.reasonMatrix = [];
+      state.sortedJudgesCache = [];
+      state.selectedBallotRoomIndex = 0;
+
+      // Load from localStorage if available
+      function loadFromStorage() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
           if (raw) {
             const parsed = JSON.parse(raw);
-            if (parsed && Array.isArray(parsed.teams) && parsed.teams.length > 0) {
-              state.format = parsed.format || state.format;
-              state.roundNumber = parsed.roundNumber || state.roundNumber;
-              state.motions = parsed.motions || state.motions;
+            if (parsed && Array.isArray(parsed.teams)) {
+              state.format = parsed.format || 'AP';
+              state.currentRound = parsed.currentRound || 1;
+              state.motions = parsed.motions || defaultState.motions;
               state.teams = parsed.teams;
-              state.adjudicators = parsed.adjudicators || state.adjudicators;
-              state.evaluations = parsed.evaluations || state.evaluations;
+              state.adjudicators = parsed.adjudicators || defaultState.adjudicators;
+              state.evaluations = parsed.evaluations || defaultState.evaluations;
+              if (Array.isArray(parsed.drawRooms) && parsed.drawRooms.length > 0) {
+                state.drawRooms = parsed.drawRooms;
+              }
+              return true;
             }
           }
         } catch (e) {}
+        return false;
       }
-      function saveCurrentState() {
+
+      function saveToStorage() {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            tournamentName: state.tournamentName,
+            hostClub: state.hostClub,
             format: state.format,
-            roundNumber: state.roundNumber,
+            currentRound: state.currentRound,
             motions: state.motions,
             teams: state.teams,
             adjudicators: state.adjudicators,
-            evaluations: state.evaluations
+            evaluations: state.evaluations,
+            drawRooms: state.drawRooms
           }));
         } catch (e) {}
       }
-      loadSavedState();
 
-      // Toast helper (never uses alert/confirm)
-      function showToast(msg, type = 'info') {
-        const banner = document.getElementById('toastBanner');
-        const text = document.getElementById('toastMessage');
-        banner.classList.remove('hidden', 'bg-blue-50', 'border-blue-300', 'text-blue-900', 'bg-emerald-50', 'border-emerald-300', 'text-emerald-900', 'bg-amber-50', 'border-amber-300', 'text-amber-900');
-        if (type === 'success') {
-          banner.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
-        } else if (type === 'warn') {
-          banner.classList.add('bg-amber-50', 'border-amber-300', 'text-amber-900');
-        } else {
-          banner.classList.add('bg-blue-50', 'border-blue-300', 'text-blue-900');
-        }
-        text.textContent = msg;
+      function showNotice(msg) {
+        const bar = document.getElementById('noticeBar');
+        const txt = document.getElementById('noticeText');
+        txt.textContent = msg;
+        bar.classList.remove('hidden');
       }
 
-      document.getElementById('toastCloseBtn').addEventListener('click', () => {
-        document.getElementById('toastBanner').classList.add('hidden');
+      document.getElementById('noticeCloseBtn').addEventListener('click', () => {
+        document.getElementById('noticeBar').classList.add('hidden');
       });
 
-      // Exact O(V^3) Kuhn-Munkres Hungarian Algorithm in JavaScript
+      // Normalize institution string for conflict matching
+      function normInst(str) {
+        return (str || '').trim().toLowerCase();
+      }
+
+      function judgeHasConflictWithRoom(judge, roomTeams) {
+        const judgeConflicts = (judge.conflicts || judge.institution || '')
+          .split(',')
+          .map(s => normInst(s))
+          .filter(Boolean);
+        const judgePrimary = normInst(judge.institution);
+        if (judgePrimary && !judgeConflicts.includes(judgePrimary)) {
+          judgeConflicts.push(judgePrimary);
+        }
+
+        for (const t of roomTeams) {
+          const tInst = normInst(t.institution);
+          for (const jc of judgeConflicts) {
+            if (tInst && jc && (tInst === jc || tInst.includes(jc) || jc.includes(tInst))) {
+              return 'INST_CONFLICT (' + t.institution + ')';
+            }
+          }
+          if (Array.isArray(judge.judgedTeams) && judge.judgedTeams.includes(t.name)) {
+            return 'HISTORY_CONFLICT (' + t.name + ')';
+          }
+        }
+        return null;
+      }
+
+      // O(V^3) Kuhn-Munkres Hungarian Algorithm
       function hungarianAlgorithm(costMatrix) {
         const nRows = costMatrix.length;
         const nCols = costMatrix[0].length;
@@ -1213,37 +1529,42 @@
       }
 
       function computeJudgeRoomCost(judge, room, role) {
-        const roomInsts = new Set(room.teams.map(t => t.instCode.toUpperCase()));
-        const roomTeams = new Set(room.teams.map(t => t.shortName));
-
-        // Hard Constraint 1: Institutional Conflict
-        for (const cInst of judge.conflicts) {
-          if (roomInsts.has(cInst.toUpperCase())) {
-            return { cost: INF_COST, reason: 'INST_CONFLICT (' + cInst + ')' };
-          }
+        const conflictReason = judgeHasConflictWithRoom(judge, room.teams);
+        if (conflictReason) {
+          return { cost: INF_COST, reason: conflictReason };
         }
-
-        // Hard Constraint 2: Team History Conflict
-        for (const jt of judge.judgedTeams) {
-          if (roomTeams.has(jt)) {
-            return { cost: INF_COST, reason: 'HISTORY_CONFLICT (' + jt + ')' };
-          }
-        }
-
-        // Soft Cost: Quality & Bracket Importance Matching
         const s = Math.max(1.0, Math.min(10.0, judge.currentScore));
         const w = room.importance;
         if (role === 'CHAIR') {
           const c = w * (10.5 - s) * 3.5 + Math.pow(w - s, 2) * 0.8;
-          return { cost: Math.round(c * 100) / 100, reason: 'FEASIBLE' };
+          return { cost: Math.round(c * 10) / 10, reason: 'FEASIBLE' };
         } else {
           const c = w * (10.5 - s) * 1.8;
-          return { cost: Math.round(c * 100) / 100, reason: 'FEASIBLE' };
+          return { cost: Math.round(c * 10) / 10, reason: 'FEASIBLE' };
         }
       }
 
-      // Generate Power-Paired Draw + Hungarian Adjudicator Allocation
-      function buildDrawAndAllocate() {
+      function recomputeCostMatrixOnly() {
+        const sortedJudges = [...state.adjudicators].sort((a, b) => b.currentScore - a.currentScore);
+        state.sortedJudgesCache = sortedJudges;
+        const costMatrix = [];
+        const reasonMatrix = [];
+        for (const room of state.drawRooms) {
+          const rowC = [];
+          const rowR = [];
+          for (const judge of sortedJudges) {
+            const res = computeJudgeRoomCost(judge, room, 'CHAIR');
+            rowC.push(res.cost);
+            rowR.push(res.reason);
+          }
+          costMatrix.push(rowC);
+          reasonMatrix.push(rowR);
+        }
+        state.costMatrix = costMatrix;
+        state.reasonMatrix = reasonMatrix;
+      }
+
+      function generatePowerPairedDraw() {
         const isAP = state.format === 'AP';
         const teamsPerRoom = isAP ? 2 : 4;
         const sortedTeams = [...state.teams].sort((a, b) => {
@@ -1257,7 +1578,7 @@
         for (let r = 0; r < numRooms; r++) {
           const slice = sortedTeams.slice(r * teamsPerRoom, (r + 1) * teamsPerRoom);
           const avgPts = slice.reduce((acc, t) => acc + t.points, 0) / slice.length;
-          const imp = numRooms === 1 ? 10.0 : Math.round((10.0 - 7.5 * (r / (numRooms - 1))) * 100) / 100;
+          const imp = numRooms === 1 ? 10.0 : Math.round((10.0 - 7.5 * (r / (numRooms - 1))) * 10) / 10;
 
           const positions = {};
           if (isAP) {
@@ -1277,216 +1598,157 @@
             importance: imp,
             positions: positions,
             teams: slice,
-            chair: null,
-            chairCost: 0,
-            panellists: [],
-            ballotConfirmed: false
+            chairId: null,
+            panellistIds: [],
+            ballotConfirmed: false,
+            ballotWinnerText: ''
           });
         }
 
-        // Sort judges by currentScore DESC
-        const sortedJudges = [...state.adjudicators].sort((a, b) => b.currentScore - a.currentScore);
-        state.sortedJudgesCache = sortedJudges;
-
-        if (rooms.length > 0 && sortedJudges.length >= rooms.length) {
-          const costMatrix = [];
-          const reasonMatrix = [];
-          for (const room of rooms) {
-            const rowC = [];
-            const rowR = [];
-            for (const judge of sortedJudges) {
-              const res = computeJudgeRoomCost(judge, room, 'CHAIR');
-              rowC.push(res.cost);
-              rowR.push(res.reason);
-            }
-            costMatrix.push(rowC);
-            reasonMatrix.push(rowR);
-          }
-
-          const chairMatching = hungarianAlgorithm(costMatrix);
-          const assignedIds = new Set();
-          for (const [rIdx, jIdx] of chairMatching) {
-            rooms[rIdx].chair = sortedJudges[jIdx];
-            rooms[rIdx].chairCost = costMatrix[rIdx][jIdx];
-            assignedIds.add(sortedJudges[jIdx].id);
-          }
-
-          // Second pass for Panellists (wings)
-          const remaining = sortedJudges.filter(j => !assignedIds.has(j.id));
-          if (remaining.length > 0) {
-            for (const judge of remaining) {
-              // Find highest-importance conflict-free room with fewest panellists
-              let bestRoom = null;
-              let bestCost = INF_COST;
-              for (const room of rooms) {
-                const check = computeJudgeRoomCost(judge, room, 'PANELLIST');
-                if (check.cost < bestCost && room.panellists.length < 2) {
-                  bestCost = check.cost;
-                  bestRoom = room;
-                }
-              }
-              if (bestRoom) {
-                bestRoom.panellists.push(judge);
-              }
-            }
-          }
-
-          state.costMatrix = costMatrix;
-          state.reasonMatrix = reasonMatrix;
-        }
-
         state.drawRooms = rooms;
+        recomputeCostMatrixOnly();
+
+        const sortedJudges = state.sortedJudgesCache;
+        if (rooms.length > 0 && sortedJudges.length >= rooms.length) {
+          const matching = hungarianAlgorithm(state.costMatrix);
+          const usedIds = new Set();
+          for (const [rIdx, jIdx] of matching) {
+            rooms[rIdx].chairId = sortedJudges[jIdx].id;
+            usedIds.add(sortedJudges[jIdx].id);
+          }
+
+          const remaining = sortedJudges.filter(j => !usedIds.has(j.id));
+          for (const judge of remaining) {
+            let bestRoom = null;
+            let bestCost = INF_COST;
+            for (const room of rooms) {
+              const res = computeJudgeRoomCost(judge, room, 'PANELLIST');
+              if (res.cost < bestCost && room.panellistIds.length < 2) {
+                bestCost = res.cost;
+                bestRoom = room;
+              }
+            }
+            if (bestRoom) {
+              bestRoom.panellistIds.push(judge.id);
+            }
+          }
+        }
+
         state.selectedBallotRoomIndex = 0;
+        saveToStorage();
       }
 
-      // Render Dynamic Speaker Input Blocks in Admin Form based on AP (3) or BP (2)
-      function renderDynamicSpeakerInputs() {
+      function getJudgeById(id) {
+        return state.adjudicators.find(a => a.id === Number(id)) || null;
+      }
+
+      // Render Simplified Speaker Inputs in Team Registration Form
+      function renderTeamFormSpeakerInputs() {
         const isAP = state.format === 'AP';
-        const speakerCount = isAP ? 3 : 2;
-        const rolesAP = ['Prime Minister (Speaker 1)', 'Deputy Prime Minister (Speaker 2)', 'Government/Opposition Whip (Speaker 3)'];
-        const rolesBP = ['Prime Minister / Member (Speaker 1)', 'Deputy / Whip (Speaker 2)'];
-        const roles = isAP ? rolesAP : rolesBP;
+        const count = isAP ? 3 : 2;
+        document.getElementById('formFormatLabel').textContent = isAP
+          ? 'Asian Parliamentary (AP) — 3 Speakers per Team'
+          : 'British Parliamentary (BP) — 2 Speakers per Team';
+        document.getElementById('speakerColHeader').textContent = isAP
+          ? '3 Team Members / Speakers (Name & Optional Email) *'
+          : '2 Team Members / Speakers (Name & Optional Email) *';
 
-        document.getElementById('dynamicSpeakerCountBadge').textContent =
-          `Rendering ${speakerCount} Speaker Blocks (${state.format})`;
-        document.getElementById('speakerBlocksHeader').textContent =
-          `Speaker Roster (${state.format} Format — Exactly ${speakerCount} Speakers Required)`;
-        document.getElementById('adminFormatPill').textContent =
-          `Current: ${state.format} (${speakerCount} Speakers)`;
-
-        // Style AP/BP cards
-        const apCard = document.getElementById('selectApCard');
-        const bpCard = document.getElementById('selectBpCard');
-        if (isAP) {
-          apCard.className = 'border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition';
-          bpCard.className = 'border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition';
-        } else {
-          bpCard.className = 'border-2 border-blue-600 bg-blue-50/40 rounded p-4 cursor-pointer transition';
-          apCard.className = 'border border-slate-300 hover:border-slate-400 bg-white rounded p-4 cursor-pointer transition';
-        }
-
-        const container = document.getElementById('dynamicSpeakerBlocks');
-        container.innerHTML = '';
-        for (let i = 0; i < speakerCount; i++) {
-          const block = document.createElement('div');
-          block.className = 'p-3 bg-slate-50 border border-slate-200 rounded grid grid-cols-1 sm:grid-cols-2 gap-3';
-          block.innerHTML = `
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">${roles[i]} Name *</label>
-              <input type="text" required data-speaker-name="${i}" class="calico-input" placeholder="Speaker ${i + 1} Full Name" />
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Speaker ${i + 1} Email <span class="text-slate-400 font-normal">(Optional, Preferred)</span></label>
-              <input type="email" data-speaker-email="${i}" class="calico-input" placeholder="speaker${i + 1}@rgcdc.org" />
-            </div>
-          `;
-          container.appendChild(block);
-        }
+        const cell = document.getElementById('dynamicSpeakerInputsCell');
+        const roles = isAP ? ['Speaker 1 (PM/LO)', 'Speaker 2 (DPM/DLO)', 'Speaker 3 (Whip)'] : ['Speaker 1', 'Speaker 2'];
+        cell.innerHTML = roles.map((role, idx) => `
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:${idx < count - 1 ? '4px' : '0'};">
+            <input type="text" required data-sp-name="${idx}" placeholder="${role} Name *" />
+            <input type="email" data-sp-email="${idx}" placeholder="${role} Email (Optional)" />
+          </div>
+        `).join('');
       }
 
-      // Render All UI Tables & Badges
+      // Render All Tables
       function renderAll() {
-        saveCurrentState();
+        saveToStorage();
+        recomputeCostMatrixOnly();
+
         const isAP = state.format === 'AP';
-        const activeSpeakersCount = state.teams.reduce((acc, t) => acc + (isAP ? Math.min(3, t.speakers.length) : Math.min(2, t.speakers.length)), 0);
-        const instSet = new Set(state.teams.map(t => t.instCode));
-
-        // Header & Sidebar Badges
-        document.getElementById('headerFormatBadge').textContent = isAP ? 'AP (3v3)' : 'BP (2x4)';
-        document.getElementById('headerRoundBadge').textContent = `Round ${state.roundNumber} Active`;
-        document.getElementById('sidebarFormatText').textContent = isAP ? 'Asian Parliamentary' : 'British Parliamentary';
-        document.getElementById('sidebarSpeakerLimit').textContent = isAP ? '3 Speakers' : '2 Speakers';
-        document.getElementById('sidebarRoomTeams').textContent = isAP ? '2 (Gov vs Opp)' : '4 (OG/OO/CG/CO)';
-
-        document.getElementById('navRoomCount').textContent = state.drawRooms.length;
-        document.getElementById('navTeamCount').textContent = state.teams.length;
-        document.getElementById('navSpeakerCount').textContent = activeSpeakersCount;
-        document.getElementById('navAdjCount').textContent = state.adjudicators.length;
-        document.getElementById('navMotionCount').textContent = state.motions.length;
+        const spPerTeam = isAP ? 3 : 2;
+        const totalSpeakers = state.teams.reduce((acc, t) => acc + Math.min(spPerTeam, t.speakers.length), 0);
         const pendingBallots = state.drawRooms.filter(r => !r.ballotConfirmed).length;
-        document.getElementById('navPendingBallots').textContent = pendingBallots;
-        document.getElementById('navEvalCount').textContent = state.evaluations.length;
 
-        // Overview KPIs
-        document.getElementById('kpiFormat').textContent = isAP ? 'AP (3v3)' : 'BP (2x4)';
-        document.getElementById('kpiFormatSub').textContent = isAP ? '3 Speakers / Team' : '2 Speakers / Team';
-        document.getElementById('kpiTeams').textContent = state.teams.length;
-        document.getElementById('kpiSpeakers').textContent = activeSpeakersCount;
-        document.getElementById('kpiJudges').textContent = state.adjudicators.length;
-        document.getElementById('kpiRound').textContent = 'Round ' + state.roundNumber;
-        document.getElementById('kpiBallotStatus').textContent = pendingBallots > 0 ? `${pendingBallots} Ballots Open` : 'Round Complete';
-        document.getElementById('kpiInsts').textContent = instSet.size;
+        // Top nav & sidebar counts
+        document.getElementById('navFormatTag').textContent = isAP ? 'AP (3v3)' : 'BP (2x4)';
+        document.getElementById('navRoundTag').textContent = 'Round ' + state.currentRound;
+        document.getElementById('sideRoomCount').textContent = state.drawRooms.length;
+        document.getElementById('sideTeamCount').textContent = state.teams.length;
+        document.getElementById('sideSpeakerCount').textContent = totalSpeakers;
+        document.getElementById('sideAdjCount').textContent = state.adjudicators.length;
+        document.getElementById('sideMotionCount').textContent = state.motions.length;
+        document.getElementById('sidePendingBallots').textContent = pendingBallots;
+        document.getElementById('sideEvalCount').textContent = state.evaluations.length;
 
-        // Overview Top 5 Teams
+        // Format buttons active state
+        document.getElementById('setFormatApBtn').className = isAP ? 'btn-primary' : '';
+        document.getElementById('setFormatBpBtn').className = !isAP ? 'btn-primary' : '';
+
+        // 1. Overview Tables
+        document.getElementById('ovFormatCell').textContent = isAP
+          ? 'Asian Parliamentary (3 Speakers/Team, 2 Teams/Room)'
+          : 'British Parliamentary (2 Speakers/Team, 4 Teams/Room)';
+        document.getElementById('ovTeamsCell').textContent = state.teams.length;
+        document.getElementById('ovSpeakersCell').textContent = totalSpeakers;
+        document.getElementById('ovJudgesCell').textContent = state.adjudicators.length;
+        document.getElementById('ovRoundCell').textContent = 'Round ' + state.currentRound;
+        document.getElementById('ovBallotCell').innerHTML = pendingBallots > 0
+          ? `<span class="tag tag-warn">${pendingBallots} Pending</span>`
+          : `<span class="tag tag-ok">All Confirmed</span>`;
+
+        const activeMotion = state.motions[0];
+        document.getElementById('ovMotionBody').innerHTML = activeMotion
+          ? `<tr><td><strong>${activeMotion.roundName}</strong></td><td>${activeMotion.text}</td><td>${activeMotion.infoSlide || '—'}</td></tr>`
+          : `<tr><td colspan="3">No motion released yet.</td></tr>`;
+
         const sortedTeams = [...state.teams].sort((a, b) => (b.points - a.points) || (b.speaks - a.speaks));
-        const top5Body = document.getElementById('overviewTopTeamsBody');
-        top5Body.innerHTML = sortedTeams.slice(0, 5).map((t, idx) => `
+        document.getElementById('ovTopTeamsBody').innerHTML = sortedTeams.slice(0, 5).map((t, i) => `
           <tr>
-            <td class="font-mono-num font-semibold text-slate-600">#${idx + 1}</td>
-            <td class="font-semibold text-slate-900">${t.shortName} <span class="text-xs font-normal text-slate-500">(${t.name})</span></td>
-            <td><span class="calico-badge bg-slate-100 text-slate-700 border border-slate-300 font-mono-num">${t.instCode}</span></td>
-            <td class="text-right font-mono-num font-bold text-blue-700">${t.points}</td>
-            <td class="text-right font-mono-num">${t.speaks.toFixed(1)}</td>
+            <td class="num-col">${i + 1}</td>
+            <td><strong>${t.name}</strong></td>
+            <td>${t.institution}</td>
+            <td>${t.speakers.slice(0, spPerTeam).map(s => s.name).join(', ')}</td>
+            <td class="num-col"><strong>${t.points}</strong></td>
+            <td class="num-col">${t.speaks.toFixed(1)}</td>
           </tr>
         `).join('');
 
-        // Overview Active Motion
-        const latestMotion = state.motions[0];
-        document.getElementById('overviewActiveMotion').textContent =
-          latestMotion ? `${latestMotion.round}: "${latestMotion.text}"` : 'No motion published yet.';
-
-        // Draw Table
-        document.getElementById('drawPageTitle').textContent = `Round ${state.roundNumber} Draw — Power-Paired Matchups`;
-        document.getElementById('drawFormatSubtitle').textContent = isAP
-          ? 'Format: Asian Parliamentary (2 Teams/Room • 3 Speakers/Team)'
-          : 'Format: British Parliamentary (4 Teams/Room • 2 Speakers/Team)';
-
-        const drawHead = document.getElementById('drawTableHead');
-        const drawBody = document.getElementById('drawTableBody');
+        // 2. Public Draw Table
+        const pubHead = document.getElementById('publicDrawHead');
+        const pubBody = document.getElementById('publicDrawBody');
         if (isAP) {
-          drawHead.innerHTML = `
+          pubHead.innerHTML = `
             <tr>
-              <th>Venue</th>
-              <th>Bracket</th>
+              <th style="width:85px;">Venue</th>
+              <th style="width:75px;">Bracket</th>
               <th>Government (GOV)</th>
               <th>Opposition (OPP)</th>
-              <th>Chair Adjudicator (Score)</th>
-              <th>Panellists (Wings)</th>
-              <th>Status</th>
+              <th>Chair Adjudicator [C]</th>
+              <th>Panellists [P]</th>
+              <th style="width:110px;">Ballot Status</th>
             </tr>
           `;
-          drawBody.innerHTML = state.drawRooms.map(r => `
-            <tr>
-              <td class="font-semibold text-slate-900">${r.venue}</td>
-              <td><span class="calico-badge bg-blue-50 text-blue-800 border border-blue-200 font-mono-num">${r.bracketPoints} pts (W=${r.importance})</span></td>
-              <td>
-                <div class="font-semibold text-slate-900">${r.positions.GOV.shortName}</div>
-                <div class="text-xs text-slate-500">${r.positions.GOV.instCode} • ${r.positions.GOV.points} pts</div>
-              </td>
-              <td>
-                <div class="font-semibold text-slate-900">${r.positions.OPP.shortName}</div>
-                <div class="text-xs text-slate-500">${r.positions.OPP.instCode} • ${r.positions.OPP.points} pts</div>
-              </td>
-              <td>
-                ${r.chair ? `
-                  <div class="font-semibold text-emerald-900">${r.chair.name} <span class="calico-badge bg-emerald-100 text-emerald-800 font-mono-num">${r.chair.currentScore.toFixed(2)}</span></div>
-                  <div class="text-[11px] text-slate-500">Inst: ${r.chair.instCode} • Hungarian Cost: ${r.chairCost}</div>
-                ` : '<span class="text-rose-600 text-xs">Unassigned</span>'}
-              </td>
-              <td class="text-xs text-slate-700">
-                ${r.panellists.length > 0
-                  ? r.panellists.map(p => `<span class="inline-block mr-1.5 mb-1 px-2 py-0.5 bg-slate-100 border border-slate-300 rounded">${p.name} (${p.currentScore.toFixed(1)})</span>`).join('')
-                  : '<span class="text-slate-400">Solo Chair</span>'}
-              </td>
-              <td>
-                ${r.ballotConfirmed
-                  ? '<span class="calico-badge bg-emerald-100 text-emerald-800">Confirmed</span>'
-                  : '<span class="calico-badge bg-amber-100 text-amber-800">In Progress</span>'}
-              </td>
-            </tr>
-          `).join('');
+          pubBody.innerHTML = state.drawRooms.map(r => {
+            const chair = getJudgeById(r.chairId);
+            const wings = (r.panellistIds || []).map(id => getJudgeById(id)).filter(Boolean);
+            return `
+              <tr>
+                <td><strong>${r.venue}</strong></td>
+                <td class="num-col">${r.bracketPoints} pts</td>
+                <td><strong>${r.positions.GOV.name}</strong> <span style="color:#666;">(${r.positions.GOV.institution})</span></td>
+                <td><strong>${r.positions.OPP.name}</strong> <span style="color:#666;">(${r.positions.OPP.institution})</span></td>
+                <td>${chair ? `<strong>${chair.name} [C]</strong> (${chair.institution})` : '<span class="tag tag-err">Unassigned</span>'}</td>
+                <td>${wings.length ? wings.map(w => `${w.name} [P]`).join(', ') : '—'}</td>
+                <td>${r.ballotConfirmed ? `<span class="tag tag-ok">Confirmed (${r.ballotWinnerText || 'Done'})</span>` : `<span class="tag tag-warn">In Debate</span>`}</td>
+              </tr>
+            `;
+          }).join('');
         } else {
-          drawHead.innerHTML = `
+          pubHead.innerHTML = `
             <tr>
               <th>Venue</th>
               <th>Bracket</th>
@@ -1494,527 +1756,936 @@
               <th>Opening Opp (OO)</th>
               <th>Closing Gov (CG)</th>
               <th>Closing Opp (CO)</th>
-              <th>Chair &amp; Panel</th>
+              <th>Adjudication Panel</th>
+              <th>Status</th>
             </tr>
           `;
-          drawBody.innerHTML = state.drawRooms.map(r => `
-            <tr>
-              <td class="font-semibold text-slate-900">${r.venue}</td>
-              <td><span class="calico-badge bg-blue-50 text-blue-800 border border-blue-200 font-mono-num">${r.bracketPoints} pts</span></td>
-              <td class="font-medium">${r.positions.OG.shortName} <span class="text-xs text-slate-500">(${r.positions.OG.instCode})</span></td>
-              <td class="font-medium">${r.positions.OO.shortName} <span class="text-xs text-slate-500">(${r.positions.OO.instCode})</span></td>
-              <td class="font-medium">${r.positions.CG.shortName} <span class="text-xs text-slate-500">(${r.positions.CG.instCode})</span></td>
-              <td class="font-medium">${r.positions.CO.shortName} <span class="text-xs text-slate-500">(${r.positions.CO.instCode})</span></td>
-              <td>
-                ${r.chair ? `<div class="font-semibold text-emerald-900">${r.chair.name} [C] (${r.chair.currentScore.toFixed(1)})</div>` : ''}
-                <div class="text-xs text-slate-500">${r.panellists.map(p => p.name).join(', ')}</div>
-              </td>
-            </tr>
-          `).join('');
+          pubBody.innerHTML = state.drawRooms.map(r => {
+            const chair = getJudgeById(r.chairId);
+            const wings = (r.panellistIds || []).map(id => getJudgeById(id)).filter(Boolean);
+            return `
+              <tr>
+                <td><strong>${r.venue}</strong></td>
+                <td class="num-col">${r.bracketPoints} pts</td>
+                <td><strong>${r.positions.OG.name}</strong></td>
+                <td><strong>${r.positions.OO.name}</strong></td>
+                <td><strong>${r.positions.CG.name}</strong></td>
+                <td><strong>${r.positions.CO.name}</strong></td>
+                <td>${chair ? `<strong>${chair.name} [C]</strong>` : ''}${wings.length ? ', ' + wings.map(w => w.name).join(', ') : ''}</td>
+                <td>${r.ballotConfirmed ? `<span class="tag tag-ok">Confirmed</span>` : `<span class="tag tag-warn">Pending</span>`}</td>
+              </tr>
+            `;
+          }).join('');
         }
 
-        // Team Standings Table
-        const teamFilter = (document.getElementById('teamSearchInput').value || '').toLowerCase();
-        const filteredTeams = sortedTeams.filter(t =>
-          t.name.toLowerCase().includes(teamFilter) ||
-          t.shortName.toLowerCase().includes(teamFilter) ||
-          t.instCode.toLowerCase().includes(teamFilter)
-        );
-        document.getElementById('teamStandingsBody').innerHTML = filteredTeams.map((t, idx) => {
-          const activeSp = isAP ? t.speakers.slice(0, 3) : t.speakers.slice(0, 2);
-          return `
+        // 3. Team Standings
+        const tf = (document.getElementById('teamFilterInput').value || '').toLowerCase();
+        document.getElementById('teamStandingsBody').innerHTML = sortedTeams
+          .filter(t => t.name.toLowerCase().includes(tf) || t.institution.toLowerCase().includes(tf))
+          .map((t, i) => `
             <tr>
-              <td class="font-mono-num font-bold text-slate-700">${idx + 1}</td>
-              <td>
-                <div class="font-semibold text-slate-900">${t.shortName}</div>
-                <div class="text-xs text-slate-500">${t.name}</div>
-              </td>
-              <td><span class="calico-badge bg-slate-100 text-slate-800 border border-slate-300 font-mono-num">${t.instCode}</span></td>
-              <td class="text-xs text-slate-600">${activeSp.map(s => s.name).join(', ')}</td>
-              <td class="text-right font-mono-num font-bold text-blue-700">${t.points}</td>
-              <td class="text-right font-mono-num font-semibold">${t.speaks.toFixed(1)}</td>
-              <td class="text-right font-mono-num">${t.firsts}</td>
-              <td class="text-center font-mono-num text-xs text-slate-600">${t.govCount}G / ${t.oppCount}O</td>
+              <td class="num-col">${i + 1}</td>
+              <td><strong>${t.name}</strong></td>
+              <td>${t.institution}</td>
+              <td>${t.speakers.slice(0, spPerTeam).map(s => s.name).join(', ')}</td>
+              <td class="num-col"><strong>${t.points}</strong></td>
+              <td class="num-col">${t.speaks.toFixed(1)}</td>
+              <td class="num-col">${t.firsts}</td>
+              <td class="center-col">${t.govCount}G / ${t.oppCount}O</td>
             </tr>
-          `;
-        }).join('');
+          `).join('');
 
-        // Speaker Standings Table
-        const spFilter = (document.getElementById('speakerSearchInput').value || '').toLowerCase();
+        // 4. Speaker Standings
+        const sf = (document.getElementById('speakerFilterInput').value || '').toLowerCase();
         const allSpeakers = [];
         for (const t of state.teams) {
-          const activeSp = isAP ? t.speakers.slice(0, 3) : t.speakers.slice(0, 2);
-          for (const s of activeSp) {
+          for (const s of t.speakers.slice(0, spPerTeam)) {
             const avg = s.rounds > 0 ? s.totalSpeaks / s.rounds : 0;
             allSpeakers.push({
               ...s,
-              teamShort: t.shortName,
-              instCode: t.instCode,
+              teamName: t.name,
+              institution: t.institution,
               avg: avg
             });
           }
         }
         allSpeakers.sort((a, b) => (b.totalSpeaks - a.totalSpeaks) || (b.avg - a.avg));
-        const filteredSp = allSpeakers.filter(s =>
-          s.name.toLowerCase().includes(spFilter) ||
-          s.teamShort.toLowerCase().includes(spFilter) ||
-          s.instCode.toLowerCase().includes(spFilter)
-        );
-        document.getElementById('speakerStandingsBody').innerHTML = filteredSp.map((s, idx) => `
-          <tr>
-            <td class="font-mono-num font-semibold text-slate-600">${idx + 1}</td>
-            <td>
-              <div class="font-semibold text-slate-900">${s.name}</div>
-              ${s.email ? `<div class="text-[11px] text-slate-400">${s.email}</div>` : ''}
-            </td>
-            <td class="font-medium text-slate-800">${s.teamShort}</td>
-            <td><span class="calico-badge bg-slate-100 text-slate-700 border border-slate-300 font-mono-num">${s.instCode}</span></td>
-            <td class="text-right font-mono-num">${s.rounds}</td>
-            <td class="text-right font-mono-num font-bold text-slate-900">${s.totalSpeaks.toFixed(1)}</td>
-            <td class="text-right font-mono-num text-blue-700 font-semibold">${s.avg.toFixed(2)}</td>
-          </tr>
-        `).join('');
+        document.getElementById('speakerStandingsBody').innerHTML = allSpeakers
+          .filter(s => s.name.toLowerCase().includes(sf) || s.teamName.toLowerCase().includes(sf) || s.institution.toLowerCase().includes(sf))
+          .map((s, i) => `
+            <tr>
+              <td class="num-col">${i + 1}</td>
+              <td><strong>${s.name}</strong></td>
+              <td>${s.teamName}</td>
+              <td>${s.institution}</td>
+              <td class="num-col">${s.rounds}</td>
+              <td class="num-col"><strong>${s.totalSpeaks.toFixed(1)}</strong></td>
+              <td class="num-col">${s.avg.toFixed(2)}</td>
+            </tr>
+          `).join('');
 
-        // Adjudicators Public Table
+        // 5. Adjudicators Public List
         const sortedAdjs = [...state.adjudicators].sort((a, b) => b.currentScore - a.currentScore);
-        document.getElementById('adjPublicTableBody').innerHTML = sortedAdjs.map(a => `
+        document.getElementById('adjPublicBody').innerHTML = sortedAdjs.map((a, i) => `
           <tr>
-            <td>
-              <div class="font-semibold text-slate-900">${a.name}</div>
-              ${a.email ? `<div class="text-[11px] text-slate-400">${a.email}</div>` : ''}
-            </td>
-            <td class="text-xs text-slate-700">${a.instName} (<span class="font-mono-num font-semibold">${a.instCode}</span>)</td>
-            <td>
-              ${a.conflicts.map(c => `<span class="calico-badge bg-rose-50 text-rose-800 border border-rose-200 mr-1 font-mono-num">${c}</span>`).join('')}
-            </td>
-            <td class="text-xs text-slate-600">
-              ${a.judgedTeams.length > 0
-                ? a.judgedTeams.map(jt => `<span class="calico-badge bg-amber-50 text-amber-800 border border-amber-200 mr-1">${jt}</span>`).join('')
-                : '<span class="text-slate-400">None yet</span>'}
-            </td>
-            <td class="text-right font-mono-num text-slate-600">${a.baseScore.toFixed(2)}</td>
-            <td class="text-right font-mono-num font-bold text-emerald-700">${a.currentScore.toFixed(2)}</td>
-            <td class="text-right font-mono-num">${a.evalCount}</td>
+            <td class="num-col">${i + 1}</td>
+            <td><strong>${a.name}</strong></td>
+            <td>${a.conflicts || a.institution}</td>
+            <td>${(a.judgedTeams && a.judgedTeams.length) ? a.judgedTeams.join(', ') : 'None'}</td>
+            <td class="num-col">${a.baseScore.toFixed(2)}</td>
+            <td class="num-col"><strong>${a.currentScore.toFixed(2)}</strong></td>
+            <td class="num-col">${a.evalCount}</td>
           </tr>
         `).join('');
 
-        // Motions Archive
-        document.getElementById('motionsListContainer').innerHTML = state.motions.map(m => `
-          <div class="calico-card p-4">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
-              <span class="calico-badge bg-blue-100 text-blue-800 font-semibold">${m.round}</span>
-              <span class="text-xs text-slate-400">3rd RGCDC Dialogues 2026</span>
-            </div>
-            <div class="text-base font-semibold text-slate-900">${m.text}</div>
-            ${m.infoSlide ? `<div class="mt-2 p-2.5 bg-slate-50 border-l-4 border-slate-400 text-xs text-slate-600"><strong>Info Slide:</strong> ${m.infoSlide}</div>` : ''}
-          </div>
+        // 6. Motions Archive
+        document.getElementById('motionsArchiveBody').innerHTML = state.motions.map(m => `
+          <tr>
+            <td><strong>${m.roundName}</strong></td>
+            <td>${m.text}</td>
+            <td>${m.infoSlide || '—'}</td>
+          </tr>
         `).join('');
 
-        // Hungarian Cost Matrix View
+        // 7. Participant Private URLs Portal
+        renderParticipantPortal();
+
+        // 8. Admin Rosters
+        renderAdminRosters();
+
+        // 9. Admin Manual & Auto Adjudicator Allocation Board
+        renderAdminAllocationBoard();
+
+        // 10. Official Ballot Entry Sheet
+        renderBallotEntryModule();
+
+        // 11. Feedback Module
+        renderFeedbackModule();
+      }
+
+      function renderParticipantPortal() {
+        const jSel = document.getElementById('portalJudgeSelect');
+        jSel.innerHTML = state.adjudicators.map(a => {
+          const room = state.drawRooms.find(r => r.chairId === a.id || (r.panellistIds || []).includes(a.id));
+          return `<option value="${a.id}">${a.name} (Key: ${a.accessKey || 'adj-' + a.id}) — ${room ? room.venue : 'Standby'}</option>`;
+        }).join('');
+
+        const tSel = document.getElementById('portalTeamSelect');
+        tSel.innerHTML = state.teams.map(t =>
+          `<option value="${t.name}">${t.name} (${t.institution}) — Key: ${t.accessKey || 'team-' + t.id}</option>`
+        ).join('');
+
+        const rows = [];
+        for (const a of state.adjudicators) {
+          const room = state.drawRooms.find(r => r.chairId === a.id || (r.panellistIds || []).includes(a.id));
+          rows.push(`
+            <tr>
+              <td><span class="tag tag-gov">Adjudicator</span></td>
+              <td><strong>${a.name}</strong></td>
+              <td>${a.institution}</td>
+              <td>${room ? `<strong>${room.venue}</strong> (${r.chairId === a.id ? 'Chair' : 'Panellist'})` : 'Unallocated'}</td>
+              <td class="num-col"><code>?key=${a.accessKey || 'adj-' + a.id}</code></td>
+              <td>${room ? `<button data-open-room-ballot="${room.index}" class="btn-primary">Enter Ballot</button>` : '—'}</td>
+            </tr>
+          `.replace('r.chairId', 'room.chairId'));
+        }
+        for (const t of state.teams) {
+          const room = state.drawRooms.find(rm => rm.teams.some(tm => tm.id === t.id));
+          rows.push(`
+            <tr>
+              <td><span class="tag tag-opp">Debater / Team</span></td>
+              <td><strong>${t.name}</strong></td>
+              <td>${t.institution}</td>
+              <td>${room ? `<strong>${room.venue}</strong>` : 'Unpaired'}</td>
+              <td class="num-col"><code>?key=${t.accessKey || 'team-' + t.id}</code></td>
+              <td><button data-open-team-fb="${t.name}">Submit Judge Feedback</button></td>
+            </tr>
+          `);
+        }
+        const tbody = document.getElementById('privateUrlsTableBody');
+        tbody.innerHTML = rows.join('');
+
+        tbody.querySelectorAll('[data-open-room-ballot]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            state.selectedBallotRoomIndex = parseInt(btn.getAttribute('data-open-room-ballot'), 10);
+            switchTab('admin-ballots');
+            renderBallotEntryModule();
+          });
+        });
+        tbody.querySelectorAll('[data-open-team-fb]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const tName = btn.getAttribute('data-open-team-fb');
+            switchTab('admin-evals');
+            document.getElementById('fbTeamSelect').value = tName;
+          });
+        });
+      }
+
+      function renderAdminRosters() {
+        const spPerTeam = state.format === 'AP' ? 3 : 2;
+        document.getElementById('rosterTeamCount').textContent = state.teams.length;
+        document.getElementById('rosterAdjCount').textContent = state.adjudicators.length;
+
+        const tBody = document.getElementById('adminTeamsRosterBody');
+        tBody.innerHTML = state.teams.map(t => `
+          <tr>
+            <td class="num-col">${t.id}</td>
+            <td><strong>${t.name}</strong></td>
+            <td>${t.institution}</td>
+            <td>${t.speakers.slice(0, spPerTeam).map(s => s.name).join(', ')}</td>
+            <td class="num-col">${t.points}</td>
+            <td class="num-col">${t.speaks.toFixed(1)}</td>
+            <td><button data-del-team="${t.id}" class="btn-danger">Delete</button></td>
+          </tr>
+        `).join('');
+
+        tBody.querySelectorAll('[data-del-team]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = parseInt(btn.getAttribute('data-del-team'), 10);
+            state.teams = state.teams.filter(t => t.id !== id);
+            generatePowerPairedDraw();
+            renderAll();
+            showNotice('Team removed and draw updated.');
+          });
+        });
+
+        const aBody = document.getElementById('adminAdjRosterBody');
+        aBody.innerHTML = state.adjudicators.map(a => `
+          <tr>
+            <td class="num-col">${a.id}</td>
+            <td><strong>${a.name}</strong></td>
+            <td>${a.conflicts || a.institution}</td>
+            <td class="num-col">${a.baseScore.toFixed(1)}</td>
+            <td class="num-col"><strong>${a.currentScore.toFixed(2)}</strong></td>
+            <td><button data-del-adj="${a.id}" class="btn-danger">Delete</button></td>
+          </tr>
+        `).join('');
+
+        aBody.querySelectorAll('[data-del-adj]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = parseInt(btn.getAttribute('data-del-adj'), 10);
+            state.adjudicators = state.adjudicators.filter(a => a.id !== id);
+            generatePowerPairedDraw();
+            renderAll();
+            showNotice('Adjudicator removed and allocation updated.');
+          });
+        });
+      }
+
+      // Render Interactive Admin Allocation Table (Auto Hungarian + Manual Override)
+      function renderAdminAllocationBoard() {
+        const tbody = document.getElementById('adminManualAllocBody');
+        tbody.innerHTML = state.drawRooms.map((r, rIdx) => {
+          const chairObj = getJudgeById(r.chairId);
+          const chairConflict = chairObj ? judgeHasConflictWithRoom(chairObj, r.teams) : null;
+
+          const chairOptions = state.adjudicators.map(a => {
+            const cReason = judgeHasConflictWithRoom(a, r.teams);
+            return `<option value="${a.id}" ${a.id === r.chairId ? 'selected' : ''}>${a.name} (${a.currentScore.toFixed(1)}) ${cReason ? '[CONFLICT]' : ''}</option>`;
+          }).join('');
+
+          const wingsHtml = (r.panellistIds || []).map(pId => {
+            const pObj = getJudgeById(pId);
+            if (!pObj) return '';
+            return `<span class="tag" style="margin-right:4px;margin-bottom:2px;">${pObj.name} <a href="#" data-rem-wing="${rIdx}:${pId}" style="color:#C92A2A;text-decoration:none;font-weight:bold;">×</a></span>`;
+          }).join('');
+
+          const availableForWing = state.adjudicators.filter(a => a.id !== r.chairId && !(r.panellistIds || []).includes(a.id));
+          const addWingSelect = `
+            <div style="display:flex;gap:4px;margin-top:4px;">
+              <select data-wing-select="${rIdx}" style="font-size:11px;padding:2px;">
+                <option value="">+ Add Panellist...</option>
+                ${availableForWing.map(a => `<option value="${a.id}">${a.name} (${a.currentScore.toFixed(1)})</option>`).join('')}
+              </select>
+              <button type="button" data-add-wing-btn="${rIdx}" style="padding:2px 6px;">Add</button>
+            </div>
+          `;
+
+          return `
+            <tr>
+              <td><strong>${r.venue}</strong></td>
+              <td class="num-col">${r.bracketPoints} pts (W=${r.importance})</td>
+              <td>${r.teams.map(t => `<strong>${t.name}</strong> <span style="color:#666;">(${t.institution})</span>`).join(' vs ')}</td>
+              <td>
+                <select data-manual-chair="${rIdx}">
+                  ${chairOptions}
+                </select>
+              </td>
+              <td>
+                <div>${wingsHtml || '<span style="color:#888;">No panellists</span>'}</div>
+                ${addWingSelect}
+              </td>
+              <td>
+                ${chairConflict
+                  ? `<span class="tag tag-err">${chairConflict}</span>`
+                  : `<span class="tag tag-ok">0 Conflicts (Valid)</span>`}
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        // Attach manual Chair change listeners
+        tbody.querySelectorAll('[data-manual-chair]').forEach(sel => {
+          sel.addEventListener('change', () => {
+            const rIdx = parseInt(sel.getAttribute('data-manual-chair'), 10);
+            const newJudgeId = parseInt(sel.value, 10);
+            state.drawRooms[rIdx].chairId = newJudgeId;
+            state.drawRooms[rIdx].panellistIds = (state.drawRooms[rIdx].panellistIds || []).filter(id => id !== newJudgeId);
+            renderAll();
+            showNotice(`Manually updated Chair for ${state.drawRooms[rIdx].venue}.`);
+          });
+        });
+
+        // Attach Add Wing listeners
+        tbody.querySelectorAll('[data-add-wing-btn]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const rIdx = parseInt(btn.getAttribute('data-add-wing-btn'), 10);
+            const sel = tbody.querySelector(`[data-wing-select="${rIdx}"]`);
+            if (sel && sel.value) {
+              const pId = parseInt(sel.value, 10);
+              if (!state.drawRooms[rIdx].panellistIds.includes(pId)) {
+                state.drawRooms[rIdx].panellistIds.push(pId);
+                renderAll();
+              }
+            }
+          });
+        });
+
+        // Attach Remove Wing listeners
+        tbody.querySelectorAll('[data-rem-wing]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const [rIdxStr, pIdStr] = link.getAttribute('data-rem-wing').split(':');
+            const rIdx = parseInt(rIdxStr, 10);
+            const pId = parseInt(pIdStr, 10);
+            state.drawRooms[rIdx].panellistIds = state.drawRooms[rIdx].panellistIds.filter(id => id !== pId);
+            renderAll();
+          });
+        });
+
+        // Render Hungarian Cost Matrix Table
         const cmHead = document.getElementById('costMatrixHead');
         const cmBody = document.getElementById('costMatrixBody');
-        if (state.sortedJudgesCache.length > 0 && state.drawRooms.length > 0) {
+        const judges = state.sortedJudgesCache;
+        if (judges.length > 0 && state.drawRooms.length > 0) {
           cmHead.innerHTML = `
             <tr>
-              <th>Room / Bracket</th>
-              ${state.sortedJudgesCache.map(j => `<th class="text-center">${j.name}<br><span class="text-[10px] font-mono-num text-slate-500">${j.instCode} • S=${j.currentScore.toFixed(1)}</span></th>`).join('')}
+              <th>Room / Matchup</th>
+              ${judges.map(j => `<th class="center-col">${j.name}<br><span style="font-weight:normal;font-size:11px;">S=${j.currentScore.toFixed(1)}</span></th>`).join('')}
             </tr>
           `;
           cmBody.innerHTML = state.drawRooms.map((r, rIdx) => `
             <tr>
-              <td class="font-semibold text-slate-900">
-                ${r.venue} <span class="text-xs font-normal text-slate-500">(W=${r.importance})</span>
-                <div class="text-[11px] text-slate-500">${r.teams.map(t => t.shortName + '[' + t.instCode + ']').join(' vs ')}</div>
-              </td>
-              ${state.sortedJudgesCache.map((j, jIdx) => {
-                const cost = state.costMatrix[rIdx][jIdx];
+              <td><strong>${r.venue}</strong> (W=${r.importance})</td>
+              ${judges.map((j, jIdx) => {
+                const c = state.costMatrix[rIdx][jIdx];
                 const reason = state.reasonMatrix[rIdx][jIdx];
-                const isSelectedChair = r.chair && r.chair.id === j.id;
-                if (cost >= INF_COST) {
-                  return `<td class="text-center bg-rose-50/70 text-rose-700 font-mono-num text-xs"><div class="font-bold">∞ (10⁹)</div><div class="text-[10px]">${reason}</div></td>`;
+                const isChair = r.chairId === j.id;
+                if (c >= INF_COST) {
+                  return `<td class="center-col" style="background:#FFE3E3;color:#C92A2A;font-size:11px;"><strong>∞</strong><br>${reason}</td>`;
                 }
-                return `<td class="text-center font-mono-num text-xs ${isSelectedChair ? 'bg-emerald-100 border-2 border-emerald-600 font-bold text-emerald-950' : 'text-slate-700'}">
-                  <div>${cost.toFixed(1)}</div>
-                  ${isSelectedChair ? '<div class="text-[10px] text-emerald-800 uppercase font-bold">Optimal Chair</div>' : ''}
-                </td>`;
+                return `<td class="center-col" style="${isChair ? 'background:#D3F9D8;font-weight:700;border:2px solid #2B8A3E;' : ''}">${c.toFixed(1)}${isChair ? '<br><span style="font-size:10px;color:#2B8A3E;">[CHAIR]</span>' : ''}</td>`;
               }).join('')}
             </tr>
           `).join('');
         }
-
-        // Ballot Entry Room List & Active Ballot Form
-        renderBallotSection();
-
-        // Judge Evaluation Dropdowns & Log
-        renderEvaluationSection();
       }
 
-      function renderBallotSection() {
-        const listEl = document.getElementById('ballotRoomList');
-        listEl.innerHTML = state.drawRooms.map((r, idx) => `
-          <div class="p-3 cursor-pointer hover:bg-slate-50 transition flex items-center justify-between ${idx === state.selectedBallotRoomIndex ? 'bg-blue-50/60 border-l-4 border-blue-600' : ''}" data-select-room="${idx}">
-            <div>
-              <div class="font-semibold text-sm text-slate-900">${r.venue} <span class="text-xs font-normal text-slate-500">(${r.teams.map(t => t.shortName).join(' vs ')})</span></div>
-              <div class="text-xs text-slate-500">Chair: ${r.chair ? r.chair.name : 'TBA'}</div>
-            </div>
-            <span class="calico-badge ${r.ballotConfirmed ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
-              ${r.ballotConfirmed ? 'Confirmed' : 'Pending'}
-            </span>
-          </div>
-        `).join('');
+      // Render Official Tabbycat Paperless Ballot Sheet
+      function renderBallotEntryModule() {
+        const selBody = document.getElementById('ballotRoomSelectorBody');
+        selBody.innerHTML = state.drawRooms.map((r, idx) => {
+          const chair = getJudgeById(r.chairId);
+          const isSelected = idx === state.selectedBallotRoomIndex;
+          return `
+            <tr style="${isSelected ? 'background:#E7F5FF;font-weight:600;' : ''}">
+              <td><strong>${r.venue}</strong></td>
+              <td>${r.teams.map(t => t.name).join(' vs ')}</td>
+              <td>${chair ? chair.name : 'Unassigned'}</td>
+              <td>${r.ballotConfirmed ? `<span class="tag tag-ok">Confirmed (${r.ballotWinnerText || 'Done'})</span>` : `<span class="tag tag-warn">Pending Entry</span>`}</td>
+              <td><button type="button" data-pick-ballot-room="${idx}" class="${isSelected ? 'btn-primary' : ''}">${isSelected ? 'Editing Now' : 'Open Ballot'}</button></td>
+            </tr>
+          `;
+        }).join('');
 
-        listEl.querySelectorAll('[data-select-room]').forEach(el => {
-          el.addEventListener('click', () => {
-            state.selectedBallotRoomIndex = parseInt(el.getAttribute('data-select-room'), 10);
-            renderBallotSection();
+        selBody.querySelectorAll('[data-pick-ballot-room]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            state.selectedBallotRoomIndex = parseInt(btn.getAttribute('data-pick-ballot-room'), 10);
+            renderBallotEntryModule();
           });
         });
 
-        const activeRoom = state.drawRooms[state.selectedBallotRoomIndex];
-        if (!activeRoom) return;
+        const room = state.drawRooms[state.selectedBallotRoomIndex];
+        const container = document.getElementById('officialBallotTablesContainer');
+        if (!room) {
+          container.innerHTML = '<p>No rooms available.</p>';
+          return;
+        }
 
-        document.getElementById('activeBallotRoomTitle').textContent =
-          `Digital Ballot Sheet — ${activeRoom.venue} (Chair: ${activeRoom.chair ? activeRoom.chair.name : 'TBA'})`;
-        const statusBadge = document.getElementById('activeBallotStatusBadge');
-        statusBadge.textContent = activeRoom.ballotConfirmed ? 'Ballot Confirmed' : 'Awaiting Confirmation';
-        statusBadge.className = 'calico-badge ' + (activeRoom.ballotConfirmed ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800');
+        const chair = getJudgeById(room.chairId);
+        document.getElementById('ballotSheetHeaderTitle').textContent =
+          `Official Tabbycat Ballot — ${room.venue} (Chair: ${chair ? chair.name : 'TBA'})`;
 
         const isAP = state.format === 'AP';
-        const container = document.getElementById('ballotTeamsContainer');
-        const entries = Object.entries(activeRoom.positions);
-        container.innerHTML = entries.map(([pos, team], tIdx) => {
-          const speakers = isAP ? team.speakers.slice(0, 3) : team.speakers.slice(0, 2);
-          const defaultRank = tIdx + 1;
-          return `
-            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded space-y-3">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200 pb-2">
-                <div>
-                  <span class="calico-badge bg-slate-800 text-white font-mono-num mr-1.5">${pos}</span>
-                  <span class="font-bold text-slate-900">${team.shortName}</span>
-                  <span class="text-xs text-slate-500">(${team.instCode})</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <label class="text-xs font-semibold text-slate-700">Team Rank in Room:</label>
-                  <select data-ballot-rank="${team.id}" class="calico-input !w-28 font-mono-num">
-                    ${isAP
-                      ? `<option value="1" ${defaultRank === 1 ? 'selected' : ''}>1st (Win: +1 pt)</option>
-                         <option value="2" ${defaultRank === 2 ? 'selected' : ''}>2nd (Loss: +0 pt)</option>`
-                      : `<option value="1" ${defaultRank === 1 ? 'selected' : ''}>1st (+3 pts)</option>
-                         <option value="2" ${defaultRank === 2 ? 'selected' : ''}>2nd (+2 pts)</option>
-                         <option value="3" ${defaultRank === 3 ? 'selected' : ''}>3rd (+1 pt)</option>
-                         <option value="4" ${defaultRank === 4 ? 'selected' : ''}>4th (+0 pt)</option>`
-                    }
-                  </select>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-${speakers.length} gap-3">
-                ${speakers.map((sp, sIdx) => `
-                  <div>
-                    <label class="block text-xs font-medium text-slate-700 mb-1">${sp.name} (Spk ${sIdx + 1})</label>
-                    <input type="number" step="0.5" min="65" max="85" value="${(76.0 - tIdx * 1.0 - sIdx * 0.5).toFixed(1)}"
-                      data-ballot-speak="${team.id}:${sp.id}" class="calico-input font-mono-num" required />
-                  </div>
-                `).join('')}
-              </div>
+        if (isAP) {
+          const govTeam = room.positions.GOV;
+          const oppTeam = room.positions.OPP;
+          const govRoles = ['Prime Minister (1st Substantive)', 'Deputy Prime Minister (2nd Substantive)', 'Government Whip (3rd Substantive)'];
+          const oppRoles = ['Leader of Opposition (1st Substantive)', 'Deputy Leader of Opposition (2nd Substantive)', 'Opposition Whip (3rd Substantive)'];
+
+          function buildApTeamTable(sideLabel, sideCode, team, roles, defaultBase) {
+            const spOpts = team.speakers.slice(0, 3);
+            const replyOpts = team.speakers.slice(0, 2); // In AP, 1st or 2nd speaker gives Reply
+            return `
+              <table class="data-table" style="margin-bottom:8px;">
+                <thead>
+                  <tr>
+                    <th colspan="3" style="background:${sideCode === 'GOV' ? '#E7F5FF' : '#FFF4E6'};">
+                      ${sideLabel}: <strong>${team.name}</strong> (${team.institution})
+                    </th>
+                  </tr>
+                  <tr>
+                    <th style="width:40%;">Speech Position</th>
+                    <th style="width:35%;">Speaker Delivering Speech</th>
+                    <th style="width:25%;" class="num-col">Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${roles.map((rLabel, idx) => {
+                    const defaultSp = spOpts[idx] || spOpts[0];
+                    return `
+                      <tr>
+                        <td>${rLabel} <span style="color:#666;font-size:11px;">(68–82)</span></td>
+                        <td>
+                          <select data-ap-sp-select="${sideCode}:${idx}">
+                            ${spOpts.map(s => `<option value="${s.id}" ${s.id === defaultSp.id ? 'selected' : ''}>${s.name}</option>`).join('')}
+                          </select>
+                        </td>
+                        <td>
+                          <input type="number" step="0.5" min="68" max="82" value="${(defaultBase - idx * 0.5).toFixed(1)}"
+                            data-ap-sub-score="${sideCode}:${idx}" class="num-col ballot-calc-input" required />
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                  <tr style="background:#F8F9FA;">
+                    <td><strong>${sideCode} Reply Speech</strong> <span style="color:#666;font-size:11px;">(34–40)</span></td>
+                    <td>
+                      <select data-ap-reply-select="${sideCode}">
+                        ${replyOpts.map(s => `<option value="${s.id}">${s.name} (Reply)</option>`).join('')}
+                      </select>
+                    </td>
+                    <td>
+                      <input type="number" step="0.5" min="34" max="40" value="${(defaultBase / 2).toFixed(1)}"
+                        data-ap-reply-score="${sideCode}" class="num-col ballot-calc-input" required />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            `;
+          }
+
+          container.innerHTML = `
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              ${buildApTeamTable('Government (GOV)', 'GOV', govTeam, govRoles, 76.0)}
+              ${buildApTeamTable('Opposition (OPP)', 'OPP', oppTeam, oppRoles, 75.0)}
             </div>
           `;
-        }).join('');
+        } else {
+          // BP Ballot: 4 Teams (OG, OO, CG, CO)
+          const bpPositions = ['OG', 'OO', 'CG', 'CO'];
+          container.innerHTML = `
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Position &amp; Team</th>
+                  <th>Speaker 1 (68–82)</th>
+                  <th>Speaker 2 (68–82)</th>
+                  <th class="num-col">Team Total</th>
+                  <th>Rank in Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${bpPositions.map((pos, idx) => {
+                  const tm = room.positions[pos];
+                  const sp1 = tm.speakers[0] || { id: 1, name: 'Speaker 1' };
+                  const sp2 = tm.speakers[1] || { id: 2, name: 'Speaker 2' };
+                  const baseVal = 77.0 - idx * 1.0;
+                  return `
+                    <tr>
+                      <td><span class="tag">${pos}</span> <strong>${tm.name}</strong> (${tm.institution})</td>
+                      <td>
+                        <div style="font-size:11px;margin-bottom:2px;">${sp1.name}</div>
+                        <input type="number" step="0.5" min="68" max="82" value="${baseVal.toFixed(1)}"
+                          data-bp-score="${pos}:0:${sp1.id}" class="num-col ballot-calc-input" required />
+                      </td>
+                      <td>
+                        <div style="font-size:11px;margin-bottom:2px;">${sp2.name}</div>
+                        <input type="number" step="0.5" min="68" max="82" value="${(baseVal - 0.5).toFixed(1)}"
+                          data-bp-score="${pos}:1:${sp2.id}" class="num-col ballot-calc-input" required />
+                      </td>
+                      <td class="num-col" id="bpTotalCell_${pos}"><strong>${(baseVal * 2 - 0.5).toFixed(1)}</strong></td>
+                      <td>
+                        <select data-bp-rank="${pos}">
+                          <option value="1" ${idx === 0 ? 'selected' : ''}>1st (+3 pts)</option>
+                          <option value="2" ${idx === 1 ? 'selected' : ''}>2nd (+2 pts)</option>
+                          <option value="3" ${idx === 2 ? 'selected' : ''}>3rd (+1 pt)</option>
+                          <option value="4" ${idx === 3 ? 'selected' : ''}>4th (+0 pt)</option>
+                        </select>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          `;
+        }
+
+        function updateLiveBallotTotals() {
+          const summaryCell = document.getElementById('ballotLiveSummaryCell');
+          if (state.format === 'AP') {
+            let govSub = 0, oppSub = 0;
+            container.querySelectorAll('[data-ap-sub-score^="GOV:"]').forEach(inp => { govSub += parseFloat(inp.value) || 0; });
+            container.querySelectorAll('[data-ap-sub-score^="OPP:"]').forEach(inp => { oppSub += parseFloat(inp.value) || 0; });
+            const govRep = parseFloat(container.querySelector('[data-ap-reply-score="GOV"]').value) || 0;
+            const oppRep = parseFloat(container.querySelector('[data-ap-reply-score="OPP"]').value) || 0;
+            const govTot = govSub + govRep;
+            const oppTot = oppSub + oppRep;
+
+            if (govTot === oppTot) {
+              summaryCell.innerHTML = `<span style="color:#C92A2A;">TIE WARNING: GOV (${govTot.toFixed(1)}) = OPP (${oppTot.toFixed(1)}). Parliamentary ballots cannot be tied!</span>`;
+            } else {
+              const winner = govTot > oppTot
+                ? `Government (${room.positions.GOV.name}) wins by ${(govTot - oppTot).toFixed(1)} pts`
+                : `Opposition (${room.positions.OPP.name}) wins by ${(oppTot - govTot).toFixed(1)} pts`;
+              summaryCell.innerHTML = `GOV Total: <strong>${govTot.toFixed(1)}</strong> vs OPP Total: <strong>${oppTot.toFixed(1)}</strong> → <span class="tag tag-ok">${winner}</span>`;
+            }
+          } else {
+            const totals = [];
+            ['OG', 'OO', 'CG', 'CO'].forEach(pos => {
+              let sum = 0;
+              container.querySelectorAll(`[data-bp-score^="${pos}:"]`).forEach(inp => { sum += parseFloat(inp.value) || 0; });
+              const cell = document.getElementById('bpTotalCell_' + pos);
+              if (cell) cell.innerHTML = `<strong>${sum.toFixed(1)}</strong>`;
+              totals.push(`${pos}: ${sum.toFixed(1)}`);
+            });
+            summaryCell.innerHTML = `BP Room Totals: ${totals.join(' | ')}`;
+          }
+        }
+
+        container.querySelectorAll('.ballot-calc-input').forEach(inp => {
+          inp.addEventListener('input', updateLiveBallotTotals);
+        });
+        updateLiveBallotTotals();
       }
 
-      function renderEvaluationSection() {
-        const judgeSel = document.getElementById('evalJudgeSelect');
-        judgeSel.innerHTML = state.adjudicators.map(j =>
-          `<option value="${j.id}">${j.name} (${j.instCode}) — Current Score: ${j.currentScore.toFixed(2)}</option>`
+      function renderFeedbackModule() {
+        document.getElementById('fbJudgeSelect').innerHTML = state.adjudicators.map(a =>
+          `<option value="${a.id}">${a.name} (${a.institution}) — Current Score: ${a.currentScore.toFixed(2)}</option>`
         ).join('');
-
-        const teamSel = document.getElementById('evalTeamSelect');
-        teamSel.innerHTML = state.teams.map(t =>
-          `<option value="${t.shortName}">${t.shortName} (${t.name})</option>`
+        document.getElementById('fbTeamSelect').innerHTML = state.teams.map(t =>
+          `<option value="${t.name}">${t.name} (${t.institution})</option>`
         ).join('');
-
-        const logBody = document.getElementById('evalLogTableBody');
-        logBody.innerHTML = state.evaluations.map(ev => `
+        document.getElementById('fbLogBody').innerHTML = state.evaluations.map(ev => `
           <tr>
-            <td class="font-semibold text-slate-900">${ev.judgeName}</td>
-            <td><span class="calico-badge bg-slate-100 text-slate-700 font-mono-num">${ev.teamName}</span></td>
-            <td class="text-right font-mono-num font-bold text-blue-700">${ev.score.toFixed(1)}</td>
-            <td class="text-right font-mono-num text-xs">
-              <span class="text-slate-500">${ev.prior.toFixed(2)}</span> → <span class="font-bold text-emerald-700">${ev.updated.toFixed(2)}</span>
-            </td>
-            <td class="text-xs text-slate-600">${ev.comments}</td>
+            <td><strong>${ev.judgeName}</strong></td>
+            <td>${ev.teamName}</td>
+            <td class="num-col"><strong>${ev.score.toFixed(1)}</strong></td>
+            <td class="num-col">${ev.prior.toFixed(2)} → <strong>${ev.updated.toFixed(2)}</strong></td>
+            <td>${ev.comments}</td>
           </tr>
         `).join('');
       }
 
-      // Navigation Tab Switching
+      // Navigation Handlers
       function switchTab(tabId) {
-        document.querySelectorAll('.tab-view').forEach(sec => sec.classList.add('hidden'));
+        document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
         const target = document.getElementById('view-' + tabId);
         if (target) target.classList.remove('hidden');
 
-        document.querySelectorAll('.sidebar-link').forEach(link => {
-          if (link.getAttribute('data-tab') === tabId) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+          if (item.getAttribute('data-tab') === tabId) item.classList.add('active');
+          else item.classList.remove('active');
         });
       }
 
-      document.querySelectorAll('.sidebar-link').forEach(link => {
-        link.addEventListener('click', () => {
-          switchTab(link.getAttribute('data-tab'));
-          if (window.innerWidth < 768) {
-            document.getElementById('sidebarNav').classList.add('hidden');
-          }
-        });
+      document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.addEventListener('click', () => switchTab(item.getAttribute('data-tab')));
       });
-
       document.querySelectorAll('[data-goto]').forEach(btn => {
         btn.addEventListener('click', () => switchTab(btn.getAttribute('data-goto')));
       });
-
       document.getElementById('brandHomeBtn').addEventListener('click', () => switchTab('overview'));
-      document.getElementById('adminToggleBtn').addEventListener('click', () => switchTab('admin-entry'));
-      document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-        document.getElementById('sidebarNav').classList.toggle('hidden');
+      document.getElementById('goToPortalBtn').addEventListener('click', () => switchTab('participant-portal'));
+      document.getElementById('goToAdminBtn').addEventListener('click', () => switchTab('admin-entry'));
+
+      // Participant Portal Quick Buttons
+      document.getElementById('openJudgeBallotPortalBtn').addEventListener('click', () => {
+        const jId = parseInt(document.getElementById('portalJudgeSelect').value, 10);
+        const room = state.drawRooms.find(r => r.chairId === jId || (r.panellistIds || []).includes(jId));
+        if (room) {
+          state.selectedBallotRoomIndex = room.index;
+        }
+        switchTab('admin-ballots');
+        renderBallotEntryModule();
+        showNotice('Opened Official Ballot Sheet for selected Adjudicator.');
       });
 
-      // Format Switching (AP <-> BP)
-      function setFormat(newFmt) {
+      document.getElementById('openTeamFeedbackPortalBtn').addEventListener('click', () => {
+        const tName = document.getElementById('portalTeamSelect').value;
+        switchTab('admin-evals');
+        document.getElementById('fbTeamSelect').value = tName;
+        showNotice(`Opened Judge Feedback form for ${tName}.`);
+      });
+
+      // Format Switching
+      function changeFormat(newFmt) {
         state.format = newFmt;
-        renderDynamicSpeakerInputs();
-        buildDrawAndAllocate();
+        renderTeamFormSpeakerInputs();
+        generatePowerPairedDraw();
         renderAll();
-        showToast(
-          `Switched tournament format to ${newFmt === 'AP' ? 'Asian Parliamentary (3 Speakers/Team, 2 Teams/Room)' : 'British Parliamentary (2 Speakers/Team, 4 Teams/Room)'}. Form inputs and draw recalculated!`,
-          'info'
-        );
+        showNotice(`Tournament format switched to ${newFmt}. Speaker inputs and draw updated.`);
       }
-
-      document.getElementById('selectApCard').addEventListener('click', () => setFormat('AP'));
-      document.getElementById('selectBpCard').addEventListener('click', () => setFormat('BP'));
-      document.getElementById('quickFormatSwitchBtn').addEventListener('click', () => {
-        setFormat(state.format === 'AP' ? 'BP' : 'AP');
+      document.getElementById('setFormatApBtn').addEventListener('click', () => changeFormat('AP'));
+      document.getElementById('setFormatBpBtn').addEventListener('click', () => changeFormat('BP'));
+      document.getElementById('quickSwitchFormatBtn').addEventListener('click', () => {
+        changeFormat(state.format === 'AP' ? 'BP' : 'AP');
       });
 
-      // Team Registration Submit
-      document.getElementById('teamEntryForm').addEventListener('submit', (e) => {
+      // Simplified Team Form Submit
+      document.getElementById('simpleTeamForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('inputTeamName').value.trim();
-        const shortName = document.getElementById('inputTeamShort').value.trim();
-        const instName = document.getElementById('inputTeamInstName').value.trim();
-        const instCode = document.getElementById('inputTeamInstCode').value.trim().toUpperCase();
-
-        const nameInputs = document.querySelectorAll('[data-speaker-name]');
-        const emailInputs = document.querySelectorAll('[data-speaker-email]');
+        const name = document.getElementById('tNameInput').value.trim();
+        const inst = document.getElementById('tInstInput').value.trim();
+        const nameInputs = document.querySelectorAll('[data-sp-name]');
+        const emailInputs = document.querySelectorAll('[data-sp-email]');
         const speakers = [];
         nameInputs.forEach((inp, idx) => {
           speakers.push({
             id: Date.now() + idx,
             name: inp.value.trim(),
-            email: emailInputs[idx].value.trim() || null,
+            email: emailInputs[idx].value.trim() || '',
             totalSpeaks: 0,
             rounds: 0
           });
         });
-        // If BP (2 speakers) is active, also keep a 3rd reserve slot so switching back to AP remains seamless
         if (speakers.length === 2) {
-          speakers.push({
-            id: Date.now() + 99,
-            name: shortName + ' Reserve Whip',
-            email: null,
-            totalSpeaks: 0,
-            rounds: 0
-          });
+          speakers.push({ id: Date.now() + 99, name: name + ' Whip', email: '', totalSpeaks: 0, rounds: 0 });
         }
 
+        const newId = state.teams.length ? Math.max(...state.teams.map(t => t.id)) + 1 : 1;
         state.teams.push({
-          id: state.teams.length + 1,
-          name,
-          shortName,
-          instName,
-          instCode,
+          id: newId,
+          name: name,
+          institution: inst,
           points: 0,
-          speaks: 0.0,
+          speaks: 0,
+          ReplySpeaks: 0,
           firsts: 0,
           govCount: 0,
           oppCount: 0,
-          pastOpponents: [],
-          speakers
+          accessKey: 'team-' + newId + '-' + Math.floor(100 + Math.random() * 899),
+          speakers: speakers
         });
 
         e.target.reset();
-        renderDynamicSpeakerInputs();
-        buildDrawAndAllocate();
+        renderTeamFormSpeakerInputs();
+        generatePowerPairedDraw();
         renderAll();
-        showToast(`Registered team "${shortName}" (${instCode}) with ${state.format === 'AP' ? 3 : 2} speakers.`, 'success');
+        showNotice(`Added team "${name}" (${inst}) and saved to database.`);
       });
 
-      // Adjudicator Registration Submit
-      document.getElementById('adjEntryForm').addEventListener('submit', (e) => {
+      // Simplified Adjudicator Form Submit
+      document.getElementById('simpleAdjForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('inputAdjName').value.trim();
-        const email = document.getElementById('inputAdjEmail').value.trim();
-        const instName = document.getElementById('inputAdjInstName').value.trim();
-        const instCode = document.getElementById('inputAdjInstCode').value.trim().toUpperCase();
-        const baseScore = parseFloat(document.getElementById('inputAdjScore').value) || 7.0;
-        const extraRaw = document.getElementById('inputAdjConflicts').value.trim();
-        const extraCodes = extraRaw
-          ? extraRaw.split(',').map(s => s.trim().toUpperCase()).filter(Boolean)
-          : [];
-        const conflicts = Array.from(new Set([instCode, ...extraCodes]));
+        const name = document.getElementById('aNameInput').value.trim();
+        const conflicts = document.getElementById('aConflictInput').value.trim();
+        const primaryInst = conflicts.split(',')[0].trim() || 'Independent';
+        const baseScore = parseFloat(document.getElementById('aScoreInput').value) || 7.5;
+        const newId = state.adjudicators.length ? Math.max(...state.adjudicators.map(a => a.id)) + 1 : 1;
 
         state.adjudicators.push({
-          id: state.adjudicators.length + 1,
-          name,
-          email,
-          instName,
-          instCode,
-          baseScore,
+          id: newId,
+          name: name,
+          institution: primaryInst,
+          conflicts: conflicts,
+          baseScore: baseScore,
           currentScore: baseScore,
-          conflicts,
           judgedTeams: [],
-          evalCount: 0
+          evalCount: 0,
+          accessKey: 'adj-' + newId + '-' + Math.floor(100 + Math.random() * 899)
         });
 
         e.target.reset();
-        document.getElementById('inputAdjScore').value = '7.5';
-        buildDrawAndAllocate();
+        document.getElementById('aScoreInput').value = '8.0';
+        generatePowerPairedDraw();
         renderAll();
-        showToast(`Added Adjudicator "${name}" (Score ${baseScore.toFixed(1)}, Conflicts: ${conflicts.join(', ')}) and updated Hungarian matching.`, 'success');
+        showNotice(`Added Adjudicator "${name}" (Conflicts: ${conflicts}) and updated Hungarian draw.`);
       });
 
-      // Re-run Hungarian Draw Button
-      function triggerNewDraw() {
-        buildDrawAndAllocate();
+      // Run Auto Hungarian Draw Button
+      document.getElementById('runAutoHungarianBtn').addEventListener('click', () => {
+        generatePowerPairedDraw();
         renderAll();
-        showToast(`Generated Power-Paired Draw & Solved O(V³) Hungarian Adjudicator Matching with 0 Conflict Violations!`, 'success');
-      }
-      document.getElementById('runHungarianDrawBtn').addEventListener('click', triggerNewDraw);
-      document.getElementById('recomputeDrawBtnPublic').addEventListener('click', triggerNewDraw);
+        showNotice('Generated Power-Paired Draw & Optimal Hungarian Adjudicator Allocation.');
+      });
 
       // Publish Motion
-      document.getElementById('motionEntryForm').addEventListener('submit', (e) => {
+      document.getElementById('publishMotionForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        const roundLabel = document.getElementById('inputMotionRef').value.trim();
-        const text = document.getElementById('inputMotionText').value.trim();
+        const rName = document.getElementById('mRoundInput').value.trim();
+        const text = document.getElementById('mTextInput').value.trim();
+        const info = document.getElementById('mInfoInput').value.trim();
         state.motions.unshift({
-          round: roundLabel,
+          round: state.motions.length + 1,
+          roundName: rName,
           text: text,
-          infoSlide: 'Published via RGCDC Tab Room Portal.'
+          infoSlide: info
         });
-        document.getElementById('inputMotionText').value = '';
+        document.getElementById('mTextInput').value = '';
+        document.getElementById('mInfoInput').value = '';
         renderAll();
-        showToast(`Published motion for ${roundLabel}.`, 'success');
+        showNotice(`Published motion for ${rName}.`);
       });
 
-      // Confirm Ballot & Update Standings + History Constraints
-      document.getElementById('ballotEntryForm').addEventListener('submit', (e) => {
+      // Submit Official Ballot
+      document.getElementById('officialBallotForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const room = state.drawRooms[state.selectedBallotRoomIndex];
         if (!room) return;
         if (room.ballotConfirmed) {
-          showToast(`${room.venue} ballot was already confirmed for this round.`, 'warn');
+          showNotice(`${room.venue} ballot is already confirmed.`);
           return;
         }
 
-        const isAP = state.format === 'AP';
-        const rankToPts = isAP ? { 1: 1, 2: 0 } : { 1: 3, 2: 2, 3: 1, 4: 0 };
+        const container = document.getElementById('officialBallotTablesContainer');
+        if (state.format === 'AP') {
+          let govSub = 0, oppSub = 0;
+          const govTeam = state.teams.find(t => t.id === room.positions.GOV.id);
+          const oppTeam = state.teams.find(t => t.id === room.positions.OPP.id);
 
-        for (const [pos, team] of Object.entries(room.positions)) {
-          const rankSelect = document.querySelector(`[data-ballot-rank="${team.id}"]`);
-          const rank = parseInt(rankSelect ? rankSelect.value : '1', 10);
-          const ptsEarned = rankToPts[rank] ?? 0;
+          const govRep = parseFloat(container.querySelector('[data-ap-reply-score="GOV"]').value) || 0;
+          const oppRep = parseFloat(container.querySelector('[data-ap-reply-score="OPP"]').value) || 0;
 
-          let teamRoundSpeaks = 0;
-          const spInputs = document.querySelectorAll(`[data-ballot-speak^="${team.id}:"]`);
-          spInputs.forEach(inp => {
-            const [, spIdStr] = inp.getAttribute('data-ballot-speak').split(':');
-            const spId = parseInt(spIdStr, 10);
-            const val = parseFloat(inp.value) || 75.0;
-            teamRoundSpeaks += val;
-            const spObj = team.speakers.find(s => s.id === spId);
-            if (spObj) {
-              spObj.totalSpeaks += val;
-              spObj.rounds += 1;
-            }
+          let govTempSum = govRep;
+          let oppTempSum = oppRep;
+          container.querySelectorAll('[data-ap-sub-score^="GOV:"]').forEach(inp => { govTempSum += parseFloat(inp.value) || 0; });
+          container.querySelectorAll('[data-ap-sub-score^="OPP:"]').forEach(inp => { oppTempSum += parseFloat(inp.value) || 0; });
+
+          if (govTempSum === oppTempSum) {
+            showNotice('ERROR: Tied total scores are not permitted in Asian Parliamentary debate. Please adjust speaker or reply marks.');
+            return;
+          }
+
+          [0, 1, 2].forEach(idx => {
+            const gSpId = parseInt(container.querySelector(`[data-ap-sp-select="GOV:${idx}"]`).value, 10);
+            const gVal = parseFloat(container.querySelector(`[data-ap-sub-score="GOV:${idx}"]`).value) || 75;
+            govSub += gVal;
+            const gSp = govTeam.speakers.find(s => s.id === gSpId);
+            if (gSp) { gSp.totalSpeaks += gVal; gSp.rounds += 1; }
+
+            const oSpId = parseInt(container.querySelector(`[data-ap-sp-select="OPP:${idx}"]`).value, 10);
+            const oVal = parseFloat(container.querySelector(`[data-ap-sub-score="OPP:${idx}"]`).value) || 75;
+            oppSub += oVal;
+            const oSp = oppTeam.speakers.find(s => s.id === oSpId);
+            if (oSp) { oSp.totalSpeaks += oVal; oSp.rounds += 1; }
           });
 
-          team.points += ptsEarned;
-          team.speaks += teamRoundSpeaks;
-          if (rank === 1) team.firsts += 1;
-          if (pos === 'GOV' || pos === 'OG' || pos === 'CG') {
-            team.govCount += 1;
-          } else {
-            team.oppCount += 1;
-          }
+          govTeam.speaks += govSub;
+          oppTeam.speaks += oppSub;
+          govTeam.govCount += 1;
+          oppTeam.oppCount += 1;
 
-          // Record Team History on Chair & Panellists so they cannot judge this team again!
-          if (room.chair && !room.chair.judgedTeams.includes(team.shortName)) {
-            room.chair.judgedTeams.push(team.shortName);
+          if (govTempSum > oppTempSum) {
+            govTeam.points += 1;
+            govTeam.firsts += 1;
+            room.ballotWinnerText = 'GOV Win';
+          } else {
+            oppTeam.points += 1;
+            oppTeam.firsts += 1;
+            room.ballotWinnerText = 'OPP Win';
           }
-          room.panellists.forEach(p => {
-            if (!p.judgedTeams.includes(team.shortName)) {
-              p.judgedTeams.push(team.shortName);
-            }
+        } else {
+          // BP Ballot
+          const rankPts = { 1: 3, 2: 2, 3: 1, 4: 0 };
+          ['OG', 'OO', 'CG', 'CO'].forEach(pos => {
+            const tm = state.teams.find(t => t.id === room.positions[pos].id);
+            const rk = parseInt(container.querySelector(`[data-bp-rank="${pos}"]`).value, 10);
+            let subSum = 0;
+            container.querySelectorAll(`[data-bp-score^="${pos}:"]`).forEach(inp => {
+              const [, , spIdStr] = inp.getAttribute('data-bp-score').split(':');
+              const spId = parseInt(spIdStr, 10);
+              const val = parseFloat(inp.value) || 75;
+              subSum += val;
+              const sp = tm.speakers.find(s => s.id === spId);
+              if (sp) { sp.totalSpeaks += val; sp.rounds += 1; }
+            });
+            tm.points += (rankPts[rk] ?? 0);
+            tm.speaks += subSum;
+            if (rk === 1) tm.firsts += 1;
+            if (pos === 'OG' || pos === 'CG') tm.govCount += 1;
+            else tm.oppCount += 1;
+          });
+          room.ballotWinnerText = 'BP Ranked';
+        }
+
+        // Record Judge-Team History so Chair & Panellists won't judge these teams again
+        const chair = getJudgeById(room.chairId);
+        if (chair) {
+          room.teams.forEach(t => {
+            if (!chair.judgedTeams.includes(t.name)) chair.judgedTeams.push(t.name);
           });
         }
+        (room.panellistIds || []).forEach(pId => {
+          const p = getJudgeById(pId);
+          if (p) {
+            room.teams.forEach(t => {
+              if (!p.judgedTeams.includes(t.name)) p.judgedTeams.push(t.name);
+            });
+          }
+        });
 
         room.ballotConfirmed = true;
         renderAll();
-        showToast(
-          `Confirmed ${room.venue} ballot! Standings updated and Judge-Team history locked for ${room.chair ? room.chair.name : 'panel'}.`,
-          'success'
-        );
+        showNotice(`Official ballot for ${room.venue} confirmed! Standings and Judge-Team history updated.`);
       });
 
-      // Submit Judge Evaluation & Dynamically Update Core Score
-      document.getElementById('judgeEvalForm').addEventListener('submit', (e) => {
+      // Submit Judge Feedback
+      document.getElementById('evalSubmitForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        const judgeId = parseInt(document.getElementById('evalJudgeSelect').value, 10);
-        const teamShort = document.getElementById('evalTeamSelect').value;
-        const evalScore = Math.max(1.0, Math.min(10.0, parseFloat(document.getElementById('evalScoreInput').value) || 8.0));
-        const comments = document.getElementById('evalCommentsInput').value.trim() || 'Solid comparative adjudication.';
+        const jId = parseInt(document.getElementById('fbJudgeSelect').value, 10);
+        const tName = document.getElementById('fbTeamSelect').value;
+        const score = Math.max(1, Math.min(10, parseFloat(document.getElementById('fbScoreInput').value) || 8.5));
+        const comments = document.getElementById('fbCommentInput').value.trim() || 'Good adjudication.';
 
-        const judge = state.adjudicators.find(j => j.id === judgeId);
+        const judge = getJudgeById(jId);
         if (!judge) return;
 
         const prior = judge.currentScore;
-        const priorWeight = 2.5;
-        const impFactor = 1.05;
         const n = judge.evalCount;
-        const updated = Math.round(((priorWeight * judge.baseScore + n * judge.currentScore + impFactor * evalScore) / (priorWeight + n + impFactor)) * 100) / 100;
-
-        judge.currentScore = Math.max(1.0, Math.min(10.0, updated));
+        const updated = Math.round(((2.5 * judge.baseScore + n * judge.currentScore + 1.05 * score) / (2.5 + n + 1.05)) * 100) / 100;
+        judge.currentScore = updated;
         judge.evalCount += 1;
 
         state.evaluations.unshift({
           judgeName: judge.name,
-          teamName: teamShort,
-          score: evalScore,
+          teamName: tName,
+          score: score,
           prior: prior,
-          updated: judge.currentScore,
+          updated: updated,
           comments: comments
         });
 
-        document.getElementById('evalCommentsInput').value = '';
-        buildDrawAndAllocate();
+        document.getElementById('fbCommentInput').value = '';
         renderAll();
-        showToast(
-          `Judge evaluation recorded for ${judge.name}: Dynamic Score adjusted ${prior.toFixed(2)} → ${judge.currentScore.toFixed(2)} for next round's Hungarian draw!`,
-          'success'
-        );
+        showNotice(`Feedback recorded for ${judge.name}: Score updated ${prior.toFixed(2)} → ${updated.toFixed(2)}.`);
       });
 
-      // Live search filters
-      document.getElementById('teamSearchInput').addEventListener('input', renderAll);
-      document.getElementById('speakerSearchInput').addEventListener('input', renderAll);
+      // Export & Import JSON for GitHub Pages Live Sync
+      function exportTournamentJson() {
+        const dataStr = JSON.stringify({
+          tournamentName: state.tournamentName,
+          hostClub: state.hostClub,
+          format: state.format,
+          currentRound: state.currentRound,
+          motions: state.motions,
+          teams: state.teams,
+          adjudicators: state.adjudicators,
+          evaluations: state.evaluations,
+          drawRooms: state.drawRooms
+        }, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'tournament_data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showNotice('Downloaded tournament_data.json! Upload this file to your GitHub repo to publish your latest changes for all visitors.');
+      }
 
-      // Initialize App
-      renderDynamicSpeakerInputs();
-      buildDrawAndAllocate();
+      document.getElementById('exportJsonBtn').addEventListener('click', exportTournamentJson);
+      document.getElementById('syncDownloadJsonBtn').addEventListener('click', exportTournamentJson);
+
+      document.getElementById('importJsonBtn').addEventListener('click', () => {
+        document.getElementById('importJsonFileInput').click();
+      });
+      document.getElementById('importJsonFileInput').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(ev.target.result);
+            if (parsed && Array.isArray(parsed.teams)) {
+              state.format = parsed.format || 'AP';
+              state.currentRound = parsed.currentRound || 1;
+              state.motions = parsed.motions || [];
+              state.teams = parsed.teams;
+              state.adjudicators = parsed.adjudicators || [];
+              state.evaluations = parsed.evaluations || [];
+              if (Array.isArray(parsed.drawRooms) && parsed.drawRooms.length > 0) {
+                state.drawRooms = parsed.drawRooms;
+              } else {
+                generatePowerPairedDraw();
+              }
+              renderTeamFormSpeakerInputs();
+              renderAll();
+              showNotice('Imported tournament_data.json successfully!');
+            }
+          } catch (err) {
+            showNotice('Invalid JSON file.');
+          }
+        };
+        reader.readAsText(file);
+      });
+
+      document.getElementById('resetDemoDataBtn').addEventListener('click', () => {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        state = JSON.parse(JSON.stringify(defaultState));
+        state.drawRooms = [];
+        state.selectedBallotRoomIndex = 0;
+        renderTeamFormSpeakerInputs();
+        generatePowerPairedDraw();
+        renderAll();
+        showNotice('Reset tournament database to default RGCDC Dialogues 2026 data.');
+      });
+
+      document.getElementById('teamFilterInput').addEventListener('input', renderAll);
+      document.getElementById('speakerFilterInput').addEventListener('input', renderAll);
+
+      // Initialize App: Load from localStorage OR fetch tournament_data.json from GitHub Pages repo
+      const hadLocal = loadFromStorage();
+      renderTeamFormSpeakerInputs();
+      if (!state.drawRooms || state.drawRooms.length === 0) {
+        generatePowerPairedDraw();
+      }
       renderAll();
+
+      if (!hadLocal && window.location.protocol.startsWith('http')) {
+        fetch('tournament_data.json?t=' + Date.now())
+          .then(r => r.ok ? r.json() : null)
+          .then(data => {
+            if (data && Array.isArray(data.teams)) {
+              state.format = data.format || state.format;
+              state.currentRound = data.currentRound || state.currentRound;
+              state.motions = data.motions || state.motions;
+              state.teams = data.teams;
+              state.adjudicators = data.adjudicators || state.adjudicators;
+              state.evaluations = data.evaluations || state.evaluations;
+              if (Array.isArray(data.drawRooms) && data.drawRooms.length > 0) {
+                state.drawRooms = data.drawRooms;
+              } else {
+                generatePowerPairedDraw();
+              }
+              renderTeamFormSpeakerInputs();
+              renderAll();
+            }
+          })
+          .catch(() => {});
+      }
     })();
   </script>
 </body>
